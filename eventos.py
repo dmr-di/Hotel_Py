@@ -138,10 +138,11 @@ class Eventos():
             numero = variables.filahab[0].get_text()
             tipo = funcioneshab.seleccionRB()
             precio = variables.filahab[1].get_text()
+            precio = float(precio)
+            precio = round(precio, 2)
             registro = (numero, tipo, precio)
             if numero != '' and tipo != '':
                 funcioneshab.insertarhab(registro)
-                print('error aqui')
                 funcioneshab.listadohab(variables.listhabitaciones)
                 funcioneshab.limpiarEntry(variables.filahab)
                 variables.infohab.set_text("Alta realizada correctamente")

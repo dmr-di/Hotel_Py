@@ -20,7 +20,8 @@ def seleccionRB():
 
 def insertarhab(fila):
     try:
-        conexion.cur.execute("INSERT INTO habitaciones (numero, tipo, precio) VALUES (?,?,?)", fila[0], fila[1], float(fila[2]))
+        print(fila)
+        conexion.cur.execute("INSERT INTO habitaciones (numero, tipo, precio) VALUES (?,?,?)", fila)
         conexion.conex.commit()
     except sqlite3.OperationalError as e:
         print(e)
@@ -40,9 +41,9 @@ def listar():
 #esta función carga el treeview con los datos de la tabla clientes
 def listadohab(listhabitaciones):
     try:
-        variables.listado = listar()
+        variables.listadohab = listar()
         listhabitaciones.clear()
-        for registro in variables.listado:
+        for registro in variables.listadohab:
             listhabitaciones.append(registro)
     except:
         print('Error en cargar treeview')

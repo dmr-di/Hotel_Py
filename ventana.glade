@@ -22,11 +22,11 @@
   <object class="GtkListStore" id="listHabitaciones">
     <columns>
       <!-- column-name numero -->
-      <column type="gchararray"/>
+      <column type="gint"/>
       <!-- column-name tipo -->
       <column type="gchararray"/>
       <!-- column-name precio -->
-      <column type="gchararray"/>
+      <column type="gfloat"/>
     </columns>
   </object>
   <object class="GtkWindow" id="venPrincipal">
@@ -720,15 +720,6 @@
                             <child>
                               <placeholder/>
                             </child>
-                            <child>
-                              <placeholder/>
-                            </child>
-                            <child>
-                              <placeholder/>
-                            </child>
-                            <child>
-                              <placeholder/>
-                            </child>
                           </object>
                         </child>
                       </object>
@@ -892,7 +883,6 @@
                               <object class="GtkCellRendererText" id="precio"/>
                               <attributes>
                                 <attribute name="text">2</attribute>
-                                <attribute name="width-chars">8</attribute>
                               </attributes>
                             </child>
                           </object>

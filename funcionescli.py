@@ -65,9 +65,9 @@ def modifcli(registro, cod):
 #esta función carga el treeview con los datos de la tabla clientes
 def listadocli(listclientes):
     try:
-        variables.listado = listar()
+        variables.listadocli = listar()
         listclientes.clear()
-        for registro in variables.listado:
+        for registro in variables.listadocli:
             listclientes.append(registro)
     except:
         print('Error en cargar treeview')

@@ -1,3 +1,5 @@
+import funcioneshab
+
 __autor__='danimr'
 
 import gi
@@ -53,6 +55,7 @@ class Empresa:
         self.vprincipal.show()
         conexion.Conexion().abrirbbdd()
         funcionescli.listadocli(variables.listclientes)
+        funcioneshab.listadohab(variables.listhabitaciones)
 
 if __name__=='__main__':
     main = Empresa()
