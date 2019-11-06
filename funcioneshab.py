@@ -20,7 +20,6 @@ def seleccionRB():
 
 def insertarhab(fila):
     try:
-        print(fila)
         conexion.cur.execute("INSERT INTO habitaciones (numero, tipo, precio) VALUES (?,?,?)", fila)
         conexion.conex.commit()
     except sqlite3.OperationalError as e:
@@ -47,3 +46,21 @@ def listadohab(listhabitaciones):
             listhabitaciones.append(registro)
     except:
         print('Error en cargar treeview')
+
+#Esta función da de baja a una habitación
+def bajahab(num):
+    try:
+        conexion.cur.execute('DELETE FROM habitaciones WHERE numero = ?', (num,))
+        conexion.conex.commit()
+    except sqlite3.OperationalError as e:
+        print(e)
+        conexion.conex.rollback()
+
+#Esta función modifica los datos de una habitación
+def modifhab(registro):
+    try:
+        conexion.cur.execute('UPDATE habitaciones SET numero = ?, tipo = ?, precio = ? WHERE numero = ?', (registro[0], registro[1], registro[2], registro[0]))
+        conexion.conex.commit()
+    except sqlite3.OperationalError as e:
+        print(e)
+        conexion.conex.rollback()
