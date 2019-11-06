@@ -7,6 +7,21 @@
     <property name="can_focus">False</property>
     <property name="pixbuf">img/calendar-icon_34471.ico</property>
   </object>
+  <object class="GtkImage" id="imgDoble">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">img/Doble.png</property>
+  </object>
+  <object class="GtkImage" id="imgFamiliar">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">img/Familiar.png</property>
+  </object>
+  <object class="GtkImage" id="imgIndividual">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">img/Individual.png</property>
+  </object>
   <object class="GtkListStore" id="listClientes">
     <columns>
       <!-- column-name dni -->
@@ -666,6 +681,8 @@
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">False</property>
+                                    <property name="image">imgIndividual</property>
+                                    <property name="always_show_image">True</property>
                                     <property name="draw_indicator">True</property>
                                     <property name="group">rbDoble</property>
                                   </object>
@@ -681,6 +698,8 @@
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">False</property>
+                                    <property name="image">imgDoble</property>
+                                    <property name="always_show_image">True</property>
                                     <property name="active">True</property>
                                     <property name="draw_indicator">True</property>
                                   </object>
@@ -696,6 +715,8 @@
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">False</property>
+                                    <property name="image">imgFamiliar</property>
+                                    <property name="always_show_image">True</property>
                                     <property name="draw_indicator">True</property>
                                     <property name="group">rbDoble</property>
                                   </object>
