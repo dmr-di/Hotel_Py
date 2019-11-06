@@ -138,7 +138,7 @@ class Eventos():
             numero = variables.filahab[0].get_text()
             tipo = funcioneshab.seleccionRB()
             precio = variables.filahab[1].get_text()
-            precio = float(precio)
+            precio = float(precio.replace(',', '.'))
             precio = round(precio, 2)
             registro = (numero, tipo, precio)
             if numero != '' and tipo != '':
