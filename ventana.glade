@@ -2,10 +2,20 @@
 <!-- Generated with glade 3.22.1 -->
 <interface>
   <requires lib="gtk+" version="3.20"/>
+  <object class="GtkImage" id="imgCalc">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">img/calculadora.png</property>
+  </object>
   <object class="GtkImage" id="imgCalendar">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="pixbuf">img/calendar-icon_34471.ico</property>
+  </object>
+  <object class="GtkImage" id="imgClitool">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">img/Clitool.png</property>
   </object>
   <object class="GtkImage" id="imgDoble">
     <property name="visible">True</property>
@@ -21,6 +31,11 @@
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="pixbuf">img/Individual.png</property>
+  </object>
+  <object class="GtkImage" id="imgSalirtool">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">img/salida.png</property>
   </object>
   <object class="GtkListStore" id="listClientes">
     <columns>
@@ -75,7 +90,7 @@
             </attributes>
           </object>
           <packing>
-            <property name="x">166</property>
+            <property name="x">218</property>
             <property name="y">7</property>
           </packing>
         </child>
@@ -85,8 +100,8 @@
             <property name="height_request">600</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
-            <property name="margin_left">10</property>
-            <property name="margin_right">10</property>
+            <property name="margin_left">40</property>
+            <property name="margin_right">50</property>
             <property name="margin_top">10</property>
             <property name="margin_bottom">10</property>
             <child>
@@ -365,22 +380,6 @@
                         <property name="expand">True</property>
                         <property name="fill">True</property>
                         <property name="position">2</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkButton" id="btnSalir">
-                        <property name="label" translatable="yes">Salir</property>
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
-                        <property name="receives_default">True</property>
-                        <property name="margin_top">3</property>
-                        <property name="margin_bottom">3</property>
-                        <signal name="clicked" handler="on_btnSalir_clicked" swapped="no"/>
-                      </object>
-                      <packing>
-                        <property name="expand">True</property>
-                        <property name="fill">True</property>
-                        <property name="position">3</property>
                       </packing>
                     </child>
                   </object>
@@ -812,22 +811,6 @@
                         <property name="position">2</property>
                       </packing>
                     </child>
-                    <child>
-                      <object class="GtkButton" id="btnSalirhab">
-                        <property name="label" translatable="yes">Salir</property>
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
-                        <property name="receives_default">True</property>
-                        <property name="margin_top">3</property>
-                        <property name="margin_bottom">3</property>
-                        <signal name="clicked" handler="on_btnSalirhab_clicked" swapped="no"/>
-                      </object>
-                      <packing>
-                        <property name="expand">True</property>
-                        <property name="fill">True</property>
-                        <property name="position">3</property>
-                      </packing>
-                    </child>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -977,7 +960,84 @@
           </object>
           <packing>
             <property name="x">8</property>
-            <property name="y">39</property>
+            <property name="y">110</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkToolbar" id="toolbar">
+            <property name="width_request">550</property>
+            <property name="height_request">40</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="margin_left">10</property>
+            <property name="margin_right">10</property>
+            <property name="hexpand">True</property>
+            <child>
+              <object class="GtkToolButton" id="btnClitool">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="margin_left">2</property>
+                <property name="margin_right">2</property>
+                <property name="margin_top">2</property>
+                <property name="margin_bottom">2</property>
+                <property name="use_underline">True</property>
+                <property name="icon_widget">imgClitool</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="homogeneous">True</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkToolButton" id="btnCalc">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="margin_left">2</property>
+                <property name="margin_right">2</property>
+                <property name="margin_top">2</property>
+                <property name="margin_bottom">2</property>
+                <property name="use_underline">True</property>
+                <property name="icon_widget">imgCalc</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="homogeneous">True</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkSeparatorToolItem" id="separador">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="margin_left">2</property>
+                <property name="margin_right">2</property>
+                <property name="margin_top">2</property>
+                <property name="margin_bottom">2</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="homogeneous">True</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkToolButton" id="btnSalirtool">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="margin_left">2</property>
+                <property name="margin_right">2</property>
+                <property name="margin_top">2</property>
+                <property name="margin_bottom">2</property>
+                <property name="use_underline">True</property>
+                <property name="icon_widget">imgSalirtool</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="homogeneous">True</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="x">15</property>
+            <property name="y">60</property>
           </packing>
         </child>
       </object>
