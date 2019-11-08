@@ -15,7 +15,7 @@
   <object class="GtkImage" id="imgClitool">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">img/Clitool.png</property>
+    <property name="pixbuf">img/sonrisa.png</property>
   </object>
   <object class="GtkImage" id="imgDoble">
     <property name="visible">True</property>
@@ -95,7 +95,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkNotebook">
+          <object class="GtkNotebook" id="Panel">
             <property name="width_request">450</property>
             <property name="height_request">600</property>
             <property name="visible">True</property>
@@ -982,6 +982,7 @@
                 <property name="margin_bottom">2</property>
                 <property name="use_underline">True</property>
                 <property name="icon_widget">imgClitool</property>
+                <signal name="clicked" handler="on_btnClitool_clicked" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -998,6 +999,7 @@
                 <property name="margin_bottom">2</property>
                 <property name="use_underline">True</property>
                 <property name="icon_widget">imgCalc</property>
+                <signal name="clicked" handler="on_btnCalc_clicked" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -1028,6 +1030,7 @@
                 <property name="margin_bottom">2</property>
                 <property name="use_underline">True</property>
                 <property name="icon_widget">imgSalirtool</property>
+                <signal name="clicked" handler="on_btnSalirtool_clicked" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
