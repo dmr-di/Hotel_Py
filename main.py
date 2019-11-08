@@ -23,6 +23,8 @@ class Empresa:
         self.vprincipal = self.b.get_object('venPrincipal')
         self.vencalendar = self.b.get_object('venCalendar')
         self.calendar = self.b.get_object('Calendar')
+        variables.panel = self.b.get_object('Panel')
+
         #declaración de widgets
         self.entdni = self.b.get_object('entDni')
         self.entapel = self.b.get_object('entApel')

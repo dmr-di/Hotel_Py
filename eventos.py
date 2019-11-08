@@ -3,6 +3,7 @@ gi.require_version('Gtk','3.0')
 from gi.repository import Gtk
 
 import conexion, variables, funcionescli, funcioneshab
+import os
 
 class Eventos():
 
@@ -12,11 +13,7 @@ class Eventos():
         conexion.Conexion().cerrarbbdd()
         Gtk.main_quit()
 
-    def on_btnSalir_clicked(self, widget):
-        conexion.Conexion().cerrarbbdd()
-        Gtk.main_quit()
-
-    def on_btnSalirhab_clicked(self, widget):
+    def on_btnSalirtool_clicked(self, widget):
         conexion.Conexion().cerrarbbdd()
         Gtk.main_quit()
 
@@ -196,3 +193,22 @@ class Eventos():
                 print('falta número')
         except:
             print('error en boton modificar habitación')
+
+    #Eventos Toolbar
+
+    def on_btnClitool_clicked(self, widget):
+        try:
+            #Este método devuelve un entero con la posición del panel
+            panelactual = variables.panel.get_current_page()
+            if panelactual != 0:
+                variables.panel.set_current_page(0)
+            else:
+                pass
+        except:
+            print("Error boton cliente toolbar")
+
+    def on_btnCalc_clicked(self, widget):
+        try:
+            os.system("gnome-calculator")
+        except:
+            print("Error en boton calculadora")
