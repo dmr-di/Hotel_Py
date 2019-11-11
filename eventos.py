@@ -9,13 +9,15 @@ class Eventos():
 
     #Eventos generales
 
-    def on_venPrincipal_destroy(self, widget):
+    def salir(self):
         conexion.Conexion().cerrarbbdd()
         Gtk.main_quit()
 
+    def on_venPrincipal_destroy(self, widget):
+        self.salir()
+
     def on_btnSalirtool_clicked(self, widget):
-        conexion.Conexion().cerrarbbdd()
-        Gtk.main_quit()
+        self.salir()
 
 
     #Eventos clientes
@@ -207,8 +209,45 @@ class Eventos():
         except:
             print("Error boton cliente toolbar")
 
+    def on_btnReservastool_clicked(self, widget):
+        try:
+            panelactual = variables.panel.get_current_page()
+            if panelactual != 1:
+                variables.panel.set_current_page(1)
+            else:
+                pass
+        except:
+            print("Error boton reservas toolbar")
+
+    def on_btnHabitaciontool_clicked(self, widget):
+        try:
+            panelactual = variables.panel.get_current_page()
+            if panelactual != 2:
+                variables.panel.set_current_page(2)
+            else:
+                pass
+        except:
+            print("Error boton habitaciones toolbar")
+
+    def on_btnLimpiartool_clicked(self, widget):
+        try:
+            funcionescli.limpiarEntry(variables.filacli)
+            funcioneshab.limpiarEntry(variables.filahab)
+        except:
+            print("Error boton limpiar toolbar")
+
+
     def on_btnCalc_clicked(self, widget):
         try:
             os.system("gnome-calculator")
         except:
             print("Error en boton calculadora")
+
+    #Eventos MenuBar
+
+    def on_mbSalir_activate(self, widget):
+        self.salir()
+
+    def on_mbAcercade_activate(self, widget):
+        variables.venacercade.connect('delete-event', lambda w, e: w.hide() or True)
+        variables.venacercade.show()

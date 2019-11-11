@@ -22,6 +22,7 @@ class Empresa:
         #cargamos los widgets con evento asociado
         self.vprincipal = self.b.get_object('venPrincipal')
         self.vencalendar = self.b.get_object('venCalendar')
+        self.venacercade = self.b.get_object('venAcercade')
         self.calendar = self.b.get_object('Calendar')
         variables.panel = self.b.get_object('Panel')
 
@@ -50,6 +51,7 @@ class Empresa:
         variables.infohab = self.b.get_object('lblInfohab')
         variables.fecha = self.b.get_object('lblFecha')
         variables.vencalendar = self.vencalendar
+        variables.venacercade = self.venacercade
         variables.calendar = self.calendar
 
         #conectamos y mostramos
