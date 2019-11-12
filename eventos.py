@@ -3,7 +3,7 @@ gi.require_version('Gtk','3.0')
 from gi.repository import Gtk
 
 import conexion, variables, funcionescli, funcioneshab
-import os
+import os, time, datetime, zipfile
 
 class Eventos():
 
@@ -18,6 +18,38 @@ class Eventos():
 
     def on_btnSalirtool_clicked(self, widget):
         self.salir()
+
+    def on_btnSaliracercade_clicked(self, widget):
+        variables.venacercade.hide()
+
+    def on_btnSalirbackup_clicked(self, widget):
+        variables.venfile.hide()
+
+    def on_venFiledialog_selection_changed(self, widget):
+        try:
+            #este coge toda la ruta
+            #self.fichero =os.path.abspath(str(variables.venfile.get_filename()))
+            self.fichero = os.path.basename(str(variables.venfile.get_filename()))
+            variables.lblfile.set_text("Fichero: " + self.fichero)
+            self.nombre = str(self.fichero)
+        except:
+            print("error cogiendo fichero")
+
+    def on_btnBackup_clicked(self, widget):
+        try:
+            if self.fichero == str(None):
+                variables.lblfile.set_text("Falta fichero para comprimir")
+            else:
+                conexion.Conexion().cerrarbbdd()
+                #El fichero zipeado contendra su nombre y el día en que se crea
+                fecha = datetime.datetime.now()
+                fichzip = zipfile.ZipFile(str(fecha) + "_" + self.nombre +  "_backup.zip", "w")
+                fichzip.write(self.fichero, os.path.basename(self.fichero), zipfile.ZIP_DEFLATED)
+                print("Fichero comprimido correctamente")
+                conexion.Conexion().abrirbbdd()
+                variables.venfile.hide()
+        except:
+            print("Error compresion")
 
 
     #Eventos clientes
@@ -251,3 +283,7 @@ class Eventos():
     def on_mbAcercade_activate(self, widget):
         variables.venacercade.connect('delete-event', lambda w, e: w.hide() or True)
         variables.venacercade.show()
+
+    def on_mbBackup_activate(self, widget):
+        variables.venfile.connect('delete-event', lambda w, e: w.hide() or True)
+        variables.venfile.show()

@@ -23,6 +23,7 @@ class Empresa:
         self.vprincipal = self.b.get_object('venPrincipal')
         self.vencalendar = self.b.get_object('venCalendar')
         self.venacercade = self.b.get_object('venAcercade')
+        self.venfile = self.b.get_object('venFiledialog')
         self.calendar = self.b.get_object('Calendar')
         variables.panel = self.b.get_object('Panel')
 
@@ -38,6 +39,7 @@ class Empresa:
         self.rbsimple = self.b.get_object('rbSimple')
         self.rbdoble = self.b.get_object('rbDoble')
         self.rbfamiliar = self.b.get_object('rbFamiliar')
+        variables.lblfile = self.b.get_object('lblFile')
         variables.filacli = (self.entdni, self.entapel, self.entnome, self.entdatacli)
         variables.listclientes = self.b.get_object('listClientes')
         variables.treeclientes = self.b.get_object('treeClientes')
@@ -53,6 +55,7 @@ class Empresa:
         variables.vencalendar = self.vencalendar
         variables.venacercade = self.venacercade
         variables.calendar = self.calendar
+        variables.venfile = self.venfile
 
         #conectamos y mostramos
         self.b.connect_signals(eventos.Eventos())

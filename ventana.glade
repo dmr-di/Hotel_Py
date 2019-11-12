@@ -1143,12 +1143,13 @@
                       </object>
                     </child>
                     <child>
-                      <object class="GtkImageMenuItem">
+                      <object class="GtkImageMenuItem" id="mbBackup">
                         <property name="label">gtk-open</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
+                        <signal name="activate" handler="on_mbBackup_activate" swapped="no"/>
                       </object>
                     </child>
                     <child>
@@ -1281,10 +1282,20 @@
   </object>
   <object class="GtkAboutDialog" id="venAcercade">
     <property name="can_focus">False</property>
+    <property name="title" translatable="yes">Acerca de Hotel Lite</property>
+    <property name="modal">True</property>
     <property name="type_hint">dialog</property>
+    <property name="gravity">center</property>
+    <property name="transient_for">venPrincipal</property>
     <property name="program_name">Hotel Lite</property>
     <property name="version">v0.0.1</property>
+    <property name="copyright" translatable="yes">Licencia de Uso Libre</property>
+    <property name="comments" translatable="yes">Este software es una solución sencilla para la gestión de un hotel familiar o casa rural</property>
+    <property name="website">www.iesteis.es</property>
+    <property name="website_label" translatable="yes">Web de IES de Teis</property>
+    <property name="authors">Daniel Miró Rego</property>
     <property name="logo">img/hotel.png</property>
+    <property name="license_type">lgpl-3-0-only</property>
     <child>
       <placeholder/>
     </child>
@@ -1301,7 +1312,19 @@
               <placeholder/>
             </child>
             <child>
-              <placeholder/>
+              <object class="GtkButton" id="btnSaliracercade">
+                <property name="label" translatable="yes">Salir</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="relief">none</property>
+                <signal name="clicked" handler="on_btnSaliracercade_clicked" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
             </child>
           </object>
           <packing>
@@ -1312,6 +1335,71 @@
         </child>
         <child>
           <placeholder/>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkFileChooserDialog" id="venFiledialog">
+    <property name="can_focus">False</property>
+    <property name="modal">True</property>
+    <property name="type_hint">dialog</property>
+    <property name="transient_for">venPrincipal</property>
+    <signal name="selection-changed" handler="on_venFiledialog_selection_changed" swapped="no"/>
+    <child internal-child="vbox">
+      <object class="GtkBox">
+        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child internal-child="action_area">
+          <object class="GtkButtonBox">
+            <property name="can_focus">False</property>
+            <property name="layout_style">end</property>
+            <child>
+              <object class="GtkButton" id="btnBackup">
+                <property name="label" translatable="yes">Backup</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="clicked" handler="on_btnBackup_clicked" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="btnSalirbackup">
+                <property name="label" translatable="yes">Salir</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="clicked" handler="on_btnSalirbackup_clicked" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="lblFile">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Seleccionar la Base de Datos</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">2</property>
+          </packing>
         </child>
       </object>
     </child>
