@@ -4,7 +4,7 @@ __autor__='danimr'
 
 import gi
 gi.require_version('Gtk','3.0')
-from gi.repository import Gtk
+from gi.repository import Gtk, Gdk
 
 import eventos, conexion, variables, funcionescli
 
@@ -26,6 +26,7 @@ class Empresa:
         self.venfile = self.b.get_object('venFiledialog')
         self.calendar = self.b.get_object('Calendar')
         variables.panel = self.b.get_object('Panel')
+        self.menubar = self.b.get_object('MenuBar').get_style_context()
 
         #declaración de widgets
         self.entdni = self.b.get_object('entDni')
@@ -57,12 +58,25 @@ class Empresa:
         variables.calendar = self.calendar
         variables.venfile = self.venfile
 
-        #conectamos y mostramos
+        # Aplicamos los estilos
+        self.set_styles()
+        self.menubar.add_class('MenuBar')
+
+        # Conectamos y mostramos
         self.b.connect_signals(eventos.Eventos())
         self.vprincipal.show()
         conexion.Conexion().abrirbbdd()
         funcionescli.listadocli(variables.listclientes)
         funcioneshab.listadohab(variables.listhabitaciones)
+
+    def set_styles(self):
+        css_provider = Gtk.CssProvider()
+        css_provider.load_from_path('estilos.css')
+        Gtk.StyleContext().add_provider_for_screen(
+            Gdk.Screen.get_default(),
+            css_provider,
+            Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+        )
 
 if __name__=='__main__':
     main = Empresa()

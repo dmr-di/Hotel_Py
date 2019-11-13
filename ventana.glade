@@ -977,6 +977,7 @@
               <object class="GtkToolButton" id="btnClitool">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="tooltip_text" translatable="yes">Clientes</property>
                 <property name="margin_left">2</property>
                 <property name="margin_right">2</property>
                 <property name="margin_top">2</property>
@@ -994,6 +995,7 @@
               <object class="GtkToolButton" id="btnReservastool">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="tooltip_text" translatable="yes">Reservas</property>
                 <property name="use_underline">True</property>
                 <property name="icon_widget">imgReservastool</property>
                 <signal name="clicked" handler="on_btnReservastool_clicked" swapped="no"/>
@@ -1007,6 +1009,7 @@
               <object class="GtkToolButton" id="btnHabitaciontool">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="tooltip_text" translatable="yes">Habitaciones</property>
                 <property name="use_underline">True</property>
                 <property name="icon_widget">imgHabitacionestool</property>
                 <signal name="clicked" handler="on_btnHabitaciontool_clicked" swapped="no"/>
@@ -1030,6 +1033,7 @@
               <object class="GtkToolButton" id="btnLimpiartool">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="tooltip_text" translatable="yes">Limpiar</property>
                 <property name="use_underline">True</property>
                 <property name="icon_widget">imgLimpiartool</property>
                 <signal name="clicked" handler="on_btnLimpiartool_clicked" swapped="no"/>
@@ -1043,6 +1047,7 @@
               <object class="GtkToolButton" id="btnImprimir">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="tooltip_text" translatable="yes">Imprimir Factura</property>
                 <property name="use_underline">True</property>
                 <property name="icon_widget">imgImprimirtool</property>
               </object>
@@ -1055,6 +1060,7 @@
               <object class="GtkToolButton" id="btnCalc">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="tooltip_text" translatable="yes">Calculadora</property>
                 <property name="margin_left">2</property>
                 <property name="margin_right">2</property>
                 <property name="margin_top">2</property>
@@ -1086,6 +1092,7 @@
               <object class="GtkToolButton" id="btnSalirtool">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="tooltip_text" translatable="yes">Salir</property>
                 <property name="margin_left">2</property>
                 <property name="margin_right">2</property>
                 <property name="margin_top">2</property>
@@ -1119,7 +1126,7 @@
         </child>
         <child>
           <object class="GtkMenuBar" id="MenuBar">
-            <property name="width_request">550</property>
+            <property name="width_request">600</property>
             <property name="height_request">40</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
@@ -1143,13 +1150,12 @@
                       </object>
                     </child>
                     <child>
-                      <object class="GtkImageMenuItem" id="mbBackup">
+                      <object class="GtkImageMenuItem" id="mbAbrir">
                         <property name="label">gtk-open</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
-                        <signal name="activate" handler="on_mbBackup_activate" swapped="no"/>
                       </object>
                     </child>
                     <child>
@@ -1168,6 +1174,15 @@
                         <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkMenuItem" id="mbBackup">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Backup</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate" handler="on_mbBackup_activate" swapped="no"/>
                       </object>
                     </child>
                     <child>
@@ -1274,7 +1289,7 @@
             </child>
           </object>
           <packing>
-            <property name="x">15</property>
+            <property name="x">-5</property>
           </packing>
         </child>
       </object>
