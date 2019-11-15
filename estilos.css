@@ -1,3 +1,10 @@
+.Panel tab:checked {
+    background: #06a4ff;
+    color: #000000;
+    border-image: none;
+}
+
+
 .MenuBar menuitem:hover {
     background: #06a4ff;
 }

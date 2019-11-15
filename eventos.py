@@ -3,7 +3,7 @@ gi.require_version('Gtk','3.0')
 from gi.repository import Gtk
 
 import conexion, variables, funcionescli, funcioneshab
-import os, time, datetime, zipfile
+import os, time, datetime, shutil
 
 class Eventos():
 
@@ -28,29 +28,25 @@ class Eventos():
     def on_venFiledialog_selection_changed(self, widget):
         try:
             #este coge toda la ruta
-            #self.fichero =os.path.abspath(str(variables.venfile.get_filename()))
-            self.fichero = os.path.basename(str(variables.venfile.get_filename()))
-            variables.lblfile.set_text("Fichero: " + self.fichero)
-            self.nombre = str(self.fichero)
+            self.fichero =os.path.abspath(str(variables.venfile.get_filename()))
+            self.fichero_nom = os.path.basename(str(variables.venfile.get_filename()))
+            variables.lblfile.set_text("Fichero: " + self.fichero_nom)
+            self.nombre = str(self.fichero_nom)
         except:
             print("error cogiendo fichero")
 
-    def on_btnBackup_clicked(self, widget):
+    def on_btnRestaurar_clicked(self, widget):
         try:
-            if self.fichero == str(None):
-                variables.lblfile.set_text("Falta fichero para comprimir")
-            else:
-                conexion.Conexion().cerrarbbdd()
-                #El fichero zipeado contendra su nombre y el día en que se crea
-                fecha = datetime.datetime.now()
-                fichzip = zipfile.ZipFile(str(fecha) + "_" + self.nombre +  "_backup.zip", "w")
-                fichzip.write(self.fichero, os.path.basename(self.fichero), zipfile.ZIP_DEFLATED)
-                print("Fichero comprimido correctamente")
-                conexion.Conexion().abrirbbdd()
-                variables.venfile.hide()
+            ruta = "/home/a18danielmr/PycharmProjects/Empresa/" + self.nombre
+            conexion.Conexion().cerrarbbdd()
+            shutil.copy(self.fichero, ruta)
+            os.remove("Empresa.sqlite")
+            os.rename(self.nombre, "Empresa.sqlite")
+            print("Base de datos restaurada correctamente")
+            conexion.Conexion().abrirbbdd()
+            variables.venfile.hide()
         except:
-            print("Error compresion")
-
+            print("Error restaurar bd")
 
     #Eventos clientes
 
@@ -285,5 +281,24 @@ class Eventos():
         variables.venacercade.show()
 
     def on_mbBackup_activate(self, widget):
+        # Comprueba si existe el directorio si no lo crea
+        directorio = "./Backups"
+        try:
+            os.stat(directorio)
+        except:
+            os.mkdir(directorio)
+        # Hace la copia de seguridad
+        try:
+            conexion.Conexion().cerrarbbdd()
+            # El fichero zipeado contendra su nombre y el día en que se crea
+            fecha = datetime.datetime.now()
+            shutil.copy("Empresa.sqlite", "Backups/" + str(fecha) + "_Backup_Empresa.sqlite")
+            print("***Fichero copiado correctamente***")
+            conexion.Conexion().abrirbbdd()
+            variables.venfile.hide()
+        except:
+            print("Error backup")
+
+    def on_mbAbrir_activate(self, widget):
         variables.venfile.connect('delete-event', lambda w, e: w.hide() or True)
         variables.venfile.show()

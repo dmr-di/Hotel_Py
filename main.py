@@ -25,7 +25,7 @@ class Empresa:
         self.venacercade = self.b.get_object('venAcercade')
         self.venfile = self.b.get_object('venFiledialog')
         self.calendar = self.b.get_object('Calendar')
-        variables.panel = self.b.get_object('Panel')
+        variables.panel = self.b.get_object('Panel').get_style_context()
         self.menubar = self.b.get_object('MenuBar').get_style_context()
 
         #declaración de widgets
@@ -61,6 +61,7 @@ class Empresa:
         # Aplicamos los estilos
         self.set_styles()
         self.menubar.add_class('MenuBar')
+        variables.panel.add_class('Panel')
 
         # Conectamos y mostramos
         self.b.connect_signals(eventos.Eventos())
