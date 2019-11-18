@@ -1,12 +1,10 @@
-import funcioneshab
-
 __autor__='danimr'
 
 import gi
 gi.require_version('Gtk','3.0')
 from gi.repository import Gtk, Gdk
 
-import eventos, conexion, variables, funcionescli
+import eventos, conexion, variables, funcionescli, funcioneshab, funcionesres
 
 '''
 El main contiene los elementos necesarios para lanzar la aplicación
@@ -40,6 +38,8 @@ class Empresa:
         self.rbsimple = self.b.get_object('rbSimple')
         self.rbdoble = self.b.get_object('rbDoble')
         self.rbfamiliar = self.b.get_object('rbFamiliar')
+        self.entchkin = self.b.get_object('entChkin')
+        self.entchkout = self.b.get_object('entChkout')
         variables.lblfile = self.b.get_object('lblFile')
         variables.filacli = (self.entdni, self.entapel, self.entnome, self.entdatacli)
         variables.listclientes = self.b.get_object('listClientes')
@@ -47,6 +47,8 @@ class Empresa:
         variables.filahab = (self.entnumero, self.entprecio)
         variables.listhabitaciones = self.b.get_object('listHabitaciones')
         variables.treehabitaciones = self.b.get_object('treeHabitaciones')
+        variables.filares = (self.entchkin, self.entchkout)
+        variables.listreshab = self.b.get_object('listReshab')
         variables.rbgrouphab = (self.rbsimple, self.rbdoble, self.rbfamiliar)
         variables.lblcodigo = self.b.get_object('lblCodcli')
         variables.mensajerr = self.lblmensajedni
@@ -57,6 +59,9 @@ class Empresa:
         variables.venacercade = self.venacercade
         variables.calendar = self.calendar
         variables.venfile = self.venfile
+        variables.lbldnires = self.b.get_object('lblDnires')
+        variables.lblapelres = self.b.get_object('lblApelres')
+        variables.lblnoches = self.b.get_object('lblNoches')
 
         # Aplicamos los estilos
         self.set_styles()
@@ -69,6 +74,7 @@ class Empresa:
         conexion.Conexion().abrirbbdd()
         funcionescli.listadocli(variables.listclientes)
         funcioneshab.listadohab(variables.listhabitaciones)
+        funcionesres.listadoreshab(variables.listreshab)
 
     def set_styles(self):
         css_provider = Gtk.CssProvider()

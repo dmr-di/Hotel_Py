@@ -2,7 +2,7 @@ import gi
 gi.require_version('Gtk','3.0')
 from gi.repository import Gtk
 
-import conexion, variables, funcionescli, funcioneshab
+import conexion, variables, funcionescli, funcioneshab, funcionesres
 import os, time, datetime, shutil
 
 class Eventos():
@@ -125,6 +125,7 @@ class Eventos():
             # model: es el modelo de la tabla de datos
             #iter: es el número que identifica a la fila que hemos marcado
             funcionescli.limpiarEntry(variables.filacli)
+            funcionesres.limpiarLabel()
             variables.mensajerr.set_text("")
             if iter != None:
                 sdni = model.get_value(iter, 0)
@@ -139,11 +140,14 @@ class Eventos():
                 variables.filacli[1].set_text(str(sapel))
                 variables.filacli[2].set_text(str(snome))
                 variables.filacli[3].set_text(str(sdata))
+                variables.lbldnires.set_text(str(sdni))
+                variables.lblapelres.set_text(str(sapel))
         except:
             print("Error cargar cliente")
 
     def on_btnCalendar_clicked(self, widget):
         try:
+            variables.llamada = 1
             variables.vencalendar.connect('delete-event', lambda w, e: w.hide() or True)
             variables.vencalendar.show()
         except:
@@ -152,8 +156,17 @@ class Eventos():
     def on_Calendar_day_selected_double_click(self, widget):
         try:
             agno, mes, dia = variables.calendar.get_date()
-            fecha = "%s/"%dia+"%s/"%(mes+1)+"%s"%agno
-            variables.filacli[3].set_text(fecha)
+            fecha = "%s/" % dia + "%s/" % (mes + 1) + "%s" % agno
+            if variables.llamada == 1:
+                variables.filacli[3].set_text(fecha)
+            elif variables.llamada == 2:
+                variables.dia_entrada = dia
+                variables.filares[0].set_text(fecha)
+            elif variables.llamada == 3:
+                variables.dia_salida = dia
+                variables.filares[1].set_text(fecha)
+                if variables.filares[0].get_text() != None:
+                    variables.lblnoches.set_text(str(variables.dia_salida-variables.dia_entrada))
             variables.vencalendar.hide()
         except:
             print('Error al coger la fecha')
@@ -223,6 +236,25 @@ class Eventos():
                 print('falta número')
         except:
             print('error en boton modificar habitación')
+
+    #Eventos Reservas
+
+    def on_btnCalendarin_clicked(self, widget):
+        try:
+            variables.llamada = 2
+            variables.vencalendar.connect('delete-event', lambda w, e: w.hide() or True)
+            variables.vencalendar.show()
+        except:
+            print("Error abrir calendario")
+
+
+    def on_btnCalendarout_clicked(self, widget):
+        try:
+            variables.llamada = 3
+            variables.vencalendar.connect('delete-event', lambda w, e: w.hide() or True)
+            variables.vencalendar.show()
+        except:
+            print("Error abrir calendario")
 
     #Eventos Toolbar
 
