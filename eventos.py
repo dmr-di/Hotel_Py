@@ -162,10 +162,12 @@ class Eventos():
             elif variables.llamada == 2:
                 variables.dia_entrada = dia
                 variables.filares[0].set_text(fecha)
+                if variables.filares[1].get_text() != "":
+                    variables.lblnoches.set_text(str(variables.dia_salida-variables.dia_entrada))
             elif variables.llamada == 3:
                 variables.dia_salida = dia
                 variables.filares[1].set_text(fecha)
-                if variables.filares[0].get_text() != None:
+                if variables.filares[0].get_text() != "":
                     variables.lblnoches.set_text(str(variables.dia_salida-variables.dia_entrada))
             variables.vencalendar.hide()
         except:
@@ -255,6 +257,68 @@ class Eventos():
             variables.vencalendar.show()
         except:
             print("Error abrir calendario")
+
+    def on_btnAltares_clicked(self, widget):
+        try:
+            dni = variables.lbldnires.get_text()
+            apel = variables.lblapelres.get_text()
+            habitacion = variables.numhab
+            chkin = variables.filares[0].get_text()
+            chkout = variables.filares[1].get_text()
+            registro = (dni, apel, habitacion, chkin, chkout)
+            if dni != '' and apel != '' and habitacion != '' and chkin != '' and chkout != '':
+                funcionesres.insertarres(registro)
+                funcionesres.listadores(variables.listreservas)
+                funcionesres.limpiarEntry(variables.filares)
+                variables.infores.set_text("Alta realizada correctamente")
+            else:
+                variables.infores.set_text("Falta algún dato")
+        except:
+            print("Error alta reservas")
+
+    def on_btnBajares_clicked(self, widget):
+        try:
+            cod = variables.codreserva
+            if cod != '':
+                funcionesres.bajares(cod)
+                funcionesres.listadores(variables.listreservas)
+                funcionesres.limpiarEntry(variables.filares)
+                variables.infores.set_text("Baja realizada correctamente")
+            else:
+                print('falta numero')
+        except:
+            print('Error en boton baja reservas')
+
+    def on_treeReservas_cursor_changed(self, widget):
+        try:
+            model, iter = variables.treereservas.get_selection().get_selected()
+            funcionesres.limpiarEntry(variables.filares)
+            if iter != None:
+                variables.codreserva = model.get_value(iter, 0)
+                sdni = model.get_value(iter, 1)
+                sapel = model.get_value(iter, 2)
+                shabitacion = model.get_value(iter, 3)
+                schkin = model.get_value(iter, 4)
+                schkout = model.get_value(iter, 5)
+                variables.lbldnires.set_text(sdni)
+                variables.lblapelres.set_text(sapel)
+                #Falta coger el numero de habitación (**COUNT SQL**)
+                variables.filares[0].set_text(schkin)
+                variables.filares[1].set_text(schkout)
+        except:
+            print('Error carga reservas')
+
+
+    #Eventos comboBox
+
+    def on_cbReshab_changed(self, widget):
+        try:
+            index = variables.cbreshab.get_active()
+            model = variables.cbreshab.get_model()
+            item = model[index]
+            variables.numhab = item[0]
+        except:
+            print("Error al coger numero habitacion comboBox")
 
     #Eventos Toolbar
 

@@ -49,11 +49,14 @@ class Empresa:
         variables.treehabitaciones = self.b.get_object('treeHabitaciones')
         variables.filares = (self.entchkin, self.entchkout)
         variables.listreshab = self.b.get_object('listReshab')
+        variables.listreservas = self.b.get_object('listReservas')
+        variables.treereservas = self.b.get_object('treeReservas')
         variables.rbgrouphab = (self.rbsimple, self.rbdoble, self.rbfamiliar)
         variables.lblcodigo = self.b.get_object('lblCodcli')
         variables.mensajerr = self.lblmensajedni
         variables.infocli = self.b.get_object('lblInfocli')
         variables.infohab = self.b.get_object('lblInfohab')
+        variables.infores = self.b.get_object('lblInfores')
         variables.fecha = self.b.get_object('lblFecha')
         variables.vencalendar = self.vencalendar
         variables.venacercade = self.venacercade
@@ -62,6 +65,7 @@ class Empresa:
         variables.lbldnires = self.b.get_object('lblDnires')
         variables.lblapelres = self.b.get_object('lblApelres')
         variables.lblnoches = self.b.get_object('lblNoches')
+        variables.cbreshab = self.b.get_object('cbReshab')
 
         # Aplicamos los estilos
         self.set_styles()

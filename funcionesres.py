@@ -6,9 +6,26 @@ def limpiarLabel():
     variables.lbldnires.set_text('')
     variables.lblapelres.set_text('')
 
+def limpiarEntry(fila):
+    limpiarLabel()
+    for i in range(len(fila)):
+        fila[i].set_text('')
+    variables.cbreshab.set_active(-1)
+
+
 def listarreshab():
     try:
         conexion.cur.execute('SELECT numero FROM habitaciones')
+        listado = conexion.cur.fetchall()
+        conexion.conex.commit()
+        return listado
+    except sqlite3.OperationalError as e:
+        print(e)
+        conexion.conex.rollback()
+
+def listar():
+    try:
+        conexion.cur.execute('SELECT cod, dni, apel, nhab, chk_in, chk_out FROM reservas')
         listado = conexion.cur.fetchall()
         conexion.conex.commit()
         return listado
@@ -24,3 +41,28 @@ def listadoreshab(listreshab):
             listreshab.append(registro)
     except:
         print('Error en cargar ComboBox')
+
+def insertarres(fila):
+    try:
+        conexion.cur.execute("INSERT INTO reservas (dni, apel, nhab, chk_in, chk_out) VALUES (?,?,?,?,?)", fila)
+        conexion.conex.commit()
+    except sqlite3.OperationalError as e:
+        print(e)
+        conexion.conex.rollback()
+
+def listadores(listreservas):
+    try:
+        variables.listadores = listar()
+        listreservas.clear()
+        for registro in variables.listadores:
+            listreservas.append(registro)
+    except:
+        print('Error en cargar treeview')
+
+def bajares(cod):
+    try:
+        conexion.cur.execute('DELETE FROM reservas WHERE cod = ?', (cod,))
+        conexion.conex.commit()
+    except sqlite3.OperationalError as e:
+        print(e)
+        conexion.conex.rollback()

@@ -89,7 +89,22 @@
       <column type="gfloat"/>
     </columns>
   </object>
-  <object class="GtkListStore" id="listReservas"/>
+  <object class="GtkListStore" id="listReservas">
+    <columns>
+      <!-- column-name cod -->
+      <column type="gint"/>
+      <!-- column-name dni -->
+      <column type="gchararray"/>
+      <!-- column-name apelidos -->
+      <column type="gchararray"/>
+      <!-- column-name habitacion -->
+      <column type="gint"/>
+      <!-- column-name checkin -->
+      <column type="gchararray"/>
+      <!-- column-name checkout -->
+      <column type="gchararray"/>
+    </columns>
+  </object>
   <object class="GtkListStore" id="listReshab">
     <columns>
       <!-- column-name habitacion -->
@@ -658,6 +673,7 @@
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="halign">start</property>
+                                <property name="margin_left">10</property>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -674,23 +690,6 @@
                               <packing>
                                 <property name="left_attach">0</property>
                                 <property name="top_attach">4</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <object class="GtkLabel" id="lblMensajeDNI1">
-                                <property name="visible">True</property>
-                                <property name="can_focus">False</property>
-                                <property name="margin_top">3</property>
-                                <property name="margin_bottom">3</property>
-                                <attributes>
-                                  <attribute name="font-desc" value="Ubuntu Medium 10"/>
-                                  <attribute name="weight" value="bold"/>
-                                  <attribute name="foreground" value="#efef29292929"/>
-                                </attributes>
-                              </object>
-                              <packing>
-                                <property name="left_attach">3</property>
-                                <property name="top_attach">0</property>
                               </packing>
                             </child>
                             <child>
@@ -772,6 +771,7 @@
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="model">listReshab</property>
+                                <signal name="changed" handler="on_cbReshab_changed" swapped="no"/>
                                 <child>
                                   <object class="GtkCellRendererText" id="habitacion"/>
                                   <attributes>
@@ -783,6 +783,9 @@
                                 <property name="left_attach">2</property>
                                 <property name="top_attach">2</property>
                               </packing>
+                            </child>
+                            <child>
+                              <placeholder/>
                             </child>
                             <child>
                               <placeholder/>
@@ -842,6 +845,7 @@
                         <property name="receives_default">True</property>
                         <property name="margin_top">3</property>
                         <property name="margin_bottom">3</property>
+                        <signal name="clicked" handler="on_btnAltares_clicked" swapped="no"/>
                       </object>
                       <packing>
                         <property name="expand">True</property>
@@ -857,6 +861,7 @@
                         <property name="receives_default">True</property>
                         <property name="margin_top">3</property>
                         <property name="margin_bottom">3</property>
+                        <signal name="clicked" handler="on_btnBajares_clicked" swapped="no"/>
                       </object>
                       <packing>
                         <property name="expand">True</property>
@@ -917,15 +922,15 @@
                         <property name="model">listReservas</property>
                         <property name="search_column">0</property>
                         <property name="enable_grid_lines">both</property>
+                        <signal name="cursor-changed" handler="on_treeReservas_cursor_changed" swapped="no"/>
                         <child internal-child="selection">
                           <object class="GtkTreeSelection"/>
                         </child>
                         <child>
                           <object class="GtkTreeViewColumn">
-                            <property name="title" translatable="yes">DNI</property>
-                            <property name="expand">True</property>
+                            <property name="title" translatable="yes">COD</property>
                             <child>
-                              <object class="GtkCellRendererText" id="dni1"/>
+                              <object class="GtkCellRendererText" id="cod"/>
                               <attributes>
                                 <attribute name="text">0</attribute>
                               </attributes>
@@ -934,13 +939,10 @@
                         </child>
                         <child>
                           <object class="GtkTreeViewColumn">
-                            <property name="title" translatable="yes">APELIDOS</property>
+                            <property name="title" translatable="yes">DNI</property>
                             <property name="expand">True</property>
-                            <property name="clickable">True</property>
-                            <property name="reorderable">True</property>
-                            <property name="sort_indicator">True</property>
                             <child>
-                              <object class="GtkCellRendererText" id="apelidos1"/>
+                              <object class="GtkCellRendererText" id="dniRes"/>
                               <attributes>
                                 <attribute name="text">1</attribute>
                               </attributes>
@@ -949,10 +951,10 @@
                         </child>
                         <child>
                           <object class="GtkTreeViewColumn">
-                            <property name="title" translatable="yes">NOME</property>
+                            <property name="title" translatable="yes">APELIDOS</property>
                             <property name="expand">True</property>
                             <child>
-                              <object class="GtkCellRendererText" id="nome1"/>
+                              <object class="GtkCellRendererText" id="apelidosRes"/>
                               <attributes>
                                 <attribute name="text">2</attribute>
                               </attributes>
@@ -961,11 +963,33 @@
                         </child>
                         <child>
                           <object class="GtkTreeViewColumn">
-                            <property name="title" translatable="yes">DATA ALTA</property>
+                            <property name="title" translatable="yes">HABITACIÓN</property>
                             <child>
-                              <object class="GtkCellRendererText" id="data_alta1"/>
+                              <object class="GtkCellRendererText" id="habRes"/>
                               <attributes>
                                 <attribute name="text">3</attribute>
+                              </attributes>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkTreeViewColumn">
+                            <property name="title" translatable="yes">CHECK-IN</property>
+                            <child>
+                              <object class="GtkCellRendererText" id="chkin"/>
+                              <attributes>
+                                <attribute name="text">4</attribute>
+                              </attributes>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkTreeViewColumn">
+                            <property name="title" translatable="yes">CHECK-OUT</property>
+                            <child>
+                              <object class="GtkCellRendererText" id="chkout"/>
+                              <attributes>
+                                <attribute name="text">5</attribute>
                               </attributes>
                             </child>
                           </object>
