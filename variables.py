@@ -6,6 +6,8 @@ listclientes almacena los valores a mostrar en el treeview
 treeclientes almacena el widget que contiene los valores de listcliente
 '''
 
+import datetime
+
 filacli = ()
 listclientes = ()
 treeclientes = ()
@@ -38,8 +40,8 @@ lbldnires = None
 lblapelres = None
 lblnoches = None
 llamada = None
-dia_entrada = None
-dia_salida = None
+dia_entrada = datetime.datetime.now()
+dia_salida = datetime.datetime.now()
 cbreshab = None
 numhab = None
 codreserva = None

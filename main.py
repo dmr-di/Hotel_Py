@@ -79,6 +79,7 @@ class Empresa:
         funcionescli.listadocli(variables.listclientes)
         funcioneshab.listadohab(variables.listhabitaciones)
         funcionesres.listadoreshab(variables.listreshab)
+        funcionesres.listadores(variables.listreservas)
 
     def set_styles(self):
         css_provider = Gtk.CssProvider()

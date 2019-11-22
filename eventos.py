@@ -155,20 +155,22 @@ class Eventos():
 
     def on_Calendar_day_selected_double_click(self, widget):
         try:
+            formato_fecha = "%d/%m/%Y"
             agno, mes, dia = variables.calendar.get_date()
             fecha = "%s/" % dia + "%s/" % (mes + 1) + "%s" % agno
             if variables.llamada == 1:
                 variables.filacli[3].set_text(fecha)
             elif variables.llamada == 2:
-                variables.dia_entrada = dia
+                #Importante hay que llamar a datetime 2 veces
+                variables.dia_entrada = datetime.datetime.strptime(fecha, formato_fecha)
                 variables.filares[0].set_text(fecha)
                 if variables.filares[1].get_text() != "":
-                    variables.lblnoches.set_text(str(variables.dia_salida-variables.dia_entrada))
+                    variables.lblnoches.set_text(str((variables.dia_salida-variables.dia_entrada).days))
             elif variables.llamada == 3:
-                variables.dia_salida = dia
+                variables.dia_salida = datetime.datetime.strptime(fecha, formato_fecha)
                 variables.filares[1].set_text(fecha)
                 if variables.filares[0].get_text() != "":
-                    variables.lblnoches.set_text(str(variables.dia_salida-variables.dia_entrada))
+                    variables.lblnoches.set_text(str((variables.dia_salida-variables.dia_entrada).days))
             variables.vencalendar.hide()
         except:
             print('Error al coger la fecha')
@@ -302,7 +304,8 @@ class Eventos():
                 schkout = model.get_value(iter, 5)
                 variables.lbldnires.set_text(sdni)
                 variables.lblapelres.set_text(sapel)
-                #Falta coger el numero de habitación (**COUNT SQL**)
+                nreg = funcionesres.selecregistro(shabitacion)
+                variables.cbreshab.set_active(nreg[0]-1)
                 variables.filares[0].set_text(schkin)
                 variables.filares[1].set_text(schkout)
         except:

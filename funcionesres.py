@@ -66,3 +66,13 @@ def bajares(cod):
     except sqlite3.OperationalError as e:
         print(e)
         conexion.conex.rollback()
+
+def selecregistro(nhab):
+    try:
+        conexion.cur.execute("select (select count(*) from reservas b where a.nhab >= b.nhab) as cnt from reservas a where nhab = ?", (nhab,))
+        nregistro = conexion.cur.fetchone()
+        conexion.conex.commit()
+        return nregistro
+    except:
+        print("Error en el numero de registro")
+
