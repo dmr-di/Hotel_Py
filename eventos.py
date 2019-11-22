@@ -190,6 +190,7 @@ class Eventos():
                 funcioneshab.listadohab(variables.listhabitaciones)
                 funcioneshab.limpiarEntry(variables.filahab)
                 variables.infohab.set_text("Alta realizada correctamente")
+                funcionesres.listadoreshab(variables.listreshab)
         except:
             print('Error alta habitacion')
 
@@ -221,6 +222,7 @@ class Eventos():
                 funcioneshab.listadohab(variables.listhabitaciones)
                 funcioneshab.limpiarEntry(variables.filahab)
                 variables.infohab.set_text("Baja realizada correctamente")
+                funcionesres.listadoreshab(variables.listreshab)
             else:
                 print('falta numero')
         except:
