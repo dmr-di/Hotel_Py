@@ -5,6 +5,7 @@ import variables, conexion
 def limpiarLabel():
     variables.lbldnires.set_text('')
     variables.lblapelres.set_text('')
+    variables.lblnoches.set_text('')
 
 def limpiarEntry(fila):
     limpiarLabel()

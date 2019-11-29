@@ -66,6 +66,7 @@ class Empresa:
         variables.lblapelres = self.b.get_object('lblApelres')
         variables.lblnoches = self.b.get_object('lblNoches')
         variables.cbreshab = self.b.get_object('cbReshab')
+        variables.switch = self.b.get_object('swLibre')
 
         # Aplicamos los estilos
         self.set_styles()

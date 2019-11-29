@@ -161,16 +161,14 @@ class Eventos():
             if variables.llamada == 1:
                 variables.filacli[3].set_text(fecha)
             elif variables.llamada == 2:
-                #Importante hay que llamar a datetime 2 veces
-                variables.dia_entrada = datetime.datetime.strptime(fecha, formato_fecha)
                 variables.filares[0].set_text(fecha)
-                if variables.filares[1].get_text() != "":
-                    variables.lblnoches.set_text(str((variables.dia_salida-variables.dia_entrada).days))
             elif variables.llamada == 3:
-                variables.dia_salida = datetime.datetime.strptime(fecha, formato_fecha)
                 variables.filares[1].set_text(fecha)
-                if variables.filares[0].get_text() != "":
-                    variables.lblnoches.set_text(str((variables.dia_salida-variables.dia_entrada).days))
+            if variables.filares[0].get_text() != "" and variables.filares[1].get_text() != "":
+                # Importante hay que llamar a datetime 2 veces
+                variables.dia_entrada = datetime.datetime.strptime(variables.filares[0].get_text(), formato_fecha)
+                variables.dia_salida = datetime.datetime.strptime(variables.filares[1].get_text(), formato_fecha)
+                variables.lblnoches.set_text(str((variables.dia_salida-variables.dia_entrada).days))
             variables.vencalendar.hide()
         except:
             print('Error al coger la fecha')
@@ -184,7 +182,8 @@ class Eventos():
             precio = variables.filahab[1].get_text()
             precio = float(precio.replace(',', '.'))
             precio = round(precio, 2)
-            registro = (numero, tipo, precio)
+            libre = funcioneshab.seleccionSwitch()
+            registro = (numero, tipo, precio, libre)
             if numero != '' and tipo != '':
                 funcioneshab.insertarhab(registro)
                 funcioneshab.listadohab(variables.listhabitaciones)
@@ -202,6 +201,7 @@ class Eventos():
                 snum = model.get_value(iter, 0)
                 stipo = model.get_value(iter, 1)
                 sprecio = model.get_value(iter, 2)
+                slibre = model.get_value(iter, 3)
                 variables.filahab[0].set_text(str(snum))
                 if stipo == str('Simple'):
                     variables.rbgrouphab[0].set_active(True)
@@ -211,6 +211,10 @@ class Eventos():
                     variables.rbgrouphab[2].set_active(True)
                 sprecio = round(sprecio, 2)
                 variables.filahab[1].set_text(str(sprecio))
+                if slibre == 'Si':
+                    variables.switch.set_active(True)
+                else:
+                    variables.switch.set_active(False)
         except:
             print('Error carga habitación')
 
@@ -233,7 +237,11 @@ class Eventos():
             num = variables.filahab[0].get_text()
             tipo = funcioneshab.seleccionRB()
             precio = variables.filahab[1].get_text()
-            registro = (num, tipo, precio)
+            if variables.switch.get_active():
+                libre = 'Si'
+            else:
+                libre = 'No'
+            registro = (num, tipo, precio, libre)
             if num != '':
                 funcioneshab.modifhab(registro)
                 funcioneshab.listadohab(variables.listhabitaciones)
@@ -295,6 +303,7 @@ class Eventos():
 
     def on_treeReservas_cursor_changed(self, widget):
         try:
+            formato_fecha = "%d/%m/%Y"
             model, iter = variables.treereservas.get_selection().get_selected()
             funcionesres.limpiarEntry(variables.filares)
             if iter != None:
@@ -310,6 +319,9 @@ class Eventos():
                 variables.cbreshab.set_active(nreg[0]-1)
                 variables.filares[0].set_text(schkin)
                 variables.filares[1].set_text(schkout)
+                dia_entrada = datetime.datetime.strptime(schkin, formato_fecha)
+                dia_salida = datetime.datetime.strptime(schkout, formato_fecha)
+                variables.lblnoches.set_text(str((dia_salida - dia_entrada).days))
         except:
             print('Error carga reservas')
 
@@ -362,6 +374,8 @@ class Eventos():
         try:
             funcionescli.limpiarEntry(variables.filacli)
             funcioneshab.limpiarEntry(variables.filahab)
+            funcionesres.limpiarEntry(variables.filares)
+            funcionesres.limpiarLabel()
         except:
             print("Error boton limpiar toolbar")
 

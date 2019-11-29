@@ -45,3 +45,4 @@ dia_salida = datetime.datetime.now()
 cbreshab = None
 numhab = None
 codreserva = None
+switch = None

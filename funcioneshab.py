@@ -5,6 +5,7 @@ import variables, conexion
 def limpiarEntry(fila):
     for i in range(len(fila)):
         fila[i].set_text('')
+    variables.switch.set_active(True)
 
 def seleccionRB():
     try:
@@ -18,9 +19,19 @@ def seleccionRB():
     except:
         print('Error funcion rb')
 
+def seleccionSwitch():
+    try:
+        if (variables.switch.get_active()):
+            libre = 'Si'
+        else:
+            libre = 'No'
+        return libre
+    except:
+        print("Error función switch")
+
 def insertarhab(fila):
     try:
-        conexion.cur.execute("INSERT INTO habitaciones (numero, tipo, precio) VALUES (?,?,?)", fila)
+        conexion.cur.execute("INSERT INTO habitaciones (numero, tipo, precio, tipo) VALUES (?,?,?,?)", fila)
         conexion.conex.commit()
     except sqlite3.OperationalError as e:
         print(e)
@@ -29,7 +40,7 @@ def insertarhab(fila):
 #select para utilizar en las operaciones de datos
 def listar():
     try:
-        conexion.cur.execute('SELECT numero, tipo, precio FROM habitaciones')
+        conexion.cur.execute('SELECT numero, tipo, precio, libre FROM habitaciones')
         listado = conexion.cur.fetchall()
         conexion.conex.commit()
         return listado
@@ -59,7 +70,7 @@ def bajahab(num):
 #Esta función modifica los datos de una habitación
 def modifhab(registro):
     try:
-        conexion.cur.execute('UPDATE habitaciones SET numero = ?, tipo = ?, precio = ? WHERE numero = ?', (registro[0], registro[1], registro[2], registro[0]))
+        conexion.cur.execute('UPDATE habitaciones SET numero = ?, tipo = ?, precio = ?, libre = ? WHERE numero = ?', (registro[0], registro[1], registro[2], registro[3], registro[0]))
         conexion.conex.commit()
     except sqlite3.OperationalError as e:
         print(e)
