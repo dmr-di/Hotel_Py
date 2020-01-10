@@ -47,3 +47,4 @@ numhab = None
 codreserva = None
 switch = None
 factura = ()
+servicio = ()

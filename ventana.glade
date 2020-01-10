@@ -1634,7 +1634,7 @@
         </child>
         <child>
           <object class="GtkMenuBar" id="MenuBar">
-            <property name="width_request">800</property>
+            <property name="width_request">975</property>
             <property name="height_request">40</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
@@ -1805,7 +1805,7 @@
         </child>
         <child>
           <object class="GtkFrame" id="frameFactura">
-            <property name="width_request">325</property>
+            <property name="width_request">450</property>
             <property name="height_request">670</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
@@ -1849,7 +1849,7 @@
                           <object class="GtkLabel" id="lblSNumFac">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="margin_right">55</property>
+                            <property name="margin_right">20</property>
                           </object>
                           <packing>
                             <property name="expand">False</property>
@@ -1947,7 +1947,7 @@
                           <object class="GtkLabel" id="lblSDniFac">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="halign">end</property>
+                            <property name="halign">start</property>
                             <property name="margin_right">5</property>
                           </object>
                           <packing>
@@ -1959,7 +1959,7 @@
                           <object class="GtkLabel" id="lblSApelFac">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="halign">end</property>
+                            <property name="halign">start</property>
                             <property name="margin_right">5</property>
                           </object>
                           <packing>
@@ -1971,7 +1971,7 @@
                           <object class="GtkLabel" id="lblSNomecliFac">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="halign">end</property>
+                            <property name="halign">start</property>
                             <property name="margin_right">5</property>
                           </object>
                           <packing>
@@ -2054,11 +2054,15 @@
                       <object class="GtkGrid">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="column_homogeneous">True</property>
                         <child>
                           <object class="GtkLabel">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="label" translatable="yes">label</property>
+                            <property name="label" translatable="yes">CONCEPTO</property>
+                            <attributes>
+                              <attribute name="weight" value="bold"/>
+                            </attributes>
                           </object>
                           <packing>
                             <property name="left_attach">0</property>
@@ -2069,7 +2073,10 @@
                           <object class="GtkLabel">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="label" translatable="yes">label</property>
+                            <property name="label" translatable="yes">Unidades</property>
+                            <attributes>
+                              <attribute name="weight" value="bold"/>
+                            </attributes>
                           </object>
                           <packing>
                             <property name="left_attach">1</property>
@@ -2080,7 +2087,10 @@
                           <object class="GtkLabel">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="label" translatable="yes">label</property>
+                            <property name="label" translatable="yes">Precio Unidad</property>
+                            <attributes>
+                              <attribute name="weight" value="bold"/>
+                            </attributes>
                           </object>
                           <packing>
                             <property name="left_attach">2</property>
@@ -2091,7 +2101,10 @@
                           <object class="GtkLabel">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="label" translatable="yes">label</property>
+                            <property name="label" translatable="yes">TOTAL (€)</property>
+                            <attributes>
+                              <attribute name="weight" value="bold"/>
+                            </attributes>
                           </object>
                           <packing>
                             <property name="left_attach">3</property>
@@ -2099,28 +2112,44 @@
                           </packing>
                         </child>
                         <child>
-                          <placeholder/>
+                          <object class="GtkLabel" id="lblConcepto1">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                          </object>
+                          <packing>
+                            <property name="left_attach">0</property>
+                            <property name="top_attach">1</property>
+                          </packing>
                         </child>
                         <child>
-                          <placeholder/>
+                          <object class="GtkLabel" id="lblUnidades1">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                          </object>
+                          <packing>
+                            <property name="left_attach">1</property>
+                            <property name="top_attach">1</property>
+                          </packing>
                         </child>
                         <child>
-                          <placeholder/>
+                          <object class="GtkLabel" id="lblPrecio1">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                          </object>
+                          <packing>
+                            <property name="left_attach">2</property>
+                            <property name="top_attach">1</property>
+                          </packing>
                         </child>
                         <child>
-                          <placeholder/>
-                        </child>
-                        <child>
-                          <placeholder/>
-                        </child>
-                        <child>
-                          <placeholder/>
-                        </child>
-                        <child>
-                          <placeholder/>
-                        </child>
-                        <child>
-                          <placeholder/>
+                          <object class="GtkLabel" id="lblTotal1">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                          </object>
+                          <packing>
+                            <property name="left_attach">3</property>
+                            <property name="top_attach">1</property>
+                          </packing>
                         </child>
                       </object>
                       <packing>

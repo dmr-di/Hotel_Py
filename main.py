@@ -48,6 +48,10 @@ class Empresa:
         self.lblnumhabfac = self.b.get_object('lblSNumhabFac')
         self.lbltipohabfac = self.b.get_object('lblSTipohabFac')
         self.lbldatafac = self.b.get_object('lblSDataFac')
+        self.lblconcepto1 = self.b.get_object('lblConcepto1')
+        self.lblunidades1 = self.b.get_object('lblUnidades1')
+        self.lblprecio1 = self.b.get_object('lblPrecio1')
+        self.lbltotal1 = self.b.get_object('lblTotal1')
         variables.lblfile = self.b.get_object('lblFile')
         variables.filacli = (self.entdni, self.entapel, self.entnome, self.entdatacli)
         variables.listclientes = self.b.get_object('listClientes')
@@ -77,6 +81,7 @@ class Empresa:
         variables.switch = self.b.get_object('swLibre')
         variables.factura = (self.numfac, self.lbldnifac, self.lblapelfac, self.lblnomeclifac,
                              self.lblnumhabfac, self.lbltipohabfac, self.lbldatafac)
+        variables.servicio = (self.lblconcepto1, self.lblunidades1, self.lblprecio1, self.lbltotal1)
 
         # Aplicamos los estilos
         self.set_styles()

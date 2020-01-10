@@ -9,6 +9,25 @@ def cargar_datos(registro):
     variables.factura[4].set_text(str(registro[3]))
     variables.factura[5].set_text(str(cargar_tipo(registro[3])))
     variables.factura[6].set_text(str(registro[4]))
+    mostrar_cargos(variables.factura)
+
+def mostrar_cargos(factura):
+    variables.servicio[0].set_text("Noches")
+    variables.servicio[1].set_text(variables.lblnoches.get_text())
+    precio = cargar_precio(factura[4].get_text())
+    variables.servicio[2].set_text(str(precio))
+    total = precio*float(variables.servicio[1].get_text())
+    variables.servicio[3].set_text(str(round(total, 2)))
+
+def cargar_precio(nhab):
+    try:
+        conexion.cur.execute('SELECT precio FROM habitaciones WHERE numero = ?', (nhab,))
+        listado = conexion.cur.fetchone()
+        conexion.conex.commit()
+        return listado[0]
+    except sqlite3.OperationalError as e:
+        print(e)
+        conexion.conex.rollback()
 
 def cargar_nombre(dni):
     try:

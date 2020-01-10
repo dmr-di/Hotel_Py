@@ -1,5 +1,4 @@
 # Project exclude paths
 /venv/
-./Empresa.sqlite
 ./nis.txt
 ./Backups
