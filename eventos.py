@@ -2,7 +2,7 @@ import gi
 gi.require_version('Gtk','3.0')
 from gi.repository import Gtk
 
-import conexion, variables, funcionescli, funcioneshab, funcionesres
+import conexion, variables, funcionescli, funcioneshab, funcionesres, facturacion
 import os, time, datetime, shutil
 
 class Eventos():
@@ -322,6 +322,8 @@ class Eventos():
                 dia_entrada = datetime.datetime.strptime(schkin, formato_fecha)
                 dia_salida = datetime.datetime.strptime(schkout, formato_fecha)
                 variables.lblnoches.set_text(str((dia_salida - dia_entrada).days))
+                registro = (variables.codreserva, sdni, sapel, shabitacion, schkout)
+                facturacion.cargar_datos(registro)
         except:
             print('Error carga reservas')
 
@@ -376,6 +378,7 @@ class Eventos():
             funcioneshab.limpiarEntry(variables.filahab)
             funcionesres.limpiarEntry(variables.filares)
             funcionesres.limpiarLabel()
+            facturacion.limpiarFactura(variables.factura)
         except:
             print("Error boton limpiar toolbar")
 

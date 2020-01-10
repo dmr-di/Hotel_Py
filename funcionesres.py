@@ -70,7 +70,7 @@ def bajares(cod):
 
 def selecregistro(nhab):
     try:
-        conexion.cur.execute("select (select count(*) from reservas b where a.nhab >= b.nhab) as cnt from reservas a where nhab = ?", (nhab,))
+        conexion.cur.execute("select (select count(*) from habitaciones b where a.numero >= b.numero) as cnt from habitaciones a where numero = ?", (nhab,))
         nregistro = conexion.cur.fetchone()
         conexion.conex.commit()
         return nregistro

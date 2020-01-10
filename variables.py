@@ -46,3 +46,4 @@ cbreshab = None
 numhab = None
 codreserva = None
 switch = None
+factura = ()

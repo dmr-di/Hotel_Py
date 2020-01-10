@@ -23,7 +23,8 @@ class Empresa:
         self.venacercade = self.b.get_object('venAcercade')
         self.venfile = self.b.get_object('venFiledialog')
         self.calendar = self.b.get_object('Calendar')
-        variables.panel = self.b.get_object('Panel').get_style_context()
+        variables.panel = self.b.get_object('Panel')
+        self.estilopanel = variables.panel.get_style_context()
         self.menubar = self.b.get_object('MenuBar').get_style_context()
 
         #declaración de widgets
@@ -40,6 +41,13 @@ class Empresa:
         self.rbfamiliar = self.b.get_object('rbFamiliar')
         self.entchkin = self.b.get_object('entChkin')
         self.entchkout = self.b.get_object('entChkout')
+        self.numfac = self.b.get_object('lblSNumFac')
+        self.lbldnifac = self.b.get_object('lblSDniFac')
+        self.lblapelfac = self.b.get_object('lblSApelFac')
+        self.lblnomeclifac = self.b.get_object('lblSNomecliFac')
+        self.lblnumhabfac = self.b.get_object('lblSNumhabFac')
+        self.lbltipohabfac = self.b.get_object('lblSTipohabFac')
+        self.lbldatafac = self.b.get_object('lblSDataFac')
         variables.lblfile = self.b.get_object('lblFile')
         variables.filacli = (self.entdni, self.entapel, self.entnome, self.entdatacli)
         variables.listclientes = self.b.get_object('listClientes')
@@ -67,11 +75,13 @@ class Empresa:
         variables.lblnoches = self.b.get_object('lblNoches')
         variables.cbreshab = self.b.get_object('cbReshab')
         variables.switch = self.b.get_object('swLibre')
+        variables.factura = (self.numfac, self.lbldnifac, self.lblapelfac, self.lblnomeclifac,
+                             self.lblnumhabfac, self.lbltipohabfac, self.lbldatafac)
 
         # Aplicamos los estilos
         self.set_styles()
         self.menubar.add_class('MenuBar')
-        variables.panel.add_class('Panel')
+        self.estilopanel.add_class('Panel')
 
         # Conectamos y mostramos
         self.b.connect_signals(eventos.Eventos())
