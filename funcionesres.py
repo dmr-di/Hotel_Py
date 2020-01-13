@@ -68,6 +68,15 @@ def bajares(cod):
         print(e)
         conexion.conex.rollback()
 
+#Esta función modifica los datos de una reserva
+def modifres(registro):
+    try:
+        conexion.cur.execute('UPDATE reservas SET cod = ?, dni = ?, apel = ?, nhab = ?, chk_in = ?, chk_out = ? WHERE numero = ?', (registro[0], registro[1], registro[2], registro[3], registro[4], registro[5], registro[0]))
+        conexion.conex.commit()
+    except sqlite3.OperationalError as e:
+        print(e)
+        conexion.conex.rollback()
+
 def selecregistro(nhab):
     try:
         conexion.cur.execute("select (select count(*) from habitaciones b where a.numero >= b.numero) as cnt from habitaciones a where numero = ?", (nhab,))

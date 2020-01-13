@@ -301,6 +301,18 @@ class Eventos():
         except:
             print('Error en boton baja reservas')
 
+    ''' Mostrar codigo para poder cogerlo
+    def on_btnModifres_clicked(self, widget):
+        try:
+            cod = variables.lbl
+            dni = variables.lbldnires.get_text()
+            apel = variables.lblapelres.get_text()
+            habitacion = variables.numhab
+            chkin = variables.filares[0].get_text()
+            chkout = variables.filares[1].get_text()
+            registro = (dni, apel, habitacion, chkin, chkout)
+    '''
+
     def on_treeReservas_cursor_changed(self, widget):
         try:
             formato_fecha = "%d/%m/%Y"
