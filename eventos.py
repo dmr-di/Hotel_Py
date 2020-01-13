@@ -2,7 +2,7 @@ import gi
 gi.require_version('Gtk','3.0')
 from gi.repository import Gtk
 
-import conexion, variables, funcionescli, funcioneshab, funcionesres, facturacion
+import conexion, variables, funcionescli, funcioneshab, funcionesres, facturacion, impresion
 import os, time, datetime, shutil
 
 class Eventos():
@@ -301,8 +301,9 @@ class Eventos():
         except:
             print('Error en boton baja reservas')
 
-    ''' Mostrar codigo para poder cogerlo
+
     def on_btnModifres_clicked(self, widget):
+        ''' Mostrar codigo para poder cogerlo
         try:
             cod = variables.lbl
             dni = variables.lbldnires.get_text()
@@ -311,7 +312,7 @@ class Eventos():
             chkin = variables.filares[0].get_text()
             chkout = variables.filares[1].get_text()
             registro = (dni, apel, habitacion, chkin, chkout)
-    '''
+        '''
 
     def on_treeReservas_cursor_changed(self, widget):
         try:
@@ -432,3 +433,11 @@ class Eventos():
     def on_mbAbrir_activate(self, widget):
         variables.venfile.connect('delete-event', lambda w, e: w.hide() or True)
         variables.venfile.show()
+
+    #Eventos impresion
+
+    def on_btnImprimi_clicked(self, widget):
+        try:
+            impresion.factura()
+        except:
+            print("Error en módulo impresión")
