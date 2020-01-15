@@ -71,7 +71,7 @@ def bajares(cod):
 #Esta función modifica los datos de una reserva
 def modifres(registro):
     try:
-        conexion.cur.execute('UPDATE reservas SET cod = ?, dni = ?, apel = ?, nhab = ?, chk_in = ?, chk_out = ? WHERE numero = ?', (registro[0], registro[1], registro[2], registro[3], registro[4], registro[5], registro[0]))
+        conexion.cur.execute('UPDATE reservas SET dni = ?, apel = ?, nhab = ?, chk_in = ?, chk_out = ? WHERE cod = ?', (registro[1], registro[2], registro[3], registro[4], registro[5], registro[0]))
         conexion.conex.commit()
     except sqlite3.OperationalError as e:
         print(e)

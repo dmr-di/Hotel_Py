@@ -48,3 +48,5 @@ codreserva = None
 switch = None
 factura = ()
 servicio = ()
+numnoches = None
+modif = False

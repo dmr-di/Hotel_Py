@@ -303,16 +303,30 @@ class Eventos():
 
 
     def on_btnModifres_clicked(self, widget):
-        ''' Mostrar codigo para poder cogerlo
         try:
-            cod = variables.lbl
+            variables.modif = True
+            formato_fecha = "%d/%m/%Y"
+            cod = variables.codreserva
             dni = variables.lbldnires.get_text()
             apel = variables.lblapelres.get_text()
             habitacion = variables.numhab
             chkin = variables.filares[0].get_text()
             chkout = variables.filares[1].get_text()
-            registro = (dni, apel, habitacion, chkin, chkout)
-        '''
+            dia_entrada = datetime.datetime.strptime(chkin, formato_fecha)
+            dia_salida = datetime.datetime.strptime(chkout, formato_fecha)
+            variables.numnoches = str((dia_salida - dia_entrada).days)
+            registro = (cod, dni, apel, habitacion, chkin, chkout)
+            if cod != "":
+                funcionesres.modifres(registro)
+                funcionesres.listadores(variables.listreservas)
+                funcionesres.limpiarEntry(variables.filares)
+                reg_fac = (cod, dni, apel, habitacion, chkout)
+                facturacion.cargar_datos(reg_fac)
+                variables.modif = False
+            else:
+                print("No se encuentra el código")
+        except:
+            print("error en boton modificar reserva")
 
     def on_treeReservas_cursor_changed(self, widget):
         try:
@@ -335,8 +349,10 @@ class Eventos():
                 dia_entrada = datetime.datetime.strptime(schkin, formato_fecha)
                 dia_salida = datetime.datetime.strptime(schkout, formato_fecha)
                 variables.lblnoches.set_text(str((dia_salida - dia_entrada).days))
-                registro = (variables.codreserva, sdni, sapel, shabitacion, schkout)
-                facturacion.cargar_datos(registro)
+                if variables.modif == False:
+                    variables.numnoches = variables.lblnoches.get_text()
+                    registro = (variables.codreserva, sdni, sapel, shabitacion, schkout)
+                    facturacion.cargar_datos(registro)
         except:
             print('Error carga reservas')
 
