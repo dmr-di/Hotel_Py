@@ -86,3 +86,12 @@ def selecregistro(nhab):
     except:
         print("Error en el numero de registro")
 
+def habocupada(nhab, libre):
+    try:
+        conexion.cur.execute('UPDATE habitaciones SET libre = ? WHERE numero = ?',
+                             (libre, nhab))
+        conexion.conex.commit()
+    except sqlite3.OperationalError as e:
+        print(e)
+        conexion.conex.rollback()
+

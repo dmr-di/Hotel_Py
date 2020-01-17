@@ -280,6 +280,8 @@ class Eventos():
             registro = (dni, apel, habitacion, chkin, chkout)
             if dni != '' and apel != '' and habitacion != '' and chkin != '' and chkout != '':
                 funcionesres.insertarres(registro)
+                funcionesres.habocupada(habitacion, "No")
+                funcioneshab.listadohab(variables.listhabitaciones)
                 funcionesres.listadores(variables.listreservas)
                 funcionesres.limpiarEntry(variables.filares)
                 variables.infores.set_text("Alta realizada correctamente")
@@ -295,6 +297,8 @@ class Eventos():
                 funcionesres.bajares(cod)
                 funcionesres.listadores(variables.listreservas)
                 funcionesres.limpiarEntry(variables.filares)
+                funcionesres.habocupada(variables.numhab, "Si")
+                funcioneshab.listadohab(variables.listhabitaciones)
                 variables.infores.set_text("Baja realizada correctamente")
             else:
                 print('falta numero')

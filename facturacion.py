@@ -13,7 +13,6 @@ def cargar_datos(registro):
 
 def mostrar_cargos(factura):
     variables.servicio[0].set_text("Noches")
-    print(variables.numnoches)
     variables.servicio[1].set_text(variables.numnoches)
     precio = cargar_precio(factura[4].get_text())
     variables.servicio[2].set_text(str(precio))
