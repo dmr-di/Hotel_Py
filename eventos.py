@@ -295,11 +295,13 @@ class Eventos():
     def on_btnBajares_clicked(self, widget):
         try:
             cod = variables.codreserva
+            model = variables.cbreshab.get_model()
+            nhab = model[variables.cbreshab.get_active_iter()][0]
             if cod != '':
                 funcionesres.bajares(cod)
                 funcionesres.listadores(variables.listreservas)
                 funcionesres.limpiarEntry(variables.filares)
-                funcionesres.habocupada(variables.numhab, "Si")
+                funcionesres.habocupada(nhab, "Si")
                 funcioneshab.listadohab(variables.listhabitaciones)
                 variables.infores.set_text("Baja realizada correctamente")
             else:
