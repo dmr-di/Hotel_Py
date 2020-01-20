@@ -32,6 +32,14 @@ def insertarcli(fila):
         print(e)
         conexion.conex.rollback()
 
+def importarcli(fila):
+    try:
+        conexion.cur.execute("INSERT OR IGNORE INTO clientes (dni, apel, nome, data) VALUES (?,?,?,?)", (str(fila[0]), str(fila[1]), str(fila[2]), str(fila[3])))
+        conexion.conex.commit()
+    except sqlite3.OperationalError as e:
+        print(e)
+        conexion.conex.rollback()
+
 #select para utilizar en las operaciones de datos
 def listar():
     try:

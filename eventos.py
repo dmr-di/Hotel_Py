@@ -4,6 +4,8 @@ from gi.repository import Gtk
 
 import conexion, variables, funcionescli, funcioneshab, funcionesres, facturacion, impresion
 import os, time, datetime, shutil
+import xlrd, xlwt
+from xlwt import *
 
 class Eventos():
 
@@ -449,6 +451,52 @@ class Eventos():
             variables.venfile.hide()
         except:
             print("Error backup")
+
+    def on_mbImportar_activate(self, widget):
+        document = xlrd.open_workbook("./datos/listadoclientes.xlsx")
+        clientes = document.sheet_by_index(0)
+        #Leemos el número de filas y columnas de la hoja de clientes
+        filas_clientes = clientes.nrows
+        columnas_clientes = clientes.ncols
+        for i in range (1, clientes.nrows):
+            fila = clientes.row_values(i)
+            for j in range(len(fila)):
+                if j == 3:
+                    serial = fila[j]
+                    seconds = (serial - 25569) * 86400.0
+                    fecha = datetime.datetime.utcfromtimestamp(seconds)
+                    fecha = fecha.strftime("%d/%m/%y")
+                    fila[j] = fecha
+            funcionescli.importarcli(fila)
+        funcionescli.listadocli(variables.listclientes)
+        variables.infocli.set_text("Importación realizada correctamente")
+
+    def on_mbExportar_activate(self, widget):
+        #Definicion de estilos
+        style0 = xlwt.easyxf("font: name Times New Roman, colour red, bold on")
+        #style1 = xlwt.easyxf("num_format_str='DD-MMM-YY'")
+        style1 = XFStyle()
+        style1.num_format_str = 'DD-MMM-YY'
+        #Creamos el fichero excel
+        wb = xlwt.Workbook()
+        #le añadimos una hoja llamada NuevoClientes que permite sobreescribir celdas
+        ws = wb.add_sheet("NuevoClientes", cell_overwrite_ok=True)
+        ws.write(0,0,"DNI",style0)
+        ws.write(0,1,"APELIDOS",style0)
+        ws.write(0, 2, "NOMBRE", style0)
+        ws.write(0, 3, "FECHA ALTA", style0)
+        #Aquí consultamos un listado de clientes de la base de datos
+        listado = funcionescli.listar()
+        #Aqui recorremos el listado e insertamos en la celda correspondiente
+        for registro in listado:
+            i = listado.index(registro)
+            for dato in registro:
+                j = registro.index(dato)
+                ws.write(i,j,dato,style1)
+        #Guardamos la hoja de cálculo
+        wb.save("./datos/ejemplo.xls")
+        variables.infocli.set_text("Exportación realizada correctamente")
+
 
     def on_mbAbrir_activate(self, widget):
         variables.venfile.connect('delete-event', lambda w, e: w.hide() or True)
