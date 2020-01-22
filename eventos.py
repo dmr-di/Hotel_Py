@@ -369,8 +369,7 @@ class Eventos():
                     registro = (variables.codreserva, sdni, sapel, shabitacion, schkout)
                     facturacion.cargar_datos(registro)
                 snome = facturacion.cargar_nombre(sdni)
-                today = datetime.date.today().strftime(formato_fecha)
-                variables.datosfactura = (variables.codreserva, today, sdni, shabitacion, sapel, snome)
+                variables.datosfactura = (variables.codreserva, schkout, sdni, shabitacion, sapel, snome)
         except:
             print('Error carga reservas')
 
