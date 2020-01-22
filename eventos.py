@@ -292,6 +292,13 @@ class Eventos():
         except:
             print("Error alta reservas")
 
+    def on_btnCout_clicked(self, widget):
+        #TODO
+        try:
+            pass
+        except:
+            print("Error en boton check-out")
+
     def on_btnBajares_clicked(self, widget):
         try:
             cod = variables.codreserva
@@ -361,6 +368,9 @@ class Eventos():
                     variables.numnoches = variables.lblnoches.get_text()
                     registro = (variables.codreserva, sdni, sapel, shabitacion, schkout)
                     facturacion.cargar_datos(registro)
+                snome = facturacion.cargar_nombre(sdni)
+                today = datetime.date.today().strftime(formato_fecha)
+                variables.datosfactura = (variables.codreserva, today, sdni, shabitacion, sapel, snome)
         except:
             print('Error carga reservas')
 
@@ -508,6 +518,6 @@ class Eventos():
 
     def on_btnImprimi_clicked(self, widget):
         try:
-            impresion.factura()
+            impresion.factura(variables.datosfactura)
         except:
             print("Error en módulo impresión")

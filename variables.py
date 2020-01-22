@@ -50,3 +50,4 @@ factura = ()
 servicio = ()
 numnoches = None
 modif = False
+datosfactura = ()
