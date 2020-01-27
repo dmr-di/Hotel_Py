@@ -6,6 +6,7 @@ import conexion, variables, funcionescli, funcioneshab, funcionesres, facturacio
 import os, time, datetime, shutil
 import xlrd, xlwt
 from xlwt import *
+from datetime import date
 
 class Eventos():
 
@@ -293,9 +294,15 @@ class Eventos():
             print("Error alta reservas")
 
     def on_btnCout_clicked(self, widget):
-        #TODO
         try:
-            pass
+            chkout = variables.filares[1].get_text()
+            today = date.today()
+            hoy = datetime.datetime.strftime(today, '%d/%m/%Y')
+            if hoy > chkout:
+                #TODO Puede facturar
+                print("Factura OK")
+            else:
+                variables.infores.set_text("La fecha no puede ser inferior a la de hoy")
         except:
             print("Error en boton check-out")
 
