@@ -51,3 +51,6 @@ servicio = ()
 numnoches = None
 modif = False
 datosfactura = ()
+datos_servicio = ()
+rgservicios = ()
+servicios_adicionales = ()

@@ -1,11 +1,14 @@
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import A4
-import os
+import os, shutil
 
 def basico():
     try:
         global bill
-        bill = canvas.Canvas("prueba.pdf", pagesize=A4)
+        bill = canvas.Canvas("Facturas/prueba.pdf", pagesize=A4)
+
+        bill.setTitle("Factura prueba")
+
         text1 = "Bienvenido a nuestro hotel"
         bill.drawString(240, 780, "HOTEL LITE")
         bill.drawImage("./img/hotel.png", 475, 680, width=64, height=64)
@@ -66,6 +69,6 @@ def factura(datosfactura):
         bill.showPage()
         bill.save()
         dir = os.getcwd()
-        os.system("/usr/bin/xdg-open " + dir + "/prueba.pdf")
+        os.system("/usr/bin/xdg-open " + dir + "/Facturas/prueba.pdf")
     except:
         print("Error en módulo factura")

@@ -1,5 +1,6 @@
 import gi
-gi.require_version('Gtk','3.0')
+
+gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
 
 import conexion, variables, funcionescli, funcioneshab, funcionesres, facturacion, impresion
@@ -8,9 +9,10 @@ import xlrd, xlwt
 from xlwt import *
 from datetime import date
 
+
 class Eventos():
 
-    #Eventos generales
+    # Eventos generales
 
     def salir(self):
         conexion.Conexion().cerrarbbdd()
@@ -30,8 +32,8 @@ class Eventos():
 
     def on_venFiledialog_selection_changed(self, widget):
         try:
-            #este coge toda la ruta
-            self.fichero =os.path.abspath(str(variables.venfile.get_filename()))
+            # este coge toda la ruta
+            self.fichero = os.path.abspath(str(variables.venfile.get_filename()))
             self.fichero_nom = os.path.basename(str(variables.venfile.get_filename()))
             variables.lblfile.set_text("Fichero: " + self.fichero_nom)
             self.nombre = str(self.fichero_nom)
@@ -51,8 +53,7 @@ class Eventos():
         except:
             print("Error restaurar bd")
 
-    #Eventos clientes
-
+    # Eventos clientes
 
     def on_btnAltacli_clicked(self, widget):
         try:
@@ -126,7 +127,7 @@ class Eventos():
         try:
             model, iter = variables.treeclientes.get_selection().get_selected()
             # model: es el modelo de la tabla de datos
-            #iter: es el número que identifica a la fila que hemos marcado
+            # iter: es el número que identifica a la fila que hemos marcado
             funcionescli.limpiarEntry(variables.filacli)
             funcionesres.limpiarLabel()
             variables.mensajerr.set_text("")
@@ -171,12 +172,12 @@ class Eventos():
                 # Importante hay que llamar a datetime 2 veces
                 variables.dia_entrada = datetime.datetime.strptime(variables.filares[0].get_text(), formato_fecha)
                 variables.dia_salida = datetime.datetime.strptime(variables.filares[1].get_text(), formato_fecha)
-                variables.lblnoches.set_text(str((variables.dia_salida-variables.dia_entrada).days))
+                variables.lblnoches.set_text(str((variables.dia_salida - variables.dia_entrada).days))
             variables.vencalendar.hide()
         except:
             print('Error al coger la fecha')
 
-    #Eventos Habitaciones
+    # Eventos Habitaciones
 
     def on_btnAltahab_clicked(self, widget):
         try:
@@ -254,7 +255,7 @@ class Eventos():
         except:
             print('error en boton modificar habitación')
 
-    #Eventos Reservas
+    # Eventos Reservas
 
     def on_btnCalendarin_clicked(self, widget):
         try:
@@ -263,7 +264,6 @@ class Eventos():
             variables.vencalendar.show()
         except:
             print("Error abrir calendario")
-
 
     def on_btnCalendarout_clicked(self, widget):
         try:
@@ -299,7 +299,7 @@ class Eventos():
             today = date.today()
             hoy = datetime.datetime.strftime(today, '%d/%m/%Y')
             if hoy > chkout:
-                #TODO Puede facturar
+                # TODO Puede facturar
                 print("Factura OK")
             else:
                 variables.infores.set_text("La fecha no puede ser inferior a la de hoy")
@@ -322,7 +322,6 @@ class Eventos():
                 print('falta numero')
         except:
             print('Error en boton baja reservas')
-
 
     def on_btnModifres_clicked(self, widget):
         try:
@@ -365,7 +364,7 @@ class Eventos():
                 variables.lbldnires.set_text(sdni)
                 variables.lblapelres.set_text(sapel)
                 nreg = funcionesres.selecregistro(shabitacion)
-                variables.cbreshab.set_active(nreg[0]-1)
+                variables.cbreshab.set_active(nreg[0] - 1)
                 variables.filares[0].set_text(schkin)
                 variables.filares[1].set_text(schkout)
                 dia_entrada = datetime.datetime.strptime(schkin, formato_fecha)
@@ -377,11 +376,27 @@ class Eventos():
                     facturacion.cargar_datos(registro)
                 snome = facturacion.cargar_nombre(sdni)
                 variables.datosfactura = (variables.codreserva, schkout, sdni, shabitacion, sapel, snome)
+                variables.datos_servicio[0].set_text(str(variables.codreserva))
+                variables.datos_servicio[1].set_text(str(shabitacion))
         except:
             print('Error carga reservas')
 
+    # Eventos Servicios
 
-    #Eventos comboBox
+    def on_rbOtro_toggled(self, widget):
+        try:
+            if (variables.rgservicios[2].get_active()):
+                for i in range(len(variables.servicios_adicionales)):
+                    variables.servicios_adicionales[i].set_visible(True)
+            else:
+                for i in range(len(variables.servicios_adicionales)):
+                    variables.servicios_adicionales[i].set_visible(False)
+        except:
+            print("Error en radiogroup servicios")
+
+
+
+    # Eventos comboBox
 
     def on_cbReshab_changed(self, widget):
         try:
@@ -392,11 +407,11 @@ class Eventos():
         except:
             print("Error al coger numero habitacion comboBox")
 
-    #Eventos Toolbar
+    # Eventos Toolbar
 
     def on_btnClitool_clicked(self, widget):
         try:
-            #Este método devuelve un entero con la posición del panel
+            # Este método devuelve un entero con la posición del panel
             panelactual = variables.panel.get_current_page()
             if panelactual != 0:
                 variables.panel.set_current_page(0)
@@ -435,14 +450,13 @@ class Eventos():
         except:
             print("Error boton limpiar toolbar")
 
-
     def on_btnCalc_clicked(self, widget):
         try:
             os.system("gnome-calculator")
         except:
             print("Error en boton calculadora")
 
-    #Eventos MenuBar
+    # Eventos MenuBar
 
     def on_mbSalir_activate(self, widget):
         self.salir()
@@ -473,10 +487,10 @@ class Eventos():
     def on_mbImportar_activate(self, widget):
         document = xlrd.open_workbook("./datos/listadoclientes.xlsx")
         clientes = document.sheet_by_index(0)
-        #Leemos el número de filas y columnas de la hoja de clientes
+        # Leemos el número de filas y columnas de la hoja de clientes
         filas_clientes = clientes.nrows
         columnas_clientes = clientes.ncols
-        for i in range (1, clientes.nrows):
+        for i in range(1, clientes.nrows):
             fila = clientes.row_values(i)
             for j in range(len(fila)):
                 if j == 3:
@@ -490,37 +504,36 @@ class Eventos():
         variables.infocli.set_text("Importación realizada correctamente")
 
     def on_mbExportar_activate(self, widget):
-        #Definicion de estilos
+        # Definicion de estilos
         style0 = xlwt.easyxf("font: name Times New Roman, colour red, bold on")
-        #style1 = xlwt.easyxf("num_format_str='DD-MMM-YY'")
+        # style1 = xlwt.easyxf("num_format_str='DD-MMM-YY'")
         style1 = XFStyle()
         style1.num_format_str = 'DD-MMM-YY'
-        #Creamos el fichero excel
+        # Creamos el fichero excel
         wb = xlwt.Workbook()
-        #le añadimos una hoja llamada NuevoClientes que permite sobreescribir celdas
+        # le añadimos una hoja llamada NuevoClientes que permite sobreescribir celdas
         ws = wb.add_sheet("NuevoClientes", cell_overwrite_ok=True)
-        ws.write(0,0,"DNI",style0)
-        ws.write(0,1,"APELIDOS",style0)
+        ws.write(0, 0, "DNI", style0)
+        ws.write(0, 1, "APELIDOS", style0)
         ws.write(0, 2, "NOMBRE", style0)
         ws.write(0, 3, "FECHA ALTA", style0)
-        #Aquí consultamos un listado de clientes de la base de datos
+        # Aquí consultamos un listado de clientes de la base de datos
         listado = funcionescli.listar()
-        #Aqui recorremos el listado e insertamos en la celda correspondiente
+        # Aqui recorremos el listado e insertamos en la celda correspondiente
         for registro in listado:
             i = listado.index(registro)
             for dato in registro:
                 j = registro.index(dato)
-                ws.write(i,j,dato,style1)
-        #Guardamos la hoja de cálculo
+                ws.write(i, j, dato, style1)
+        # Guardamos la hoja de cálculo
         wb.save("./datos/ejemplo.xls")
         variables.infocli.set_text("Exportación realizada correctamente")
-
 
     def on_mbAbrir_activate(self, widget):
         variables.venfile.connect('delete-event', lambda w, e: w.hide() or True)
         variables.venfile.show()
 
-    #Eventos impresion
+    # Eventos impresion
 
     def on_btnImprimi_clicked(self, widget):
         try:

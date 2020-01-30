@@ -1,5 +1,6 @@
 # Project exclude paths
 /venv/
-./nis.txt
-./Backups
-./datos
+nis.txt
+Backups/
+/datos
+Facturas/
