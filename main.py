@@ -80,6 +80,8 @@ class Empresa:
         self.entdesayuno = self.b.get_object('entPrecioDes')
         self.entcomida = self.b.get_object('entPrecioCom')
         self.entparking = self.b.get_object('entPrecioPar')
+        self.entser = self.b.get_object('entTipoSer')
+        self.entserprecio = self.b.get_object('entPrecioSer')
         variables.lblfile = self.b.get_object('lblFile')
         variables.filacli = (self.entdni, self.entapel, self.entnome, self.entdatacli)
         variables.listclientes = self.b.get_object('listClientes')
@@ -87,6 +89,8 @@ class Empresa:
         variables.filahab = (self.entnumero, self.entprecio)
         variables.listhabitaciones = self.b.get_object('listHabitaciones')
         variables.treehabitaciones = self.b.get_object('treeHabitaciones')
+        variables.listservicios = self.b.get_object('listServicios')
+        variables.treeservicios = self.b.get_object('treeServicios')
         variables.filares = (self.entchkin, self.entchkout)
         variables.listreshab = self.b.get_object('listReshab')
         variables.listreservas = self.b.get_object('listReservas')
@@ -108,6 +112,7 @@ class Empresa:
         variables.lblnoches = self.b.get_object('lblNoches')
         variables.cbreshab = self.b.get_object('cbReshab')
         variables.switch = self.b.get_object('swLibre')
+        variables.cbparking = self.b.get_object('cbParking')
         variables.factura = (self.numfac, self.lbldnifac, self.lblapelfac, self.lblnomeclifac,
                              self.lblnumhabfac, self.lbltipohabfac, self.lbldatafac)
         variables.servicio = (self.lblconcepto1, self.lblunidades1, self.lblprecio1, self.lbltotal1)
@@ -119,6 +124,7 @@ class Empresa:
         variables.rgservicios = (self.rbdesayuno, self.rbcomida, self.rbotro)
         variables.servicios_adicionales = (self.sptservicios, self.lblservicios, self.boxservicios)
         variables.precios = (self.entdesayuno, self.entcomida, self.entparking)
+        variables.entser_adicionales = (self.entser, self.entserprecio)
 
         # Aplicamos los estilos
         self.set_styles()

@@ -380,6 +380,10 @@ class Eventos():
                 variables.datosfactura = (variables.codreserva, schkout, sdni, shabitacion, sapel, snome)
                 variables.datos_servicio[0].set_text(str(variables.codreserva))
                 variables.datos_servicio[1].set_text(str(shabitacion))
+
+                # Cargo el treeServicios
+                variables.reserva_seleccionada = model.get_value(iter, 0)
+                funcionesser.listadoser(variables.listservicios)
         except:
             print('Error carga reservas')
 
@@ -396,10 +400,32 @@ class Eventos():
         except:
             print("Error en radiogroup servicios")
 
-    def on_btnAltaSerAdic_clicked(self, widget):
+    def on_btnAltaSer_clicked(self, widget):
         try:
-            pass
-            #TODO
+            precios = funcionesser.cargar_precios()
+            codres = variables.datos_servicio[0].get_text()
+            if variables.rgservicios[0].get_active():
+                concepto = "Desayuno"
+                precio = precios[0][0]
+            elif variables.rgservicios[1].get_active():
+                concepto = "Comida"
+                precio = precios[0][1]
+            elif variables.rgservicios[2].get_active():
+                concepto = variables.entser_adicionales[0].get_text()
+                precio = variables.entser_adicionales[1].get_text()
+            precio = float(precio.replace(',', '.'))
+            precio = round(precio, 2)
+            registro = (codres, str(concepto), precio)
+            #Guardo el servicio en la bd
+            funcionesser.insertarser(registro)
+            if variables.cbparking.get_active():
+                concepto = "Parking"
+                precio = precios[0][2]
+                precio = float(precio.replace(',', '.'))
+                precio = round(precio, 2)
+                registro = (codres, str(concepto), precio)
+                funcionesser.insertarser(registro)
+            funcionesser.listadoser(variables.listservicios)
         except:
             print("Error alta servicio")
 
@@ -549,7 +575,12 @@ class Eventos():
 
     def on_btnGuardarPrecio_clicked(self, widget):
         funcionesser.guardar_precio(variables.precios)
+        variables.precios[0].set_text("")
+        variables.precios[1].set_text("")
+        variables.precios[2].set_text("")
 
+    def on_btnCerrarPrecio_clicked(self, widget):
+        variables.venprecios.hide()
 
     # Eventos impresion
 

@@ -31,7 +31,7 @@ def seleccionSwitch():
 
 def insertarhab(fila):
     try:
-        conexion.cur.execute("INSERT INTO habitaciones (numero, tipo, precio, tipo) VALUES (?,?,?,?)", fila)
+        conexion.cur.execute("INSERT INTO habitaciones (numero, tipo, precio, libre) VALUES (?,?,?,?)", fila)
         conexion.conex.commit()
     except sqlite3.OperationalError as e:
         print(e)
