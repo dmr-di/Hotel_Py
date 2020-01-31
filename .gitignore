@@ -2,5 +2,5 @@
 /venv/
 nis.txt
 Backups/
-/datos
-Facturas/
+Facturas/*
+!Facturas/.gitkeep

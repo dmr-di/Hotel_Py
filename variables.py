@@ -54,3 +54,6 @@ datosfactura = ()
 datos_servicio = ()
 rgservicios = ()
 servicios_adicionales = ()
+grid_factura = ()
+venprecios = None
+precios = ()

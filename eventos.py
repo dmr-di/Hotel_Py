@@ -1,5 +1,7 @@
 import gi
 
+import funcionesser
+
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
 
@@ -394,7 +396,12 @@ class Eventos():
         except:
             print("Error en radiogroup servicios")
 
-
+    def on_btnAltaSerAdic_clicked(self, widget):
+        try:
+            pass
+            #TODO
+        except:
+            print("Error alta servicio")
 
     # Eventos comboBox
 
@@ -532,6 +539,17 @@ class Eventos():
     def on_mbAbrir_activate(self, widget):
         variables.venfile.connect('delete-event', lambda w, e: w.hide() or True)
         variables.venfile.show()
+
+    def on_mbPrecios_activate(self, widget):
+        variables.venprecios.connect('delete-event', lambda w, e: w.hide() or True)
+        variables.venprecios.show()
+        funcionesser.listar_precios()
+
+    # Eventos Gestión Precios
+
+    def on_btnGuardarPrecio_clicked(self, widget):
+        funcionesser.guardar_precio(variables.precios)
+
 
     # Eventos impresion
 

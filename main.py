@@ -23,6 +23,7 @@ class Empresa:
         self.venacercade = self.b.get_object('venAcercade')
         self.venfile = self.b.get_object('venFiledialog')
         self.calendar = self.b.get_object('Calendar')
+        self.vprecios = self.b.get_object('venPrecios')
         variables.panel = self.b.get_object('Panel')
         self.estilopanel = variables.panel.get_style_context()
         self.menubar = self.b.get_object('MenuBar').get_style_context()
@@ -52,6 +53,22 @@ class Empresa:
         self.lblunidades1 = self.b.get_object('lblUnidades1')
         self.lblprecio1 = self.b.get_object('lblPrecio1')
         self.lbltotal1 = self.b.get_object('lblTotal1')
+        self.lblconcepto2 = self.b.get_object('lblConcepto2')
+        self.lblunidades2 = self.b.get_object('lblUnidades2')
+        self.lblprecio2 = self.b.get_object('lblPrecio2')
+        self.lbltotal2 = self.b.get_object('lblTotal2')
+        self.lblconcepto3 = self.b.get_object('lblConcepto3')
+        self.lblunidades3 = self.b.get_object('lblUnidades3')
+        self.lblprecio3 = self.b.get_object('lblPrecio3')
+        self.lbltotal3 = self.b.get_object('lblTotal3')
+        self.lblconcepto4 = self.b.get_object('lblConcepto4')
+        self.lblunidades4 = self.b.get_object('lblUnidades4')
+        self.lblprecio4 = self.b.get_object('lblPrecio4')
+        self.lbltotal4 = self.b.get_object('lblTotal4')
+        self.lblconcepto5 = self.b.get_object('lblConcepto5')
+        self.lblunidades5 = self.b.get_object('lblUnidades5')
+        self.lblprecio5 = self.b.get_object('lblPrecio5')
+        self.lbltotal5 = self.b.get_object('lblTotal5')
         self.lblcodresser = self.b.get_object('lblCodResSer')
         self.lblnumhabser = self.b.get_object('lblNHabSer')
         self.rbdesayuno = self.b.get_object('rbDesayuno')
@@ -60,6 +77,9 @@ class Empresa:
         self.sptservicios = self.b.get_object('sptServicios')
         self.lblservicios = self.b.get_object('lblServicios')
         self.boxservicios = self.b.get_object('boxServicios')
+        self.entdesayuno = self.b.get_object('entPrecioDes')
+        self.entcomida = self.b.get_object('entPrecioCom')
+        self.entparking = self.b.get_object('entPrecioPar')
         variables.lblfile = self.b.get_object('lblFile')
         variables.filacli = (self.entdni, self.entapel, self.entnome, self.entdatacli)
         variables.listclientes = self.b.get_object('listClientes')
@@ -80,6 +100,7 @@ class Empresa:
         variables.fecha = self.b.get_object('lblFecha')
         variables.vencalendar = self.vencalendar
         variables.venacercade = self.venacercade
+        variables.venprecios = self.vprecios
         variables.calendar = self.calendar
         variables.venfile = self.venfile
         variables.lbldnires = self.b.get_object('lblDnires')
@@ -90,9 +111,14 @@ class Empresa:
         variables.factura = (self.numfac, self.lbldnifac, self.lblapelfac, self.lblnomeclifac,
                              self.lblnumhabfac, self.lbltipohabfac, self.lbldatafac)
         variables.servicio = (self.lblconcepto1, self.lblunidades1, self.lblprecio1, self.lbltotal1)
+        variables.grid_factura = ((self.lblconcepto2, self.lblunidades2, self.lblprecio2, self.lbltotal2),
+                                  (self.lblconcepto3, self.lblunidades3, self.lblprecio3, self.lbltotal3),
+                                  (self.lblconcepto4, self.lblunidades4, self.lblprecio4, self.lbltotal4),
+                                  (self.lblconcepto5, self.lblunidades5, self.lblprecio5, self.lbltotal5))
         variables.datos_servicio = (self.lblcodresser, self.lblnumhabser)
         variables.rgservicios = (self.rbdesayuno, self.rbcomida, self.rbotro)
         variables.servicios_adicionales = (self.sptservicios, self.lblservicios, self.boxservicios)
+        variables.precios = (self.entdesayuno, self.entcomida, self.entparking)
 
         # Aplicamos los estilos
         self.set_styles()
