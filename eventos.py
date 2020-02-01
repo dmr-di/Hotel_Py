@@ -426,8 +426,26 @@ class Eventos():
                 registro = (codres, str(concepto), precio)
                 funcionesser.insertarser(registro)
             funcionesser.listadoser(variables.listservicios)
+            funcionesser.limpiar()
         except:
             print("Error alta servicio")
+
+    def on_btnBajaSer_clicked(self, widget):
+        try:
+            codres = variables.datos_servicio[0].get_text()
+            registro = (variables.codser, codres)
+            funcionesser.bajaser(registro)
+            funcionesser.listadoser(variables.listservicios)
+        except:
+            print("Error baja servicio")
+
+    def on_treeServicios_cursor_changed(self, widget):
+        try:
+            model, iter = variables.treeservicios.get_selection().get_selected()
+            if iter != None:
+                variables.codser = model.get_value(iter,0)
+        except:
+            print("Error carga servicios")
 
     # Eventos comboBox
 

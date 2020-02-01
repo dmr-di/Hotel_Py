@@ -1877,11 +1877,12 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkButton" id="btnBajaSerAdic">
+                      <object class="GtkButton" id="btnBajaSer">
                         <property name="label" translatable="yes">Baja</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
+                        <signal name="clicked" handler="on_btnBajaSer_clicked" swapped="no"/>
                       </object>
                       <packing>
                         <property name="expand">True</property>
@@ -1907,6 +1908,7 @@
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="model">listServicios</property>
+                        <signal name="cursor-changed" handler="on_treeServicios_cursor_changed" swapped="no"/>
                         <child internal-child="selection">
                           <object class="GtkTreeSelection"/>
                         </child>

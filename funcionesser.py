@@ -2,6 +2,12 @@ import sqlite3
 
 import variables, conexion
 
+def limpiar():
+    variables.rgservicios[0].set_active(True)
+    variables.cbparking.set_active(False)
+    for i in range(len(variables.entser_adicionales)):
+        variables.entser_adicionales[i].set_text("")
+
 def cargar_precios():
     try:
         conexion.cur.execute('SELECT * FROM precios')
@@ -57,6 +63,14 @@ def listadoser(listservicios):
 def insertarser(fila):
     try:
         conexion.cur.execute("INSERT INTO servicios (codres, tipo, precio) VALUES (?,?,?)", fila)
+        conexion.conex.commit()
+    except sqlite3.OperationalError as e:
+        print(e)
+        conexion.conex.rollback()
+
+def bajaser(fila):
+    try:
+        conexion.cur.execute('DELETE FROM servicios WHERE codser = ? and codres = ?', fila)
         conexion.conex.commit()
     except sqlite3.OperationalError as e:
         print(e)
