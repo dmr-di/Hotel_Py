@@ -301,7 +301,6 @@ class Eventos():
             today = date.today()
             hoy = datetime.datetime.strftime(today, '%d/%m/%Y')
             if hoy > chkout:
-                # TODO Puede facturar
                 print("Factura OK")
             else:
                 variables.infores.set_text("La fecha no puede ser inferior a la de hoy")
@@ -384,6 +383,9 @@ class Eventos():
                 # Cargo el treeServicios
                 variables.reserva_seleccionada = model.get_value(iter, 0)
                 funcionesser.listadoser(variables.listservicios)
+
+                # Cargo la factura
+                funcionesser.cargar_factura()
         except:
             print('Error carga reservas')
 
@@ -426,6 +428,7 @@ class Eventos():
                 registro = (codres, str(concepto), precio)
                 funcionesser.insertarser(registro)
             funcionesser.listadoser(variables.listservicios)
+            funcionesser.cargar_factura()
             funcionesser.limpiar()
         except:
             print("Error alta servicio")
@@ -436,6 +439,7 @@ class Eventos():
             registro = (variables.codser, codres)
             funcionesser.bajaser(registro)
             funcionesser.listadoser(variables.listservicios)
+            funcionesser.cargar_factura()
         except:
             print("Error baja servicio")
 

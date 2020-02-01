@@ -2,6 +2,9 @@ from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import A4
 import os, shutil
 
+import variables
+
+
 def basico():
     try:
         global bill
@@ -66,9 +69,87 @@ def factura(datosfactura):
         bill.setFont('Helvetica', size=10)
         bill.drawString(350, 675, str(datosfactura[5]))
 
+        servicios()
+
         bill.showPage()
         bill.save()
         dir = os.getcwd()
         os.system("/usr/bin/xdg-open " + dir + "/Facturas/prueba.pdf")
     except:
         print("Error en módulo factura")
+
+def servicios():
+    try:
+        CONCEPTO = 0
+        UNIDADES = 1
+        PRECIO = 2
+        TOTAL = 3
+
+        # Concepto
+        bill.setFont('Helvetica-Bold', size=10)
+        concepto = 'CONCEPTO'
+        x_conc = 50
+        y_conc = 645
+        bill.drawString(x_conc, y_conc, concepto)
+        bill.setFont('Helvetica', size=10)
+        y_conc -= 20
+        bill.drawString(x_conc, y_conc, str(variables.servicio[CONCEPTO].get_text()))
+        bill.setFont('Helvetica', size=10)
+        for i in range(len(variables.grid_factura)):
+            y_conc -= 20
+            if variables.grid_factura[i][CONCEPTO].get_text() != "":
+                bill.drawString(x_conc, y_conc, str(variables.grid_factura[i][CONCEPTO].get_text()))
+                bill.setFont('Helvetica', size=10)
+
+        # Unidades
+        bill.setFont('Helvetica-Bold', size=10)
+        unidad = 'UNIDADES'
+        x_uni = 200
+        y_uni = 645
+        bill.drawString(x_uni, y_uni, unidad)
+        bill.setFont('Helvetica', size=10)
+        x_uni += 25
+        y_uni -= 20
+        bill.drawString(x_uni, y_uni, str(variables.servicio[UNIDADES].get_text()))
+        bill.setFont('Helvetica', size=10)
+        for i in range(len(variables.grid_factura)):
+            y_uni -= 20
+            if variables.grid_factura[i][UNIDADES].get_text() != "":
+                bill.drawString(x_uni, y_uni, str(int(float(variables.grid_factura[i][UNIDADES].get_text()))))
+                bill.setFont('Helvetica', size=10)
+
+        # Precio
+        bill.setFont('Helvetica-Bold', size=10)
+        precio = 'PRECIO UNIDAD'
+        x_prec = 325
+        y_prec = 645
+        bill.drawString(x_prec, y_prec, precio)
+        bill.setFont('Helvetica', size=10)
+        x_prec += 30
+        y_prec -= 20
+        bill.drawString(x_prec, y_prec, str(variables.servicio[PRECIO].get_text()))
+        bill.setFont('Helvetica', size=10)
+        for i in range(len(variables.grid_factura)):
+            y_prec -= 20
+            if variables.grid_factura[i][PRECIO].get_text() != "":
+                bill.drawString(x_prec, y_prec, str(variables.grid_factura[i][PRECIO].get_text()))
+                bill.setFont('Helvetica', size=10)
+
+        # Total
+        bill.setFont('Helvetica-Bold', size=10)
+        total = 'TOTAL'
+        x_total = 500
+        y_total = 645
+        bill.drawString(x_total, y_total, total)
+        bill.setFont('Helvetica', size=10)
+        y_total -= 20
+        bill.drawString(x_total, y_total, str(variables.servicio[TOTAL].get_text()))
+        bill.setFont('Helvetica', size=10)
+        for i in range(len(variables.grid_factura)):
+            y_total -= 20
+            if variables.grid_factura[i][TOTAL].get_text() != "":
+                bill.drawString(x_total, y_total, str(variables.grid_factura[i][TOTAL].get_text()))
+                bill.setFont('Helvetica', size=10)
+
+    except:
+        print("Error cargando servicios")

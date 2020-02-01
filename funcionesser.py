@@ -75,3 +75,27 @@ def bajaser(fila):
     except sqlite3.OperationalError as e:
         print(e)
         conexion.conex.rollback()
+
+def limpiar_factura():
+    for i in range(len(variables.grid_factura)):
+        for j in range(len(variables.grid_factura[i])):
+            variables.grid_factura[i][j].set_text("")
+
+def cargar_factura():
+    limpiar_factura()
+    registro = listar()
+    unidad = float(variables.servicio[1].get_text())
+    for i in range(len(registro)):
+        concepto = registro[i][1]
+        precio = registro[i][2]
+        variables.grid_factura[i][0].set_text(concepto)
+        if (concepto == 'Desayuno' or concepto == 'Comida' or concepto == 'Parking'):
+            total = unidad * precio
+            variables.grid_factura[i][1].set_text(str(unidad))
+            variables.grid_factura[i][2].set_text(str(precio))
+            variables.grid_factura[i][3].set_text(str(total))
+        else:
+            total = precio
+            variables.grid_factura[i][1].set_text(str(1))
+            variables.grid_factura[i][2].set_text(str(precio))
+            variables.grid_factura[i][3].set_text(str(total))

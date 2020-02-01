@@ -2002,6 +2002,7 @@
                 <attributes>
                   <attribute name="font-desc" value="Sans 12"/>
                   <attribute name="weight" value="bold"/>
+                  <attribute name="foreground" value="#2e2e34343636"/>
                 </attributes>
               </object>
               <packing>
