@@ -87,6 +87,11 @@ def servicios():
         PRECIO = 2
         TOTAL = 3
 
+        #Rectangulo
+        bill.setFillColorRGB(1, 0.49, 0)
+        bill.rect(40, 658, 500, -20, fill=True)
+        bill.setFillColorRGB(0, 0, 0)
+
         # Concepto
         bill.setFont('Helvetica-Bold', size=10)
         concepto = 'CONCEPTO'
@@ -152,6 +157,15 @@ def servicios():
             if variables.grid_factura[i][TOTAL].get_text() != "":
                 bill.drawString(x_total, y_total, str(variables.grid_factura[i][TOTAL].get_text()))
                 bill.setFont('Helvetica', size=10)
+
+        # Separadores
+        bill.setStrokeColorRGB(1, 0.49, 0)
+        y_line = 620
+        for i in range(len(variables.grid_factura)):
+            if variables.grid_factura[i][0].get_text() != "":
+                bill.line(40, y_line, 540, y_line)
+                y_line -= 20
+        bill.setStrokeColorRGB(0, 0, 0)
 
     except:
         print("Error cargando servicios")
