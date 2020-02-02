@@ -1,6 +1,6 @@
 import sqlite3
 
-import variables, conexion
+import variables, conexion, facturacion
 
 def limpiar():
     variables.rgservicios[0].set_active(True)
@@ -99,3 +99,4 @@ def cargar_factura():
             variables.grid_factura[i][1].set_text(str(1))
             variables.grid_factura[i][2].set_text(str(precio))
             variables.grid_factura[i][3].set_text(str(total))
+    facturacion.calcular_total()

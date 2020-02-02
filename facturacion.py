@@ -1,6 +1,9 @@
 import conexion, variables
 import sqlite3
 
+import funcionesser
+
+
 def cargar_datos(registro):
     variables.factura[0].set_text(str(registro[0]))
     variables.factura[1].set_text(str(registro[1]))
@@ -48,6 +51,27 @@ def cargar_tipo(nhab):
     except sqlite3.OperationalError as e:
         print(e)
         conexion.conex.rollback()
+
+def calcular_total():
+    try:
+        subtotal = 0
+        iva = 0
+        subtotal = subtotal + float(variables.servicio[3].get_text())
+        iva = iva + (float(variables.servicio[3].get_text())*0.1)
+        for i in range(len(variables.grid_factura)):
+            if variables.grid_factura[i][0].get_text() != '':
+                concepto = variables.grid_factura[i][0].get_text()
+                precio = float(variables.grid_factura[i][3].get_text())
+                subtotal = subtotal + float(precio)
+                if (concepto == 'Desayuno' or concepto == 'Comida' or concepto == 'Parking'):
+                    iva = iva + (float(precio)*0.1)
+                else:
+                    iva = iva + (float(precio)*0.21)
+        variables.factura_total[0].set_text(str(round(subtotal, 2)) + "€")
+        variables.factura_total[1].set_text(str(round(iva, 2)) + "€")
+        variables.factura_total[2].set_text(str(round(subtotal+iva, 2)) + "€")
+    except:
+        print("Error calculando el total")
 
 def limpiarFactura(factura):
     try:

@@ -71,6 +71,8 @@ def factura(datosfactura):
 
         servicios()
 
+        total()
+
         bill.showPage()
         bill.save()
         dir = os.getcwd()
@@ -153,3 +155,29 @@ def servicios():
 
     except:
         print("Error cargando servicios")
+
+def total():
+    try:
+        # Subtotal
+        bill.setFont('Helvetica-Bold', size=12)
+        subtotal = 'Subtotal:'
+        bill.drawString(420, 90, subtotal)
+        bill.setFont('Helvetica', size=10)
+        bill.drawString(490, 90, variables.factura_total[0].get_text())
+
+        # IVA
+        bill.setFont('Helvetica-Bold', size=12)
+        iva = 'IVA:'
+        bill.drawString(420, 70, iva)
+        bill.setFont('Helvetica', size=10)
+        bill.drawString(490, 70, variables.factura_total[1].get_text())
+
+        # Total
+        bill.setFont('Helvetica-Bold', size=12)
+        total = 'Total:'
+        bill.drawString(420, 50, total)
+        bill.setFont('Helvetica', size=10)
+        bill.drawString(490, 50, variables.factura_total[2].get_text())
+
+    except:
+        print("Error cargando total")

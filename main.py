@@ -82,6 +82,9 @@ class Empresa:
         self.entparking = self.b.get_object('entPrecioPar')
         self.entser = self.b.get_object('entTipoSer')
         self.entserprecio = self.b.get_object('entPrecioSer')
+        self.lblsubtotal = self.b.get_object('lblSubtotal')
+        self.lbliva = self.b.get_object('lblIva')
+        self.lbltotal = self.b.get_object('lblTotal')
         variables.lblfile = self.b.get_object('lblFile')
         variables.filacli = (self.entdni, self.entapel, self.entnome, self.entdatacli)
         variables.listclientes = self.b.get_object('listClientes')
@@ -125,6 +128,7 @@ class Empresa:
         variables.servicios_adicionales = (self.sptservicios, self.lblservicios, self.boxservicios)
         variables.precios = (self.entdesayuno, self.entcomida, self.entparking)
         variables.entser_adicionales = (self.entser, self.entserprecio)
+        variables.factura_total = (self.lblsubtotal, self.lbliva, self.lbltotal)
 
         # Aplicamos los estilos
         self.set_styles()
