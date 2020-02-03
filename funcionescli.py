@@ -1,7 +1,14 @@
-'''
-Aqui vendran todas las funciones que afectan a la gestión de los clientes
-Limpiarentry vaciará el contenido de los entry
-'''
+""" Módulo que gestiona los clientes
+
+Este módulo contiene las funciones siguientes
+* limpiarentry
+    - :fila: contiene un listado de widgets de cliente que vamos a limpiar tras ejecutar un evento
+    return: no devuelve nada
+* comprobarDNI
+    - :fila: contiene un dni recibido a través de un entry
+    return: devuelve un booleano tras comprobar si el dni es válido
+
+"""
 
 import conexion, variables
 import sqlite3

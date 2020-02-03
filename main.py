@@ -24,6 +24,8 @@ class Empresa:
         self.venfile = self.b.get_object('venFiledialog')
         self.calendar = self.b.get_object('Calendar')
         self.vprecios = self.b.get_object('venPrecios')
+        self.vensalir = self.b.get_object('venSalir')
+        variables.vensalir = self.vensalir
         variables.panel = self.b.get_object('Panel')
         self.estilopanel = variables.panel.get_style_context()
         self.menubar = self.b.get_object('MenuBar').get_style_context()

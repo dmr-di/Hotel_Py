@@ -65,3 +65,4 @@ cbparking = None
 entser_adicionales = ()
 codser = None
 factura_total = ()
+vensalir = None

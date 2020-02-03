@@ -23,9 +23,6 @@ class Eventos():
     def on_venPrincipal_destroy(self, widget):
         self.salir()
 
-    def on_btnSalirtool_clicked(self, widget):
-        self.salir()
-
     def on_btnSaliracercade_clicked(self, widget):
         variables.venacercade.hide()
 
@@ -54,6 +51,16 @@ class Eventos():
             variables.venfile.hide()
         except:
             print("Error restaurar bd")
+
+    # Eventos ventana salir
+    def on_venSalir_destroy(self, widget):
+        variables.vensalir.hide()
+
+    def on_btnAceptar_clicked(self, widget):
+        self.salir()
+
+    def on_btnCancelar_clicked(self, widget):
+        variables.vensalir.hide()
 
     # Eventos clientes
 
@@ -502,6 +509,8 @@ class Eventos():
             funcionesres.limpiarEntry(variables.filares)
             funcionesres.limpiarLabel()
             facturacion.limpiarFactura(variables.factura)
+            funcionesser.limpiar()
+            funcionesser.limpiar_factura()
         except:
             print("Error boton limpiar toolbar")
 
@@ -511,10 +520,21 @@ class Eventos():
         except:
             print("Error en boton calculadora")
 
+    def on_btnImprimir_clicked(self, widget):
+        try:
+            impresion.factura(variables.datosfactura)
+        except:
+            print("Error en módulo impresión")
+
+    def on_btnSalirtool_clicked(self, widget):
+        variables.vensalir.connect('delete-event', lambda w, e: w.hide() or True)
+        variables.vensalir.show()
+
     # Eventos MenuBar
 
     def on_mbSalir_activate(self, widget):
-        self.salir()
+        variables.vensalir.connect('delete-event', lambda w, e: w.hide() or True)
+        variables.vensalir.show()
 
     def on_mbAcercade_activate(self, widget):
         variables.venacercade.connect('delete-event', lambda w, e: w.hide() or True)

@@ -75,12 +75,11 @@ def calcular_total():
 
 def limpiarFactura(factura):
     try:
-        factura[0].set_text("")
-        factura[1].set_text("")
-        factura[2].set_text("")
-        factura[3].set_text("")
-        factura[4].set_text("")
-        factura[5].set_text("")
-        factura[6].set_text("")
+        for i in range(len(factura)):
+            factura[i].set_text("")
+        for i in range(len(variables.servicio)):
+            variables.servicio[i].set_text("")
+        for i in range(len(variables.factura_total)):
+            variables.factura_total[i].set_text("")
     except:
         print("error limpiando factura")
