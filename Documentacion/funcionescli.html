@@ -1,0 +1,61 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module funcionescli</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>funcionescli</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/administrador/PycharmProjects/Empresa/funcionescli.py">/home/administrador/PycharmProjects/Empresa/funcionescli.py</a></font></td></tr></table>
+    <p><tt>Módulo&nbsp;que&nbsp;gestiona&nbsp;los&nbsp;clientes.<br>
+&nbsp;<br>
+Este&nbsp;módulo&nbsp;contiene&nbsp;las&nbsp;funciones&nbsp;siguientes:</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="conexion.html">conexion</a><br>
+</td><td width="25%" valign=top><a href="sqlite3.html">sqlite3</a><br>
+</td><td width="25%" valign=top><a href="variables.html">variables</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-bajacli"><strong>bajacli</strong></a>(dni)</dt><dd><tt>Borra&nbsp;los&nbsp;datos&nbsp;de&nbsp;un&nbsp;cliente&nbsp;en&nbsp;la&nbsp;base&nbsp;de&nbsp;datos.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:param&nbsp;dni:&nbsp;Contiene&nbsp;el&nbsp;dni&nbsp;del&nbsp;cliente&nbsp;que&nbsp;se&nbsp;quiere&nbsp;borrar.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:return:&nbsp;No&nbsp;retorna&nbsp;nada.</tt></dd></dl>
+ <dl><dt><a name="-comprobarDni"><strong>comprobarDni</strong></a>(dni)</dt><dd><tt>Comprueba&nbsp;si&nbsp;el&nbsp;dni&nbsp;introducido&nbsp;es&nbsp;correcto.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:param&nbsp;dni:&nbsp;Contiene&nbsp;un&nbsp;dni&nbsp;recibido&nbsp;a&nbsp;través&nbsp;de&nbsp;un&nbsp;entry.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:return:&nbsp;Retorna&nbsp;un&nbsp;booleano&nbsp;tras&nbsp;comprobar&nbsp;si&nbsp;el&nbsp;dni&nbsp;es&nbsp;válido.</tt></dd></dl>
+ <dl><dt><a name="-importarcli"><strong>importarcli</strong></a>(fila)</dt><dd><tt>Importa&nbsp;los&nbsp;datos&nbsp;de&nbsp;varios&nbsp;clientes&nbsp;desde&nbsp;un&nbsp;archivo&nbsp;.csv.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:param&nbsp;fila:&nbsp;Listado&nbsp;que&nbsp;contiene&nbsp;los&nbsp;datos&nbsp;de&nbsp;los&nbsp;clientes.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:return:&nbsp;No&nbsp;retorna&nbsp;nada.</tt></dd></dl>
+ <dl><dt><a name="-insertarcli"><strong>insertarcli</strong></a>(fila)</dt><dd><tt>Inserta&nbsp;los&nbsp;datos&nbsp;de&nbsp;un&nbsp;cliente&nbsp;en&nbsp;la&nbsp;base&nbsp;de&nbsp;datos.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:param&nbsp;fila:&nbsp;Listado&nbsp;que&nbsp;contiene&nbsp;los&nbsp;campos&nbsp;a&nbsp;insertar&nbsp;en&nbsp;la&nbsp;base&nbsp;de&nbsp;datos.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:return:&nbsp;No&nbsp;retorna&nbsp;nada.</tt></dd></dl>
+ <dl><dt><a name="-limpiarEntry"><strong>limpiarEntry</strong></a>(fila)</dt><dd><tt>Limpia&nbsp;la&nbsp;pestaña&nbsp;de&nbsp;clientes.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:param&nbsp;fila:&nbsp;Listado&nbsp;que&nbsp;contiene&nbsp;los&nbsp;widgets&nbsp;de&nbsp;cliente&nbsp;que&nbsp;vamos&nbsp;a&nbsp;limpiar&nbsp;tras&nbsp;ejecutar&nbsp;un&nbsp;evento.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:return:&nbsp;No&nbsp;retorna&nbsp;nada.</tt></dd></dl>
+ <dl><dt><a name="-listadocli"><strong>listadocli</strong></a>(listclientes)</dt><dd><tt>Carga&nbsp;el&nbsp;treeview&nbsp;con&nbsp;los&nbsp;datos&nbsp;de&nbsp;todos&nbsp;los&nbsp;clientes.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:param&nbsp;listclientes:&nbsp;Listado&nbsp;que&nbsp;contiene&nbsp;los&nbsp;datos&nbsp;de&nbsp;todos&nbsp;los&nbsp;clientes.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:return:&nbsp;No&nbsp;retorna&nbsp;nada.</tt></dd></dl>
+ <dl><dt><a name="-listar"><strong>listar</strong></a>()</dt><dd><tt>Lista&nbsp;los&nbsp;clientes&nbsp;existentes&nbsp;en&nbsp;la&nbsp;base&nbsp;de&nbsp;datos&nbsp;para&nbsp;cargar&nbsp;el&nbsp;treeview.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:return:&nbsp;Retorna&nbsp;el&nbsp;listado&nbsp;con&nbsp;todos&nbsp;los&nbsp;clientes.</tt></dd></dl>
+ <dl><dt><a name="-modifcli"><strong>modifcli</strong></a>(registro, cod)</dt><dd><tt>Modifica&nbsp;los&nbsp;datos&nbsp;de&nbsp;un&nbsp;cliente.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:param&nbsp;registro:&nbsp;Registro&nbsp;con&nbsp;los&nbsp;datos&nbsp;modificados&nbsp;del&nbsp;cliente.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:param&nbsp;cod:&nbsp;Codigo&nbsp;que&nbsp;identifica&nbsp;el&nbsp;cliente&nbsp;que&nbsp;se&nbsp;quiere&nbsp;modificar.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:return:&nbsp;No&nbsp;retorna&nbsp;nada.</tt></dd></dl>
+ <dl><dt><a name="-selectcli"><strong>selectcli</strong></a>(dni)</dt><dd><tt>Carga&nbsp;el&nbsp;id&nbsp;interno&nbsp;de&nbsp;un&nbsp;cliente.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:param&nbsp;dni:&nbsp;Contiene&nbsp;el&nbsp;dni&nbsp;del&nbsp;cliente&nbsp;del&nbsp;cual&nbsp;queremos&nbsp;obtener&nbsp;su&nbsp;id.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:return:&nbsp;Retorna&nbsp;el&nbsp;id&nbsp;del&nbsp;cliente</tt></dd></dl>
+</td></tr></table>
+</body></html>

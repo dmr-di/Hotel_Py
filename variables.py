@@ -1,3 +1,4 @@
+#coding=utf-8
 '''
 El módulo variables almacena las variables que necesitamos
 en otros módulos
