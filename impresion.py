@@ -1,3 +1,11 @@
+#coding=utf-8
+
+"""Módulo que gestiona el pdf de la factura.
+
+Contiene las siguientes funciones:
+
+"""
+
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import A4
 import os, shutil
@@ -6,6 +14,11 @@ import variables
 
 
 def basico():
+    """
+    Crea la cabecera y el pie de la factura.
+        :return: No retorna nada.
+
+    """
     try:
         global bill
         bill = canvas.Canvas("Facturas/prueba.pdf", pagesize=A4)
@@ -31,6 +44,12 @@ def basico():
         print("Error en básico")
 
 def factura(datosfactura):
+    """
+    Crea los datos del cliente en la factura.
+        :param datosfactura: Lista que almacena los datos del cliente y la reserva.
+        :return: No retorna nada.
+
+    """
     try:
         basico()
         bill.setFont('Helvetica-Bold', size=10)
@@ -81,6 +100,11 @@ def factura(datosfactura):
         print("Error en módulo factura")
 
 def servicios():
+    """
+    Crea la tabla con los servicios en la factura.
+        :return: No retorna nada.
+
+    """
     try:
         CONCEPTO = 0
         UNIDADES = 1
@@ -171,6 +195,11 @@ def servicios():
         print("Error cargando servicios")
 
 def total():
+    """
+    Crea el apartado de total en la factura.
+        :return: No retorna nada.
+
+    """
     try:
         # Subtotal
         bill.setFont('Helvetica-Bold', size=12)

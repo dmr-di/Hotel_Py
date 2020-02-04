@@ -1,10 +1,23 @@
+#coding=utf-8
+
 import conexion, variables
 import sqlite3
 
 import funcionesser
 
+"""Módulo que gestiona la facturación.
+
+Contiene las siguientes funciones:
+
+"""
 
 def cargar_datos(registro):
+    """
+    Carga los datos de la factura y los muestra en pantalla.
+        :param registro: Lista que almacena los labels de la cabecera de la factura.
+        :return: No retorna nada.
+
+    """
     variables.factura[0].set_text(str(registro[0]))
     variables.factura[1].set_text(str(registro[1]))
     variables.factura[2].set_text(str(registro[2]))
@@ -15,6 +28,12 @@ def cargar_datos(registro):
     mostrar_cargos(variables.factura)
 
 def mostrar_cargos(factura):
+    """
+    Carga las noches de estancia a la factura.
+        :param factura: Lista que almacena los labels donde se mostrará el cargo.
+        :return: No retorna nada.
+
+    """
     variables.servicio[0].set_text("Noches")
     variables.servicio[1].set_text(variables.numnoches)
     precio = cargar_precio(factura[4].get_text())
@@ -23,6 +42,12 @@ def mostrar_cargos(factura):
     variables.servicio[3].set_text(str(round(total, 2)))
 
 def cargar_precio(nhab):
+    """
+    Carga el precio de la habitación recibiendo su número.
+        :param nhab: Almacena el número de la habitación.
+        :return: Retorna el precio.
+
+    """
     try:
         conexion.cur.execute('SELECT precio FROM habitaciones WHERE numero = ?', (nhab,))
         listado = conexion.cur.fetchone()
@@ -33,6 +58,12 @@ def cargar_precio(nhab):
         conexion.conex.rollback()
 
 def cargar_nombre(dni):
+    """
+    Carga el nombre del cliente a partir de su dni.
+        :param dni: Almacena el número de dni del cliente.
+        :return: Retorna el nombre.
+
+    """
     try:
         conexion.cur.execute('SELECT nome FROM clientes WHERE dni = ?', (dni,))
         listado = conexion.cur.fetchone()
@@ -43,6 +74,12 @@ def cargar_nombre(dni):
         conexion.conex.rollback()
 
 def cargar_tipo(nhab):
+    """
+    Carga el tipo de la habitación a partir de su número.
+        :param nhab: Almacena el número de la habitación.
+        :return: Retorna el tipo.
+
+    """
     try:
         conexion.cur.execute('SELECT tipo FROM habitaciones WHERE numero = ?', (nhab,))
         listado = conexion.cur.fetchone()
@@ -53,6 +90,11 @@ def cargar_tipo(nhab):
         conexion.conex.rollback()
 
 def calcular_total():
+    """
+    Realiza los cálculos referentes al total de la factura.
+        :return: No retorna nada.
+
+    """
     try:
         subtotal = 0
         iva = 0
@@ -74,6 +116,12 @@ def calcular_total():
         print("Error calculando el total")
 
 def limpiarFactura(factura):
+    """
+    Limpia los widgets de la factura.
+        :param factura: Lista que almacena los widgets de la factura.
+        :return: No retorna nada.
+
+    """
     try:
         for i in range(len(factura)):
             factura[i].set_text("")

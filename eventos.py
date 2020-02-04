@@ -1,3 +1,5 @@
+#coding=utf-8
+
 import gi
 
 import funcionesser
@@ -11,6 +13,7 @@ import xlrd, xlwt
 from xlwt import *
 from datetime import date
 
+#TODO documentación
 
 class Eventos():
 
