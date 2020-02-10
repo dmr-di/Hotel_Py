@@ -148,6 +148,16 @@ class Empresa:
         funcionesres.listadoreshab(variables.listreshab)
         funcionesres.listadores(variables.listreservas)
 
+        # Redimension de la ventana
+        """
+        s = Gdk.Screen.get_default()
+        a = s.get_width()
+        b = s.get_height()
+        self.vprincipal.show_all()
+        self.vprincipal.resize(a, b)
+        self.vprincipal.maximize()
+        """
+
     def set_styles(self):
         css_provider = Gtk.CssProvider()
         css_provider.load_from_path('estilos.css')
