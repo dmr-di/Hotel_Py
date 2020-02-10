@@ -2,37 +2,68 @@
 
 import gi
 
-import funcionesser
-
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
 
-import conexion, variables, funcionescli, funcioneshab, funcionesres, facturacion, impresion
-import os, time, datetime, shutil
+import conexion, variables, funcionescli, funcioneshab, funcionesres, funcionesser, facturacion, impresion
+import os, datetime, shutil
 import xlrd, xlwt
 from xlwt import *
 from datetime import date
 
-#TODO documentación
 
 class Eventos():
+    """ Módulo que gestiona los eventos de la aplicación
+
+    Contiene las siguientes funciones:
+
+    """
 
     # Eventos generales
 
     def salir(self):
+        """
+        Cierra la conexión con la base de datos y la aplicación.
+            :return: No retorna nada.
+
+        """
         conexion.Conexion().cerrarbbdd()
         Gtk.main_quit()
 
     def on_venPrincipal_destroy(self, widget):
+        """
+        Gestiona la "destrucción" de la ventana principal.
+            :param widget: Contiene el widget de la ventana.
+            :return: No retorna nada.
+
+        """
         self.salir()
 
     def on_btnSaliracercade_clicked(self, widget):
+        """
+        Esconde la ventana de información "Acerca de".
+            :param widget: Contiene el widget de la ventana.
+            :return: No retorna nada.
+
+        """
         variables.venacercade.hide()
 
     def on_btnSalirbackup_clicked(self, widget):
+        """
+        Esconde la ventana de elección de fichero para backup.
+            :param widget: Contiene el widget de la ventana.
+            :return: No retorna nada.
+
+        """
         variables.venfile.hide()
 
     def on_venFiledialog_selection_changed(self, widget):
+        """
+        Controla la selección en la ventana de selección de fichero.
+            :param widget: Contiene el widget de la ventana.
+            :return: No retorna nada.
+
+        """
         try:
             # este coge toda la ruta
             self.fichero = os.path.abspath(str(variables.venfile.get_filename()))
@@ -43,6 +74,13 @@ class Eventos():
             print("error cogiendo fichero")
 
     def on_btnRestaurar_clicked(self, widget):
+        """
+        Gestiona el click en el botón de restaurar, esconde la ventana de selección
+        de fichero y carga el backup de la base de datos.
+            :param widget: Contiene el widget del botón.
+            :return: No retorna nada.
+
+        """
         try:
             ruta = "/home/a18danielmr/PycharmProjects/Empresa/" + self.nombre
             conexion.Conexion().cerrarbbdd()
@@ -57,17 +95,43 @@ class Eventos():
 
     # Eventos ventana salir
     def on_venSalir_destroy(self, widget):
+        """
+        Esconde la ventana de dialogo que permite salir de la aplicación.
+            :param widget: Contiene el widget de la ventana
+            :return: No retorna nada.
+
+        """
         variables.vensalir.hide()
 
     def on_btnAceptar_clicked(self, widget):
+        """
+        Gestiona el click del botón "Aceptar" de la ventana de dialogo, cierra la app cuando se hace click.
+            :param widget: Contiene el widget del botón.
+            :return: No retorna nada.
+
+        """
         self.salir()
 
     def on_btnCancelar_clicked(self, widget):
+        """
+        Gestiona el click del botón "Cancelar" de la ventana de dialogo, cancela la acción de salir
+        y esconde la ventana de dialogo.
+            :param widget: Contiene el widget del botón.
+            :return: No retorna nada.
+
+        """
         variables.vensalir.hide()
 
     # Eventos clientes
 
     def on_btnAltacli_clicked(self, widget):
+        """
+        Gestiona el click del botón de "Alta" de la pestaña de clientes.
+        Recoge los datos del cliente y los guarda en la base de datos.
+            :param widget: Contiene el widget del botón.
+            :return: No retorna nada.
+
+        """
         try:
             dni = variables.filacli[0].get_text()
             apel = variables.filacli[1].get_text()
@@ -85,6 +149,13 @@ class Eventos():
             print('Error alta cliente')
 
     def on_btnBajacli_clicked(self, widget):
+        """
+        Gestiona el click del botón de "Baja" de la pestaña de clientes.
+        Recoge el dni del cliente y lo borra de la base de datos.
+            :param widget: Contiene el widget del botón.
+            :return: No retorna nada.
+
+        """
         try:
             dni = variables.filacli[0].get_text()
             if dni != '':
@@ -99,6 +170,13 @@ class Eventos():
             print('Error en boton baja cliente')
 
     def on_btnModifcli_clicked(self, widget):
+        """
+        Gestiona el click del botón "Modificar" de la pestaña de clientes.
+        Recoge los nuevos datos del cliente y lo modifica en la base de datos.
+            :param widget: Contiene el widget del botón.
+            :return: No retorna nada.
+
+        """
         try:
             cod = variables.lblcodigo.get_text()
             dni = variables.filacli[0].get_text()
@@ -116,6 +194,14 @@ class Eventos():
             print('error en boton modificar cliente')
 
     def on_entDni_focus_out_event(self, widget, event):
+        """
+        Gestiona el evento que ocurre al desmarcar el entry de dni del cliente.
+        Comprueba si el dni es correcto y si no lo es lanza un mensaje de error.
+            :param widget: Contiene el widget del entry.
+            :param event: Contiene la referencia al evento.
+            :return: No retorna nada.
+
+        """
         try:
             variables.infocli.set_text("")
             variables.fecha.set_text("")
@@ -128,6 +214,14 @@ class Eventos():
             print('Error en focus')
 
     def on_entDni_key_release_event(self, widget, event):
+        """
+        Gestiona el evento que ocurre al pulsar cualquier tecla en el entry de dni del cliente.
+        Comprueba si el dni es correcto y si no lo es lanza un mensaje de error.
+            :param widget: Contiene el widget del entry.
+            :param event: Contiene la referencia al evento.
+            :return: No retorna nada.
+
+        """
         try:
             dni = variables.filacli[0].get_text()
             if funcionescli.comprobarDni(dni):
@@ -136,6 +230,13 @@ class Eventos():
             print('Error en keyrelease')
 
     def on_treeClientes_cursor_changed(self, widget):
+        """
+        Gestiona el click en los registros del treeview de clientes.
+        Recoge los datos del registro y los muestra en la aplicación.
+            :param widget: Contiene el widget del treeview de cliente.
+            :return: No retorna nada.
+
+        """
         try:
             model, iter = variables.treeclientes.get_selection().get_selected()
             # model: es el modelo de la tabla de datos
@@ -162,6 +263,13 @@ class Eventos():
             print("Error cargar cliente")
 
     def on_btnCalendar_clicked(self, widget):
+        """
+        Gestiona el click del botón de calendario.
+        Lanza una ventana con un calendario que permite escoger una fecha.
+            :param widget: Contiene el widget del botón.
+            :return: No retorna nada.
+
+        """
         try:
             variables.llamada = 1
             variables.vencalendar.connect('delete-event', lambda w, e: w.hide() or True)
@@ -170,6 +278,13 @@ class Eventos():
             print("Error abrir calendario")
 
     def on_Calendar_day_selected_double_click(self, widget):
+        """
+        Gestiona el doble click en un día concreto del calendario.
+        Esconde la ventana y escribe la fecha seleccionada en su entry correspondiente.
+            :param widget: Contiene el widget de la ventana.
+            :return: No retorna nada.
+
+        """
         try:
             formato_fecha = "%d/%m/%Y"
             agno, mes, dia = variables.calendar.get_date()
@@ -190,6 +305,8 @@ class Eventos():
             print('Error al coger la fecha')
 
     # Eventos Habitaciones
+
+    #TODO Documentación
 
     def on_btnAltahab_clicked(self, widget):
         try:
@@ -514,6 +631,8 @@ class Eventos():
             facturacion.limpiarFactura(variables.factura)
             funcionesser.limpiar()
             funcionesser.limpiar_factura()
+            funcionesser.limpiar_codres()
+            variables.listservicios.clear()
         except:
             print("Error boton limpiar toolbar")
 
