@@ -31,7 +31,6 @@ def limpiarEntry(fila):
     for i in range(len(fila)):
         fila[i].set_text('')
     variables.cbreshab.set_active(-1)
-    listadores(variables.listreservas)
 
 
 def listarreshab():

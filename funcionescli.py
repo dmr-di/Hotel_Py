@@ -18,7 +18,6 @@ def limpiarEntry(fila):
     variables.lblcodigo.set_text("")
     for i in range(len(fila)):
         fila[i].set_text('')
-    listadocli(variables.listclientes)
 
 def comprobarDni(dni):
     """
