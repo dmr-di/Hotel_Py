@@ -1,4 +1,4 @@
-#coding=utf-8
+# coding=utf-8
 
 import gi
 
@@ -306,9 +306,14 @@ class Eventos():
 
     # Eventos Habitaciones
 
-    #TODO Documentación
-
     def on_btnAltahab_clicked(self, widget):
+        """
+        Gestiona el botón de "Alta" de la pestaña de habitaciones.
+        Recoge los datos de la habitación y la inserta en la base de datos.
+            :param widget: Contiene el widget del botón.
+            :return: No retorna nada.
+
+        """
         try:
             numero = variables.filahab[0].get_text()
             tipo = funcioneshab.seleccionRB()
@@ -327,6 +332,13 @@ class Eventos():
             print('Error alta habitacion')
 
     def on_treeHabitaciones_cursor_changed(self, widget):
+        """
+        Gestiona el click en los registros del treeview de habitaciones.
+        Recoge los datos del registro y los muestra en la aplicación.
+            :param widget: Contiene el treeview de habitaciones.
+            :return: No retorna nada.
+
+        """
         try:
             model, iter = variables.treehabitaciones.get_selection().get_selected()
             funcioneshab.limpiarEntry(variables.filahab)
@@ -352,6 +364,13 @@ class Eventos():
             print('Error carga habitación')
 
     def on_btnBajahab_clicked(self, widget):
+        """
+        Gestiona el botón de "Baja" de la pestaña de habitaciones.
+        Recoge el número de la habitación seleccionada y la elimina de la base de datos.
+            :param widget: Contiene el widget del botón.
+            :return: No retorna nada.
+
+        """
         try:
             num = variables.filahab[0].get_text()
             if num != '':
@@ -366,6 +385,13 @@ class Eventos():
             print('Error en boton baja habitación')
 
     def on_btnModifhab_clicked(self, widget):
+        """
+        Gestiona el botón de "Modificar" de la pestaña de habitaciones.
+        Recoge los nuevos datos de la habitación y realiza un "update" en la base de datos.
+            :param widget: Contiene el widget del botón.
+            :return: No retorna nada.
+
+        """
         try:
             num = variables.filahab[0].get_text()
             tipo = funcioneshab.seleccionRB()
@@ -387,6 +413,12 @@ class Eventos():
     # Eventos Reservas
 
     def on_btnCalendarin_clicked(self, widget):
+        """
+        Gestiona un botón de llamada a la ventana de calendario para recoger la fecha de entrada.
+            :param widget: Contiene el widget del botón.
+            :return: No retorna nada.
+
+        """
         try:
             variables.llamada = 2
             variables.vencalendar.connect('delete-event', lambda w, e: w.hide() or True)
@@ -395,6 +427,12 @@ class Eventos():
             print("Error abrir calendario")
 
     def on_btnCalendarout_clicked(self, widget):
+        """
+        Gestiona un botón de llamada a la ventana de calendario para recoger la fecha de salida.
+            :param widget: Contiene el widget del botón.
+            :return: No retorna nada.
+
+        """
         try:
             variables.llamada = 3
             variables.vencalendar.connect('delete-event', lambda w, e: w.hide() or True)
@@ -403,6 +441,13 @@ class Eventos():
             print("Error abrir calendario")
 
     def on_btnAltares_clicked(self, widget):
+        """
+        Gestiona el botón de "Alta" de la pestaña de reservas.
+        Recoge los datos de la reserva y realiza una inserción en la base de datos.
+            :param widget: Contiene el widget del botón.
+            :return: No retorna nada.
+
+        """
         try:
             dni = variables.lbldnires.get_text()
             apel = variables.lblapelres.get_text()
@@ -423,6 +468,12 @@ class Eventos():
             print("Error alta reservas")
 
     def on_btnCout_clicked(self, widget):
+        """
+        Comprueba las fechas de la reserva para ver si se puede realizar el check-out.
+            :param widget: Contiene el widget del botón.
+            :return: No retorna nada.
+
+        """
         try:
             chkout = variables.filares[1].get_text()
             today = date.today()
@@ -435,6 +486,13 @@ class Eventos():
             print("Error en boton check-out")
 
     def on_btnBajares_clicked(self, widget):
+        """
+        Contiene el botón de "Baja" de la pestaña de reservas.
+        Recoge el código de la reserva seleccionada y realiza un borrado en la base de datos.
+            :param widget: Contiene el widget del botón.
+            :return: No retorna nada.
+
+        """
         try:
             cod = variables.codreserva
             model = variables.cbreshab.get_model()
@@ -452,6 +510,13 @@ class Eventos():
             print('Error en boton baja reservas')
 
     def on_btnModifres_clicked(self, widget):
+        """
+        Contiene el botón de "Modificar" de la pestaña de reservas.
+        Recoge los nuevos datos de la reserva y realiza un "update" en la base de datos.
+            :param widget: Contiene el widget del botón.
+            :return: No retorna nada.
+
+        """
         try:
             variables.modif = True
             formato_fecha = "%d/%m/%Y"
@@ -478,6 +543,13 @@ class Eventos():
             print("error en boton modificar reserva")
 
     def on_treeReservas_cursor_changed(self, widget):
+        """
+        Gestiona el click en los registros del treeview de reservas.
+        Recoge los datos del registro y los muestra en la aplicación.
+            :param widget: Contiene el widget del treeview de reservas.
+            :return: No retorna nada.
+
+        """
         try:
             formato_fecha = "%d/%m/%Y"
             model, iter = variables.treereservas.get_selection().get_selected()
@@ -519,6 +591,13 @@ class Eventos():
     # Eventos Servicios
 
     def on_rbOtro_toggled(self, widget):
+        """
+        Comprueba si el radiobutton esta seleccionado, en caso afirmativo muestra los campos
+        de entrada de servicios adicionales.
+            :param widget: Contiene el widget del radiobutton "Otro" de la pestaña de servicios.
+            :return: No retorna nada.
+
+        """
         try:
             if (variables.rgservicios[2].get_active()):
                 for i in range(len(variables.servicios_adicionales)):
@@ -530,6 +609,14 @@ class Eventos():
             print("Error en radiogroup servicios")
 
     def on_btnAltaSer_clicked(self, widget):
+        """
+        Contiene el botón de "Alta" de la pestaña de servicios.
+        Comprueba el radiobutton seleccionado y carga los datos de la tabla precios de la base de datos.
+        Si el radiobutton activo es "Otro" carga los datos de los entries de servicios adicionales.
+            :param widget: Contiene el widget del botón.
+            :return: No retorna nada.
+
+        """
         try:
             precios = funcionesser.cargar_precios()
             codres = variables.datos_servicio[0].get_text()
@@ -545,7 +632,7 @@ class Eventos():
             precio = float(precio.replace(',', '.'))
             precio = round(precio, 2)
             registro = (codres, str(concepto), precio)
-            #Guardo el servicio en la bd
+            # Guardo el servicio en la bd
             funcionesser.insertarser(registro)
             if variables.cbparking.get_active():
                 concepto = "Parking"
@@ -561,6 +648,13 @@ class Eventos():
             print("Error alta servicio")
 
     def on_btnBajaSer_clicked(self, widget):
+        """
+        Contiene el botón de "Baja" de la pestaña de servicios.
+        Recoge el código de reserva y el código de servicio y realiza un borrado en la base de datos.
+            :param widget: Contiene el widget del botón.
+            :return: No retorna nada.
+
+        """
         try:
             codres = variables.datos_servicio[0].get_text()
             registro = (variables.codser, codres)
@@ -571,16 +665,30 @@ class Eventos():
             print("Error baja servicio")
 
     def on_treeServicios_cursor_changed(self, widget):
+        """
+        Gestiona el click en el treeview de servicios.
+        Guarda internamente el código del servicio seleccionado.
+            :param widget: Contiene el widget del treeview de servicios.
+            :return: No retorna nada.
+
+        """
         try:
             model, iter = variables.treeservicios.get_selection().get_selected()
             if iter != None:
-                variables.codser = model.get_value(iter,0)
+                variables.codser = model.get_value(iter, 0)
         except:
             print("Error carga servicios")
 
     # Eventos comboBox
 
     def on_cbReshab_changed(self, widget):
+        """
+        Gestiona la selección en el combobox que lista los números de las habitaciones.
+        Guarda internamente el número de la habitación seleccionada.
+            :param widget: Contiene el widget del combobox de habitaciones.
+            :return: No retorna nada.
+
+        """
         try:
             index = variables.cbreshab.get_active()
             model = variables.cbreshab.get_model()
@@ -592,6 +700,13 @@ class Eventos():
     # Eventos Toolbar
 
     def on_btnClitool_clicked(self, widget):
+        """
+        Gestiona el botón "Cliente" de la toolbar.
+        Cambia la pestaña a la pestaña de clientes.
+            :param widget: Contiene el widget del botón.
+            :return: No retorna nada.
+
+        """
         try:
             # Este método devuelve un entero con la posición del panel
             panelactual = variables.panel.get_current_page()
@@ -603,6 +718,13 @@ class Eventos():
             print("Error boton cliente toolbar")
 
     def on_btnReservastool_clicked(self, widget):
+        """
+        Gestiona el botón "Reservas" de la toolbar.
+        Cambia la pestaña a la pestaña de reservas.
+            :param widget: Contiene el widget del botón.
+            :return: No retorna nada.
+
+        """
         try:
             panelactual = variables.panel.get_current_page()
             if panelactual != 1:
@@ -613,6 +735,13 @@ class Eventos():
             print("Error boton reservas toolbar")
 
     def on_btnHabitaciontool_clicked(self, widget):
+        """
+        Gestiona el botón "Habitación" de la toolbar.
+        Cambia la pestaña a la pestaña de habitaciones.
+            :param widget: Contiene el widget del botón.
+            :return: No retorna nada.
+
+        """
         try:
             panelactual = variables.panel.get_current_page()
             if panelactual != 2:
@@ -623,6 +752,13 @@ class Eventos():
             print("Error boton habitaciones toolbar")
 
     def on_btnLimpiartool_clicked(self, widget):
+        """
+        Gestiona el botón "Limpiar" de la toolbar.
+        Vacia todos los entries de la aplicación y recarga sus treeviews.
+            :param widget: Contiene el widget del botón.
+            :return: No retorna nada.
+
+        """
         try:
             funcionescli.limpiarEntry(variables.filacli)
             funcioneshab.limpiarEntry(variables.filahab)
@@ -637,32 +773,75 @@ class Eventos():
             print("Error boton limpiar toolbar")
 
     def on_btnCalc_clicked(self, widget):
+        """
+        Gestiona el botón "Calculadora" de la toolbar.
+        Abre la calculadora de Ubuntu.
+            :param widget: Contiene el widget del botón.
+            :return: No retorna nada.
+
+        """
         try:
             os.system("gnome-calculator")
         except:
             print("Error en boton calculadora")
 
     def on_btnImprimir_clicked(self, widget):
+        """
+        Gestiona el botón "Imprimir" de la toolbar.
+        Muestra la factura en formato '.pdf'.
+            :param widget: Contiene el widget del botón.
+            :return: No retorna nada.
+
+        """
         try:
             impresion.factura(variables.datosfactura)
         except:
             print("Error en módulo impresión")
 
     def on_btnSalirtool_clicked(self, widget):
+        """
+        Gestiona el botón "Salir" de la toolbar.
+        Cierra la aplicación preguntando antes al usuario.
+            :param widget: Contiene el widget del botón.
+            :return: No retorna nada.
+
+        """
         variables.vensalir.connect('delete-event', lambda w, e: w.hide() or True)
         variables.vensalir.show()
 
     # Eventos MenuBar
 
     def on_mbSalir_activate(self, widget):
+        """
+        Gestiona el apartado "Salir" del menubar.
+        Cierra la aplicación preguntando antes al usuario.
+            :param widget: Contiene el widget del menubutton.
+            :return: No retorna nada.
+
+        """
         variables.vensalir.connect('delete-event', lambda w, e: w.hide() or True)
         variables.vensalir.show()
 
     def on_mbAcercade_activate(self, widget):
+        """
+        Gestiona el apartado "Acerca De" del menubar.
+        Abre una ventana con información del hotel, de la aplicación y un enlace a la documentación.
+            :param widget: Contiene el widget del menubutton.
+            :return: No retorna nada.
+
+        """
         variables.venacercade.connect('delete-event', lambda w, e: w.hide() or True)
         variables.venacercade.show()
 
     def on_mbBackup_activate(self, widget):
+        """
+        Gestiona el apartado "Backup" del menubar.
+        Crea un backup del estado actual de la base de datos en la carpeta "Backups"
+        dentro del directorio de la aplicación.
+            :param widget: Contiene el widget del menubutton.
+            :return: No retorna nada.
+
+        """
         # Comprueba si existe el directorio si no lo crea
         directorio = "./Backups"
         try:
@@ -682,6 +861,13 @@ class Eventos():
             print("Error backup")
 
     def on_mbImportar_activate(self, widget):
+        """
+        Gestiona el apartado "Importar" del menubar.
+        Importa un fichero excel que contenga datos de clientes a la aplicación.
+            :param widget: Contiene el widget del menubutton.
+            :return: No retorna nada.
+
+        """
         document = xlrd.open_workbook("./datos/listadoclientes.xlsx")
         clientes = document.sheet_by_index(0)
         # Leemos el número de filas y columnas de la hoja de clientes
@@ -701,6 +887,13 @@ class Eventos():
         variables.infocli.set_text("Importación realizada correctamente")
 
     def on_mbExportar_activate(self, widget):
+        """
+        Gestiona el apartado "Exportar" del menubar.
+        Exporta los datos de los clientes a un fichero '.xls'.
+            :param widget: Contiene el widget del menubutton.
+            :return: No retorna nada.
+
+        """
         # Definicion de estilos
         style0 = xlwt.easyxf("font: name Times New Roman, colour red, bold on")
         # style1 = xlwt.easyxf("num_format_str='DD-MMM-YY'")
@@ -727,10 +920,24 @@ class Eventos():
         variables.infocli.set_text("Exportación realizada correctamente")
 
     def on_mbAbrir_activate(self, widget):
+        """
+        Gestiona el apartado "Abrir" del menubar.
+        Carga una copia de seguridad seleccionada a traves de la ventana de selección de fichero.
+            :param widget: Contiene el widget del menubutton.
+            :return: No retorna nada.
+
+        """
         variables.venfile.connect('delete-event', lambda w, e: w.hide() or True)
         variables.venfile.show()
 
     def on_mbPrecios_activate(self, widget):
+        """
+        Gestiona el apartado "Precios" del menubar.
+        Abre la ventana de gestión de precios de los servicios básicos.
+            :param widget: Contiene el widget del menubutton.
+            :return: No retorna nada.
+
+        """
         variables.venprecios.connect('delete-event', lambda w, e: w.hide() or True)
         variables.venprecios.show()
         funcionesser.listar_precios()
@@ -738,17 +945,38 @@ class Eventos():
     # Eventos Gestión Precios
 
     def on_btnGuardarPrecio_clicked(self, widget):
+        """
+        Gestiona el botón "Guardar" de la ventana de precios.
+        Recoge los nuevos precios de los entries y los modifica en la base de datos.
+            :param widget: Contiene el widget del botón.
+            :return: No retorna nada.
+
+        """
         funcionesser.guardar_precio(variables.precios)
         variables.precios[0].set_text("")
         variables.precios[1].set_text("")
         variables.precios[2].set_text("")
 
     def on_btnCerrarPrecio_clicked(self, widget):
+        """
+        Gestiona el botón "Cerrar" de la ventana de precios.
+        Cierra la ventana de precios.
+            :param widget: Contiene el widget del botón.
+            :return: No retorna nada.
+
+        """
         variables.venprecios.hide()
 
     # Eventos impresion
 
     def on_btnImprimi_clicked(self, widget):
+        """
+        Gestiona el botón de imprimir en el campo de la factura.
+        Muestra la factura en formato '.pdf'.
+            :param widget: Contiene el widget del botón.
+            :return: No retorna nada.
+
+        """
         try:
             impresion.factura(variables.datosfactura)
         except:
