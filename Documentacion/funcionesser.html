@@ -1,0 +1,62 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module funcionesser</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>funcionesser</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/administrador/PycharmProjects/Empresa/funcionesser.py">/home/administrador/PycharmProjects/Empresa/funcionesser.py</a></font></td></tr></table>
+    <p><tt>Módulo&nbsp;que&nbsp;gestiona&nbsp;los&nbsp;servicios.<br>
+&nbsp;<br>
+Contiene&nbsp;las&nbsp;siguientes&nbsp;funciones:</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="conexion.html">conexion</a><br>
+</td><td width="25%" valign=top><a href="facturacion.html">facturacion</a><br>
+</td><td width="25%" valign=top><a href="sqlite3.html">sqlite3</a><br>
+</td><td width="25%" valign=top><a href="variables.html">variables</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-bajaser"><strong>bajaser</strong></a>(fila)</dt><dd><tt>Realiza&nbsp;un&nbsp;borrado&nbsp;de&nbsp;un&nbsp;servicio&nbsp;en&nbsp;la&nbsp;base&nbsp;de&nbsp;datos.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:param&nbsp;fila:&nbsp;Lista&nbsp;que&nbsp;almacena&nbsp;el&nbsp;código&nbsp;del&nbsp;servicio&nbsp;y&nbsp;el&nbsp;de&nbsp;la&nbsp;reserva.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:return:&nbsp;No&nbsp;retorna&nbsp;nada.</tt></dd></dl>
+ <dl><dt><a name="-cargar_factura"><strong>cargar_factura</strong></a>()</dt><dd><tt>Carga&nbsp;la&nbsp;factura&nbsp;con&nbsp;los&nbsp;servicios&nbsp;extra.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:return:&nbsp;No&nbsp;retorna&nbsp;nada.</tt></dd></dl>
+ <dl><dt><a name="-cargar_precios"><strong>cargar_precios</strong></a>()</dt><dd><tt>Carga&nbsp;los&nbsp;precios&nbsp;de&nbsp;los&nbsp;servicios&nbsp;básicos.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:return:&nbsp;Retorna&nbsp;una&nbsp;lista&nbsp;con&nbsp;todos&nbsp;los&nbsp;precios.</tt></dd></dl>
+ <dl><dt><a name="-guardar_precio"><strong>guardar_precio</strong></a>(precios)</dt><dd><tt>Registra&nbsp;los&nbsp;nuevos&nbsp;precios&nbsp;en&nbsp;la&nbsp;base&nbsp;de&nbsp;datos.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:param&nbsp;precios:&nbsp;Lista&nbsp;que&nbsp;contiene&nbsp;los&nbsp;precios&nbsp;modificados.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:return:&nbsp;No&nbsp;retorna&nbsp;nada.</tt></dd></dl>
+ <dl><dt><a name="-insertarser"><strong>insertarser</strong></a>(fila)</dt><dd><tt>Realiza&nbsp;una&nbsp;inserción&nbsp;de&nbsp;un&nbsp;servicio&nbsp;en&nbsp;la&nbsp;base&nbsp;de&nbsp;datos.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:param&nbsp;fila:&nbsp;Lista&nbsp;que&nbsp;almacena&nbsp;los&nbsp;datos&nbsp;de&nbsp;un&nbsp;servicio.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:return:&nbsp;No&nbsp;retorna&nbsp;nada.</tt></dd></dl>
+ <dl><dt><a name="-limpiar"><strong>limpiar</strong></a>()</dt><dd><tt>Limpia&nbsp;los&nbsp;widgets&nbsp;de&nbsp;la&nbsp;pestaña&nbsp;de&nbsp;servicios.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:return:&nbsp;No&nbsp;retorna&nbsp;nada.</tt></dd></dl>
+ <dl><dt><a name="-limpiar_codres"><strong>limpiar_codres</strong></a>()</dt><dd><tt>Limpia&nbsp;los&nbsp;widgets&nbsp;correspondientes&nbsp;al&nbsp;código&nbsp;de&nbsp;reserva&nbsp;y&nbsp;número&nbsp;de&nbsp;habitación.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:return:&nbsp;No&nbsp;retorna&nbsp;nada.</tt></dd></dl>
+ <dl><dt><a name="-limpiar_factura"><strong>limpiar_factura</strong></a>()</dt><dd><tt>Limpia&nbsp;los&nbsp;labels&nbsp;correspondientes&nbsp;a&nbsp;los&nbsp;servicios&nbsp;extra.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:return:&nbsp;No&nbsp;retorna&nbsp;nada.</tt></dd></dl>
+ <dl><dt><a name="-listadoser"><strong>listadoser</strong></a>(listservicios)</dt><dd><tt>Carga&nbsp;el&nbsp;treeview&nbsp;con&nbsp;todos&nbsp;los&nbsp;servicios&nbsp;registrados.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:param&nbsp;listservicios:&nbsp;Almacena&nbsp;el&nbsp;treeview&nbsp;de&nbsp;servicios.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:return:&nbsp;No&nbsp;retorna&nbsp;nada.</tt></dd></dl>
+ <dl><dt><a name="-listar"><strong>listar</strong></a>()</dt><dd><tt>Carga&nbsp;los&nbsp;datos&nbsp;de&nbsp;los&nbsp;servicios&nbsp;registradas&nbsp;en&nbsp;una&nbsp;lista.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:return:&nbsp;Retorna&nbsp;la&nbsp;lista&nbsp;con&nbsp;todas&nbsp;los&nbsp;servicios.</tt></dd></dl>
+ <dl><dt><a name="-listar_precios"><strong>listar_precios</strong></a>()</dt><dd><tt>Muestra&nbsp;los&nbsp;precios&nbsp;en&nbsp;su&nbsp;widget&nbsp;correspondiente.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:return:&nbsp;No&nbsp;retorna&nbsp;nada.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:except:&nbsp;Si&nbsp;no&nbsp;hay&nbsp;precios&nbsp;registrados&nbsp;los&nbsp;inicia&nbsp;a&nbsp;0&nbsp;en&nbsp;la&nbsp;base&nbsp;de&nbsp;datos.</tt></dd></dl>
+</td></tr></table>
+</body></html>

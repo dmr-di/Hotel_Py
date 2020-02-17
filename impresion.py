@@ -28,7 +28,7 @@ def basico():
         text1 = "Bienvenido a nuestro hotel"
         bill.drawString(240, 780, "HOTEL LITE")
         bill.drawImage("./img/hotel.png", 475, 680, width=64, height=64)
-        bill.line(50, 670, 540, 670)
+        #bill.line(50, 670, 540, 670)
 
         bill.setFont("Times-Italic", size=8)
         bill.drawString(235, 765, text1)
@@ -113,8 +113,10 @@ def servicios():
 
         #Rectangulo
         bill.setFillColorRGB(1, 0.49, 0)
-        bill.rect(40, 658, 500, -20, fill=True)
+        bill.setStrokeColorRGB(1, 0.49, 0)
+        bill.rect(40, 638, 500, 20, fill=True)
         bill.setFillColorRGB(0, 0, 0)
+        bill.setStrokeColorRGB(0, 0, 0)
 
         # Concepto
         bill.setFont('Helvetica-Bold', size=10)
@@ -158,28 +160,28 @@ def servicios():
         bill.setFont('Helvetica', size=10)
         x_prec += 30
         y_prec -= 20
-        bill.drawString(x_prec, y_prec, str(variables.servicio[PRECIO].get_text()))
+        bill.drawString(x_prec, y_prec, str(variables.servicio[PRECIO].get_text() + "€"))
         bill.setFont('Helvetica', size=10)
         for i in range(len(variables.grid_factura)):
             y_prec -= 20
             if variables.grid_factura[i][PRECIO].get_text() != "":
-                bill.drawString(x_prec, y_prec, str(variables.grid_factura[i][PRECIO].get_text()))
+                bill.drawString(x_prec, y_prec, str(variables.grid_factura[i][PRECIO].get_text() + "€"))
                 bill.setFont('Helvetica', size=10)
 
         # Total
         bill.setFont('Helvetica-Bold', size=10)
         total = 'TOTAL'
-        x_total = 500
+        x_total = 530
         y_total = 645
-        bill.drawString(x_total, y_total, total)
+        bill.drawRightString(x_total, y_total, total)
         bill.setFont('Helvetica', size=10)
         y_total -= 20
-        bill.drawString(x_total, y_total, str(variables.servicio[TOTAL].get_text()))
+        bill.drawRightString(x_total, y_total, str(variables.servicio[TOTAL].get_text() + "€"))
         bill.setFont('Helvetica', size=10)
         for i in range(len(variables.grid_factura)):
             y_total -= 20
             if variables.grid_factura[i][TOTAL].get_text() != "":
-                bill.drawString(x_total, y_total, str(variables.grid_factura[i][TOTAL].get_text()))
+                bill.drawRightString(x_total, y_total, str(variables.grid_factura[i][TOTAL].get_text() + "€"))
                 bill.setFont('Helvetica', size=10)
 
         # Separadores
@@ -201,26 +203,36 @@ def total():
 
     """
     try:
+        # Separador
+        bill.line(50, 110, 540, 110)
+
         # Subtotal
         bill.setFont('Helvetica-Bold', size=12)
         subtotal = 'Subtotal:'
-        bill.drawString(420, 90, subtotal)
+        bill.drawRightString(450, 90, subtotal)
         bill.setFont('Helvetica', size=10)
-        bill.drawString(490, 90, variables.factura_total[0].get_text())
+        bill.drawRightString(530, 90, variables.factura_total[0].get_text())
 
         # IVA
         bill.setFont('Helvetica-Bold', size=12)
         iva = 'IVA:'
-        bill.drawString(420, 70, iva)
+        bill.drawRightString(450, 65, iva)
         bill.setFont('Helvetica', size=10)
-        bill.drawString(490, 70, variables.factura_total[1].get_text())
+        bill.drawRightString(530, 65, variables.factura_total[1].get_text())
+
+        # Rectangulo
+        bill.setFillColorRGB(1, 0.60, 0.20)
+        bill.setStrokeColorRGB(1, 0.55, 0.15)
+        bill.roundRect(400, 34, 140, 20, 10, fill=True)
+        bill.setFillColorRGB(0, 0, 0)
+        bill.setStrokeColorRGB(0, 0, 0)
 
         # Total
         bill.setFont('Helvetica-Bold', size=12)
         total = 'Total:'
-        bill.drawString(420, 50, total)
-        bill.setFont('Helvetica', size=10)
-        bill.drawString(490, 50, variables.factura_total[2].get_text())
+        bill.drawRightString(450, 40, total)
+        bill.setFont('Helvetica-Bold', size=10)
+        bill.drawRightString(530, 40, variables.factura_total[2].get_text())
 
     except:
         print("Error cargando total")
