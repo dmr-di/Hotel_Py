@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="book-name"    content="Hotel Lite"/>
+  <meta name="book-version" content=""/>
+  <meta name="book-release" content="2020"/>
+  <meta name="book-type"    content="Manual"/>
+
+  
+  <title>funcioneshab module &mdash; documentación de Hotel Lite - 2020</title>
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/jquery-ui/jquery-ui.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="_static/css/t3more.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Índice"
+              href="genindex.html"/>
+        <link rel="search" title="Búsqueda" href="search.html"/>
+    <link rel="top" title="documentación de Hotel Lite - 2020" href="#"/>
+        <link rel="up" title="Empresa" href="modules.html"/>
+        <link rel="next" title="funcionesres module" href="funcionesres.html"/>
+        <link rel="prev" title="funcionescli module" href="funcionescli.html"/> 
+  <script src="_static/js/modernizr.min.js"></script>
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        <ul class="sidebartop">
+
+          <li class="docsite">
+            <a href="https://docs.typo3.org"><img src="_static/img/typo3-documentation.png" class="logo" /></a>
+          </li><li class="project">
+            <a href="index.html">
+              Hotel Lite<br>2020</a>
+          </li>
+          <li class="nolink search"><div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search this project" id="searchinput" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+</li></ul>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Empresa</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="conexion.html">conexion module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eventos.html">eventos module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="facturacion.html">facturacion module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="funcionescli.html">funcionescli module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">funcioneshab module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="funcionesres.html">funcionesres module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="funcionesser.html">funcionesser module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="impresion.html">impresion module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="test_funcionescli.html">test_funcionescli module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variables.html">variables module</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Hotel Lite</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+          <li><a href="modules.html">Empresa</a> &raquo;</li>
+    <li>funcioneshab module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/funcioneshab.rst.txt" rel="nofollow">
+                <span class="fa fa-binoculars"></span>&#32;View page source
+            </a>
+      </li>
+  </ul>
+  
+    <hr class="before-stealth-btn clear-both" />
+    
+      <a href="funcionesres.html" class="stealth-btn float-right" title="Accesskey Alt(+Shift)+n">
+          <span class="stealth-btn-text">Next</span>
+          <span class="fa fa-arrow-circle-right"></span>
+      </a>
+    
+    
+      <a href="funcionescli.html" class="stealth-btn" title="Accesskey Alt(+Shift)+p">
+          <span class="fa fa-arrow-circle-left"></span>
+          <span class="stealth-btn-text">Previous</span>
+      </a>
+    
+
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody" class="toBeIndexed">
+            
+  <div class="section" id="module-funcioneshab">
+<span id="funcioneshab-module"></span><h1>funcioneshab module<a class="headerlink" href="#module-funcioneshab" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>Módulo que gestiona las habitaciones.</p>
+<p>Contiene las siguientes funciones:</p>
+<dl class="function">
+<dt id="funcioneshab.bajahab">
+<code class="sig-prename descclassname">funcioneshab.</code><code class="sig-name descname">bajahab</code><span class="sig-paren">(</span><em class="sig-param">num</em><span class="sig-paren">)</span><a class="headerlink" href="#funcioneshab.bajahab" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><dl class="simple">
+<dt>Realiza un borrado de una habitación en la base de datos.</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param num</dt>
+<dd class="field-odd"><p>Almacena el número de la habitación a borrar.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="funcioneshab.insertarhab">
+<code class="sig-prename descclassname">funcioneshab.</code><code class="sig-name descname">insertarhab</code><span class="sig-paren">(</span><em class="sig-param">fila</em><span class="sig-paren">)</span><a class="headerlink" href="#funcioneshab.insertarhab" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><dl class="simple">
+<dt>Realiza una inserción de una habitación en la base de datos.</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param fila</dt>
+<dd class="field-odd"><p>Lista que contiene los campos de una habitación.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="funcioneshab.limpiarEntry">
+<code class="sig-prename descclassname">funcioneshab.</code><code class="sig-name descname">limpiarEntry</code><span class="sig-paren">(</span><em class="sig-param">fila</em><span class="sig-paren">)</span><a class="headerlink" href="#funcioneshab.limpiarEntry" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><dl class="simple">
+<dt>Limpia los widgets del apartado de habitaciones.</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param fila</dt>
+<dd class="field-odd"><p>Lista que contiene los widgets.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="funcioneshab.listadohab">
+<code class="sig-prename descclassname">funcioneshab.</code><code class="sig-name descname">listadohab</code><span class="sig-paren">(</span><em class="sig-param">listhabitaciones</em><span class="sig-paren">)</span><a class="headerlink" href="#funcioneshab.listadohab" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><dl class="simple">
+<dt>Carga las habitaciones registradas en la base de datos sobre el treeview.</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param listhabitaciones</dt>
+<dd class="field-odd"><p>Almacena el treeview.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="funcioneshab.listar">
+<code class="sig-prename descclassname">funcioneshab.</code><code class="sig-name descname">listar</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#funcioneshab.listar" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><dl class="simple">
+<dt>Lista todas las habitaciones existentes en la base de datos para cargar el treeview.</dt><dd><dl class="field-list simple">
+<dt class="field-odd">return</dt>
+<dd class="field-odd"><p>Retorna una lista con todas las habitaciones.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="funcioneshab.modifhab">
+<code class="sig-prename descclassname">funcioneshab.</code><code class="sig-name descname">modifhab</code><span class="sig-paren">(</span><em class="sig-param">registro</em><span class="sig-paren">)</span><a class="headerlink" href="#funcioneshab.modifhab" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><dl class="simple">
+<dt>Realiza una modificación de una habitación en la base de datos.</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param registro</dt>
+<dd class="field-odd"><p>Lista con los datos a modificar de la habitación.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="funcioneshab.seleccionRB">
+<code class="sig-prename descclassname">funcioneshab.</code><code class="sig-name descname">seleccionRB</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#funcioneshab.seleccionRB" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><dl class="simple">
+<dt>Controla la selección de los radiobutton y devuelve su valor correspondiente.</dt><dd><dl class="field-list simple">
+<dt class="field-odd">return</dt>
+<dd class="field-odd"><p>Retorna el tipo de habitación.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="funcioneshab.seleccionSwitch">
+<code class="sig-prename descclassname">funcioneshab.</code><code class="sig-name descname">seleccionSwitch</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#funcioneshab.seleccionSwitch" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><dl class="simple">
+<dt>Controla la selección del switch de habitaciones.</dt><dd><dl class="field-list simple">
+<dt class="field-odd">return</dt>
+<dd class="field-odd"><p>Retorna el estado de la habitación.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div><!-- /.toBeIndexed -->
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="funcionesres.html" class="btn btn-neutral float-right" title="Accesskey Alt(+Shift)+n" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="funcionescli.html" class="btn btn-neutral" title="Accesskey Alt(+Shift)+p" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo" class="contentinfo">
+      <p class="show_source">
+        <a href="_sources/funcioneshab.rst.txt" rel="nofollow">
+          <span class="fa fa-binoculars"></span>&#32;View page source
+        </a>
+      </p>
+      <p class="show_copyright">
+            &copy; Copyright 2020, Daniel Miro Rego
+      </p>
+      <p class="show_sphinx">
+        Built with <a href="http://sphinx-doc.org/" target="_blank">Sphinx</a> and
+        <a href="https://github.com/TYPO3-Documentation/t3SphinxThemeRtd" target="_blank">t3SphinxThemeRtd.</a>
+        Report theme issues <a href="https://github.com/TYPO3-Documentation/t3SphinxThemeRtd/issues" target="_blank">here.</a>
+      </p>
+      <p class="show_legalinfo">
+        <a href="https://typo3.org/legal-info/" rel="nofollow">
+          <span class="fa fa-legal"></span>&#32;Legal Info
+        </a>
+      </p>
+
+
+
+
+  </div>
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'2020',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/language_data.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+      <script type="text/javascript" src="_static/jquery-ui/jquery-ui.min.js"></script>
+      <script type="text/javascript" src="_static/js/theme.js"></script>
+      <script type="text/javascript" src="_static/js/t3autocomplete.js"></script>
+
+  
+
+  
+   
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   <script type="text/javascript" id="idPiwikScriptPlaceholder"></script></body>
+</html>

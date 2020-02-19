@@ -137,35 +137,33 @@ def servicios():
         # Unidades
         bill.setFont('Helvetica-Bold', size=10)
         unidad = 'UNIDADES'
-        x_uni = 200
+        x_uni = 190
         y_uni = 645
-        bill.drawString(x_uni, y_uni, unidad)
+        bill.drawCentredString(x_uni, y_uni, unidad)
         bill.setFont('Helvetica', size=10)
-        x_uni += 25
         y_uni -= 20
-        bill.drawString(x_uni, y_uni, str(variables.servicio[UNIDADES].get_text()))
+        bill.drawCentredString(x_uni, y_uni, str(variables.servicio[UNIDADES].get_text()))
         bill.setFont('Helvetica', size=10)
         for i in range(len(variables.grid_factura)):
             y_uni -= 20
             if variables.grid_factura[i][UNIDADES].get_text() != "":
-                bill.drawString(x_uni, y_uni, str(int(float(variables.grid_factura[i][UNIDADES].get_text()))))
+                bill.drawCentredString(x_uni, y_uni, str(int(float(variables.grid_factura[i][UNIDADES].get_text()))))
                 bill.setFont('Helvetica', size=10)
 
         # Precio
         bill.setFont('Helvetica-Bold', size=10)
         precio = 'PRECIO UNIDAD'
-        x_prec = 325
+        x_prec = 355
         y_prec = 645
-        bill.drawString(x_prec, y_prec, precio)
+        bill.drawCentredString(x_prec, y_prec, precio)
         bill.setFont('Helvetica', size=10)
-        x_prec += 30
         y_prec -= 20
-        bill.drawString(x_prec, y_prec, str(variables.servicio[PRECIO].get_text() + "€"))
+        bill.drawCentredString(x_prec, y_prec, str(variables.servicio[PRECIO].get_text() + "€"))
         bill.setFont('Helvetica', size=10)
         for i in range(len(variables.grid_factura)):
             y_prec -= 20
             if variables.grid_factura[i][PRECIO].get_text() != "":
-                bill.drawString(x_prec, y_prec, str(variables.grid_factura[i][PRECIO].get_text() + "€"))
+                bill.drawCentredString(x_prec, y_prec, str(variables.grid_factura[i][PRECIO].get_text() + "€"))
                 bill.setFont('Helvetica', size=10)
 
         # Total

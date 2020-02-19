@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="book-name"    content="Hotel Lite"/>
+  <meta name="book-version" content=""/>
+  <meta name="book-release" content="2020"/>
+  <meta name="book-type"    content="Manual"/>
+
+  
+  <title>eventos module &mdash; documentación de Hotel Lite - 2020</title>
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/jquery-ui/jquery-ui.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="_static/css/t3more.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Índice"
+              href="genindex.html"/>
+        <link rel="search" title="Búsqueda" href="search.html"/>
+    <link rel="top" title="documentación de Hotel Lite - 2020" href="#"/>
+        <link rel="up" title="Empresa" href="modules.html"/>
+        <link rel="next" title="facturacion module" href="facturacion.html"/>
+        <link rel="prev" title="conexion module" href="conexion.html"/> 
+  <script src="_static/js/modernizr.min.js"></script>
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        <ul class="sidebartop">
+
+          <li class="docsite">
+            <a href="https://docs.typo3.org"><img src="_static/img/typo3-documentation.png" class="logo" /></a>
+          </li><li class="project">
+            <a href="index.html">
+              Hotel Lite<br>2020</a>
+          </li>
+          <li class="nolink search"><div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search this project" id="searchinput" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+</li></ul>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Empresa</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="conexion.html">conexion module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">eventos module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="facturacion.html">facturacion module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="funcionescli.html">funcionescli module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="funcioneshab.html">funcioneshab module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="funcionesres.html">funcionesres module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="funcionesser.html">funcionesser module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="impresion.html">impresion module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="test_funcionescli.html">test_funcionescli module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variables.html">variables module</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Hotel Lite</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+          <li><a href="modules.html">Empresa</a> &raquo;</li>
+    <li>eventos module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/eventos.rst.txt" rel="nofollow">
+                <span class="fa fa-binoculars"></span>&#32;View page source
+            </a>
+      </li>
+  </ul>
+  
+    <hr class="before-stealth-btn clear-both" />
+    
+      <a href="facturacion.html" class="stealth-btn float-right" title="Accesskey Alt(+Shift)+n">
+          <span class="stealth-btn-text">Next</span>
+          <span class="fa fa-arrow-circle-right"></span>
+      </a>
+    
+    
+      <a href="conexion.html" class="stealth-btn" title="Accesskey Alt(+Shift)+p">
+          <span class="fa fa-arrow-circle-left"></span>
+          <span class="stealth-btn-text">Previous</span>
+      </a>
+    
+
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody" class="toBeIndexed">
+            
+  <div class="section" id="module-eventos">
+<span id="eventos-module"></span><h1>eventos module<a class="headerlink" href="#module-eventos" title="Enlazar permanentemente con este título">¶</a></h1>
+<dl class="class">
+<dt id="eventos.Eventos">
+<em class="property">class </em><code class="sig-prename descclassname">eventos.</code><code class="sig-name descname">Eventos</code><a class="headerlink" href="#eventos.Eventos" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Módulo que gestiona los eventos de la aplicación</p>
+<p>Contiene las siguientes funciones:</p>
+<dl class="method">
+<dt id="eventos.Eventos.on_Calendar_day_selected_double_click">
+<code class="sig-name descname">on_Calendar_day_selected_double_click</code><span class="sig-paren">(</span><em class="sig-param">widget</em><span class="sig-paren">)</span><a class="headerlink" href="#eventos.Eventos.on_Calendar_day_selected_double_click" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Gestiona el doble click en un día concreto del calendario.
+Esconde la ventana y escribe la fecha seleccionada en su entry correspondiente.</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param widget</dt>
+<dd class="field-odd"><p>Contiene el widget de la ventana.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="eventos.Eventos.on_btnAceptar_clicked">
+<code class="sig-name descname">on_btnAceptar_clicked</code><span class="sig-paren">(</span><em class="sig-param">widget</em><span class="sig-paren">)</span><a class="headerlink" href="#eventos.Eventos.on_btnAceptar_clicked" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><dl class="simple">
+<dt>Gestiona el click del botón «Aceptar» de la ventana de dialogo, cierra la app cuando se hace click.</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param widget</dt>
+<dd class="field-odd"><p>Contiene el widget del botón.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="eventos.Eventos.on_btnAltaSer_clicked">
+<code class="sig-name descname">on_btnAltaSer_clicked</code><span class="sig-paren">(</span><em class="sig-param">widget</em><span class="sig-paren">)</span><a class="headerlink" href="#eventos.Eventos.on_btnAltaSer_clicked" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Contiene el botón de «Alta» de la pestaña de servicios.
+Comprueba el radiobutton seleccionado y carga los datos de la tabla precios de la base de datos.
+Si el radiobutton activo es «Otro» carga los datos de los entries de servicios adicionales.</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param widget</dt>
+<dd class="field-odd"><p>Contiene el widget del botón.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="eventos.Eventos.on_btnAltacli_clicked">
+<code class="sig-name descname">on_btnAltacli_clicked</code><span class="sig-paren">(</span><em class="sig-param">widget</em><span class="sig-paren">)</span><a class="headerlink" href="#eventos.Eventos.on_btnAltacli_clicked" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Gestiona el click del botón de «Alta» de la pestaña de clientes.
+Recoge los datos del cliente y los guarda en la base de datos.</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param widget</dt>
+<dd class="field-odd"><p>Contiene el widget del botón.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="eventos.Eventos.on_btnAltahab_clicked">
+<code class="sig-name descname">on_btnAltahab_clicked</code><span class="sig-paren">(</span><em class="sig-param">widget</em><span class="sig-paren">)</span><a class="headerlink" href="#eventos.Eventos.on_btnAltahab_clicked" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Gestiona el botón de «Alta» de la pestaña de habitaciones.
+Recoge los datos de la habitación y la inserta en la base de datos.</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param widget</dt>
+<dd class="field-odd"><p>Contiene el widget del botón.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="eventos.Eventos.on_btnAltares_clicked">
+<code class="sig-name descname">on_btnAltares_clicked</code><span class="sig-paren">(</span><em class="sig-param">widget</em><span class="sig-paren">)</span><a class="headerlink" href="#eventos.Eventos.on_btnAltares_clicked" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Gestiona el botón de «Alta» de la pestaña de reservas.
+Recoge los datos de la reserva y realiza una inserción en la base de datos.</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param widget</dt>
+<dd class="field-odd"><p>Contiene el widget del botón.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="eventos.Eventos.on_btnBajaSer_clicked">
+<code class="sig-name descname">on_btnBajaSer_clicked</code><span class="sig-paren">(</span><em class="sig-param">widget</em><span class="sig-paren">)</span><a class="headerlink" href="#eventos.Eventos.on_btnBajaSer_clicked" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Contiene el botón de «Baja» de la pestaña de servicios.
+Recoge el código de reserva y el código de servicio y realiza un borrado en la base de datos.</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param widget</dt>
+<dd class="field-odd"><p>Contiene el widget del botón.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="eventos.Eventos.on_btnBajacli_clicked">
+<code class="sig-name descname">on_btnBajacli_clicked</code><span class="sig-paren">(</span><em class="sig-param">widget</em><span class="sig-paren">)</span><a class="headerlink" href="#eventos.Eventos.on_btnBajacli_clicked" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Gestiona el click del botón de «Baja» de la pestaña de clientes.
+Recoge el dni del cliente y lo borra de la base de datos.</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param widget</dt>
+<dd class="field-odd"><p>Contiene el widget del botón.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="eventos.Eventos.on_btnBajahab_clicked">
+<code class="sig-name descname">on_btnBajahab_clicked</code><span class="sig-paren">(</span><em class="sig-param">widget</em><span class="sig-paren">)</span><a class="headerlink" href="#eventos.Eventos.on_btnBajahab_clicked" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Gestiona el botón de «Baja» de la pestaña de habitaciones.
+Recoge el número de la habitación seleccionada y la elimina de la base de datos.</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param widget</dt>
+<dd class="field-odd"><p>Contiene el widget del botón.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="eventos.Eventos.on_btnBajares_clicked">
+<code class="sig-name descname">on_btnBajares_clicked</code><span class="sig-paren">(</span><em class="sig-param">widget</em><span class="sig-paren">)</span><a class="headerlink" href="#eventos.Eventos.on_btnBajares_clicked" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Contiene el botón de «Baja» de la pestaña de reservas.
+Recoge el código de la reserva seleccionada y realiza un borrado en la base de datos.</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param widget</dt>
+<dd class="field-odd"><p>Contiene el widget del botón.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="eventos.Eventos.on_btnCalc_clicked">
+<code class="sig-name descname">on_btnCalc_clicked</code><span class="sig-paren">(</span><em class="sig-param">widget</em><span class="sig-paren">)</span><a class="headerlink" href="#eventos.Eventos.on_btnCalc_clicked" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Gestiona el botón «Calculadora» de la toolbar.
+Abre la calculadora de Ubuntu.</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param widget</dt>
+<dd class="field-odd"><p>Contiene el widget del botón.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="eventos.Eventos.on_btnCalendar_clicked">
+<code class="sig-name descname">on_btnCalendar_clicked</code><span class="sig-paren">(</span><em class="sig-param">widget</em><span class="sig-paren">)</span><a class="headerlink" href="#eventos.Eventos.on_btnCalendar_clicked" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Gestiona el click del botón de calendario.
+Lanza una ventana con un calendario que permite escoger una fecha.</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param widget</dt>
+<dd class="field-odd"><p>Contiene el widget del botón.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="eventos.Eventos.on_btnCalendarin_clicked">
+<code class="sig-name descname">on_btnCalendarin_clicked</code><span class="sig-paren">(</span><em class="sig-param">widget</em><span class="sig-paren">)</span><a class="headerlink" href="#eventos.Eventos.on_btnCalendarin_clicked" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><dl class="simple">
+<dt>Gestiona un botón de llamada a la ventana de calendario para recoger la fecha de entrada.</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param widget</dt>
+<dd class="field-odd"><p>Contiene el widget del botón.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="eventos.Eventos.on_btnCalendarout_clicked">
+<code class="sig-name descname">on_btnCalendarout_clicked</code><span class="sig-paren">(</span><em class="sig-param">widget</em><span class="sig-paren">)</span><a class="headerlink" href="#eventos.Eventos.on_btnCalendarout_clicked" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><dl class="simple">
+<dt>Gestiona un botón de llamada a la ventana de calendario para recoger la fecha de salida.</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param widget</dt>
+<dd class="field-odd"><p>Contiene el widget del botón.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="eventos.Eventos.on_btnCancelar_clicked">
+<code class="sig-name descname">on_btnCancelar_clicked</code><span class="sig-paren">(</span><em class="sig-param">widget</em><span class="sig-paren">)</span><a class="headerlink" href="#eventos.Eventos.on_btnCancelar_clicked" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Gestiona el click del botón «Cancelar» de la ventana de dialogo, cancela la acción de salir
+y esconde la ventana de dialogo.</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param widget</dt>
+<dd class="field-odd"><p>Contiene el widget del botón.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="eventos.Eventos.on_btnCerrarPrecio_clicked">
+<code class="sig-name descname">on_btnCerrarPrecio_clicked</code><span class="sig-paren">(</span><em class="sig-param">widget</em><span class="sig-paren">)</span><a class="headerlink" href="#eventos.Eventos.on_btnCerrarPrecio_clicked" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Gestiona el botón «Cerrar» de la ventana de precios.
+Cierra la ventana de precios.</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param widget</dt>
+<dd class="field-odd"><p>Contiene el widget del botón.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="eventos.Eventos.on_btnClitool_clicked">
+<code class="sig-name descname">on_btnClitool_clicked</code><span class="sig-paren">(</span><em class="sig-param">widget</em><span class="sig-paren">)</span><a class="headerlink" href="#eventos.Eventos.on_btnClitool_clicked" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Gestiona el botón «Cliente» de la toolbar.
+Cambia la pestaña a la pestaña de clientes.</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param widget</dt>
+<dd class="field-odd"><p>Contiene el widget del botón.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="eventos.Eventos.on_btnCout_clicked">
+<code class="sig-name descname">on_btnCout_clicked</code><span class="sig-paren">(</span><em class="sig-param">widget</em><span class="sig-paren">)</span><a class="headerlink" href="#eventos.Eventos.on_btnCout_clicked" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><dl class="simple">
+<dt>Comprueba las fechas de la reserva para ver si se puede realizar el check-out.</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param widget</dt>
+<dd class="field-odd"><p>Contiene el widget del botón.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="eventos.Eventos.on_btnGuardarPrecio_clicked">
+<code class="sig-name descname">on_btnGuardarPrecio_clicked</code><span class="sig-paren">(</span><em class="sig-param">widget</em><span class="sig-paren">)</span><a class="headerlink" href="#eventos.Eventos.on_btnGuardarPrecio_clicked" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Gestiona el botón «Guardar» de la ventana de precios.
+Recoge los nuevos precios de los entries y los modifica en la base de datos.</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param widget</dt>
+<dd class="field-odd"><p>Contiene el widget del botón.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="eventos.Eventos.on_btnHabitaciontool_clicked">
+<code class="sig-name descname">on_btnHabitaciontool_clicked</code><span class="sig-paren">(</span><em class="sig-param">widget</em><span class="sig-paren">)</span><a class="headerlink" href="#eventos.Eventos.on_btnHabitaciontool_clicked" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Gestiona el botón «Habitación» de la toolbar.
+Cambia la pestaña a la pestaña de habitaciones.</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param widget</dt>
+<dd class="field-odd"><p>Contiene el widget del botón.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="eventos.Eventos.on_btnImprimi_clicked">
+<code class="sig-name descname">on_btnImprimi_clicked</code><span class="sig-paren">(</span><em class="sig-param">widget</em><span class="sig-paren">)</span><a class="headerlink" href="#eventos.Eventos.on_btnImprimi_clicked" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Gestiona el botón de imprimir en el campo de la factura.
+Muestra la factura en formato “.pdf”.</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param widget</dt>
+<dd class="field-odd"><p>Contiene el widget del botón.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="eventos.Eventos.on_btnImprimir_clicked">
+<code class="sig-name descname">on_btnImprimir_clicked</code><span class="sig-paren">(</span><em class="sig-param">widget</em><span class="sig-paren">)</span><a class="headerlink" href="#eventos.Eventos.on_btnImprimir_clicked" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Gestiona el botón «Imprimir» de la toolbar.
+Muestra la factura en formato “.pdf”.</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param widget</dt>
+<dd class="field-odd"><p>Contiene el widget del botón.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="eventos.Eventos.on_btnLimpiartool_clicked">
+<code class="sig-name descname">on_btnLimpiartool_clicked</code><span class="sig-paren">(</span><em class="sig-param">widget</em><span class="sig-paren">)</span><a class="headerlink" href="#eventos.Eventos.on_btnLimpiartool_clicked" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Gestiona el botón «Limpiar» de la toolbar.
+Vacia todos los entries de la aplicación y recarga sus treeviews.</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param widget</dt>
+<dd class="field-odd"><p>Contiene el widget del botón.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="eventos.Eventos.on_btnModifcli_clicked">
+<code class="sig-name descname">on_btnModifcli_clicked</code><span class="sig-paren">(</span><em class="sig-param">widget</em><span class="sig-paren">)</span><a class="headerlink" href="#eventos.Eventos.on_btnModifcli_clicked" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Gestiona el click del botón «Modificar» de la pestaña de clientes.
+Recoge los nuevos datos del cliente y lo modifica en la base de datos.</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param widget</dt>
+<dd class="field-odd"><p>Contiene el widget del botón.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="eventos.Eventos.on_btnModifhab_clicked">
+<code class="sig-name descname">on_btnModifhab_clicked</code><span class="sig-paren">(</span><em class="sig-param">widget</em><span class="sig-paren">)</span><a class="headerlink" href="#eventos.Eventos.on_btnModifhab_clicked" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Gestiona el botón de «Modificar» de la pestaña de habitaciones.
+Recoge los nuevos datos de la habitación y realiza un «update» en la base de datos.</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param widget</dt>
+<dd class="field-odd"><p>Contiene el widget del botón.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="eventos.Eventos.on_btnModifres_clicked">
+<code class="sig-name descname">on_btnModifres_clicked</code><span class="sig-paren">(</span><em class="sig-param">widget</em><span class="sig-paren">)</span><a class="headerlink" href="#eventos.Eventos.on_btnModifres_clicked" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Contiene el botón de «Modificar» de la pestaña de reservas.
+Recoge los nuevos datos de la reserva y realiza un «update» en la base de datos.</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param widget</dt>
+<dd class="field-odd"><p>Contiene el widget del botón.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="eventos.Eventos.on_btnReservastool_clicked">
+<code class="sig-name descname">on_btnReservastool_clicked</code><span class="sig-paren">(</span><em class="sig-param">widget</em><span class="sig-paren">)</span><a class="headerlink" href="#eventos.Eventos.on_btnReservastool_clicked" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Gestiona el botón «Reservas» de la toolbar.
+Cambia la pestaña a la pestaña de reservas.</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param widget</dt>
+<dd class="field-odd"><p>Contiene el widget del botón.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="eventos.Eventos.on_btnRestaurar_clicked">
+<code class="sig-name descname">on_btnRestaurar_clicked</code><span class="sig-paren">(</span><em class="sig-param">widget</em><span class="sig-paren">)</span><a class="headerlink" href="#eventos.Eventos.on_btnRestaurar_clicked" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Gestiona el click en el botón de restaurar, esconde la ventana de selección
+de fichero y carga el backup de la base de datos.</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param widget</dt>
+<dd class="field-odd"><p>Contiene el widget del botón.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="eventos.Eventos.on_btnSaliracercade_clicked">
+<code class="sig-name descname">on_btnSaliracercade_clicked</code><span class="sig-paren">(</span><em class="sig-param">widget</em><span class="sig-paren">)</span><a class="headerlink" href="#eventos.Eventos.on_btnSaliracercade_clicked" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><dl class="simple">
+<dt>Esconde la ventana de información «Acerca de».</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param widget</dt>
+<dd class="field-odd"><p>Contiene el widget de la ventana.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="eventos.Eventos.on_btnSalirbackup_clicked">
+<code class="sig-name descname">on_btnSalirbackup_clicked</code><span class="sig-paren">(</span><em class="sig-param">widget</em><span class="sig-paren">)</span><a class="headerlink" href="#eventos.Eventos.on_btnSalirbackup_clicked" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><dl class="simple">
+<dt>Esconde la ventana de elección de fichero para backup.</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param widget</dt>
+<dd class="field-odd"><p>Contiene el widget de la ventana.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="eventos.Eventos.on_btnSalirtool_clicked">
+<code class="sig-name descname">on_btnSalirtool_clicked</code><span class="sig-paren">(</span><em class="sig-param">widget</em><span class="sig-paren">)</span><a class="headerlink" href="#eventos.Eventos.on_btnSalirtool_clicked" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Gestiona el botón «Salir» de la toolbar.
+Cierra la aplicación preguntando antes al usuario.</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param widget</dt>
+<dd class="field-odd"><p>Contiene el widget del botón.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="eventos.Eventos.on_cbReshab_changed">
+<code class="sig-name descname">on_cbReshab_changed</code><span class="sig-paren">(</span><em class="sig-param">widget</em><span class="sig-paren">)</span><a class="headerlink" href="#eventos.Eventos.on_cbReshab_changed" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Gestiona la selección en el combobox que lista los números de las habitaciones.
+Guarda internamente el número de la habitación seleccionada.</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param widget</dt>
+<dd class="field-odd"><p>Contiene el widget del combobox de habitaciones.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="eventos.Eventos.on_entDni_focus_out_event">
+<code class="sig-name descname">on_entDni_focus_out_event</code><span class="sig-paren">(</span><em class="sig-param">widget</em>, <em class="sig-param">event</em><span class="sig-paren">)</span><a class="headerlink" href="#eventos.Eventos.on_entDni_focus_out_event" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Gestiona el evento que ocurre al desmarcar el entry de dni del cliente.
+Comprueba si el dni es correcto y si no lo es lanza un mensaje de error.</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param widget</dt>
+<dd class="field-odd"><p>Contiene el widget del entry.</p>
+</dd>
+<dt class="field-even">param event</dt>
+<dd class="field-even"><p>Contiene la referencia al evento.</p>
+</dd>
+<dt class="field-odd">return</dt>
+<dd class="field-odd"><p>No retorna nada.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="eventos.Eventos.on_entDni_key_release_event">
+<code class="sig-name descname">on_entDni_key_release_event</code><span class="sig-paren">(</span><em class="sig-param">widget</em>, <em class="sig-param">event</em><span class="sig-paren">)</span><a class="headerlink" href="#eventos.Eventos.on_entDni_key_release_event" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Gestiona el evento que ocurre al pulsar cualquier tecla en el entry de dni del cliente.
+Comprueba si el dni es correcto y si no lo es lanza un mensaje de error.</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param widget</dt>
+<dd class="field-odd"><p>Contiene el widget del entry.</p>
+</dd>
+<dt class="field-even">param event</dt>
+<dd class="field-even"><p>Contiene la referencia al evento.</p>
+</dd>
+<dt class="field-odd">return</dt>
+<dd class="field-odd"><p>No retorna nada.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="eventos.Eventos.on_mbAbrir_activate">
+<code class="sig-name descname">on_mbAbrir_activate</code><span class="sig-paren">(</span><em class="sig-param">widget</em><span class="sig-paren">)</span><a class="headerlink" href="#eventos.Eventos.on_mbAbrir_activate" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Gestiona el apartado «Abrir» del menubar.
+Carga una copia de seguridad seleccionada a traves de la ventana de selección de fichero.</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param widget</dt>
+<dd class="field-odd"><p>Contiene el widget del menubutton.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="eventos.Eventos.on_mbAcercade_activate">
+<code class="sig-name descname">on_mbAcercade_activate</code><span class="sig-paren">(</span><em class="sig-param">widget</em><span class="sig-paren">)</span><a class="headerlink" href="#eventos.Eventos.on_mbAcercade_activate" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Gestiona el apartado «Acerca De» del menubar.
+Abre una ventana con información del hotel, de la aplicación y un enlace a la documentación.</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param widget</dt>
+<dd class="field-odd"><p>Contiene el widget del menubutton.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="eventos.Eventos.on_mbBackup_activate">
+<code class="sig-name descname">on_mbBackup_activate</code><span class="sig-paren">(</span><em class="sig-param">widget</em><span class="sig-paren">)</span><a class="headerlink" href="#eventos.Eventos.on_mbBackup_activate" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Gestiona el apartado «Backup» del menubar.
+Crea un backup del estado actual de la base de datos en la carpeta «Backups»
+dentro del directorio de la aplicación.</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param widget</dt>
+<dd class="field-odd"><p>Contiene el widget del menubutton.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="eventos.Eventos.on_mbExportar_activate">
+<code class="sig-name descname">on_mbExportar_activate</code><span class="sig-paren">(</span><em class="sig-param">widget</em><span class="sig-paren">)</span><a class="headerlink" href="#eventos.Eventos.on_mbExportar_activate" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Gestiona el apartado «Exportar» del menubar.
+Exporta los datos de los clientes a un fichero “.xls”.</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param widget</dt>
+<dd class="field-odd"><p>Contiene el widget del menubutton.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="eventos.Eventos.on_mbImportar_activate">
+<code class="sig-name descname">on_mbImportar_activate</code><span class="sig-paren">(</span><em class="sig-param">widget</em><span class="sig-paren">)</span><a class="headerlink" href="#eventos.Eventos.on_mbImportar_activate" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Gestiona el apartado «Importar» del menubar.
+Importa un fichero excel que contenga datos de clientes a la aplicación.</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param widget</dt>
+<dd class="field-odd"><p>Contiene el widget del menubutton.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="eventos.Eventos.on_mbPrecios_activate">
+<code class="sig-name descname">on_mbPrecios_activate</code><span class="sig-paren">(</span><em class="sig-param">widget</em><span class="sig-paren">)</span><a class="headerlink" href="#eventos.Eventos.on_mbPrecios_activate" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Gestiona el apartado «Precios» del menubar.
+Abre la ventana de gestión de precios de los servicios básicos.</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param widget</dt>
+<dd class="field-odd"><p>Contiene el widget del menubutton.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="eventos.Eventos.on_mbSalir_activate">
+<code class="sig-name descname">on_mbSalir_activate</code><span class="sig-paren">(</span><em class="sig-param">widget</em><span class="sig-paren">)</span><a class="headerlink" href="#eventos.Eventos.on_mbSalir_activate" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Gestiona el apartado «Salir» del menubar.
+Cierra la aplicación preguntando antes al usuario.</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param widget</dt>
+<dd class="field-odd"><p>Contiene el widget del menubutton.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="eventos.Eventos.on_rbOtro_toggled">
+<code class="sig-name descname">on_rbOtro_toggled</code><span class="sig-paren">(</span><em class="sig-param">widget</em><span class="sig-paren">)</span><a class="headerlink" href="#eventos.Eventos.on_rbOtro_toggled" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Comprueba si el radiobutton esta seleccionado, en caso afirmativo muestra los campos
+de entrada de servicios adicionales.</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param widget</dt>
+<dd class="field-odd"><p>Contiene el widget del radiobutton «Otro» de la pestaña de servicios.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="eventos.Eventos.on_treeClientes_cursor_changed">
+<code class="sig-name descname">on_treeClientes_cursor_changed</code><span class="sig-paren">(</span><em class="sig-param">widget</em><span class="sig-paren">)</span><a class="headerlink" href="#eventos.Eventos.on_treeClientes_cursor_changed" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Gestiona el click en los registros del treeview de clientes.
+Recoge los datos del registro y los muestra en la aplicación.</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param widget</dt>
+<dd class="field-odd"><p>Contiene el widget del treeview de cliente.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="eventos.Eventos.on_treeHabitaciones_cursor_changed">
+<code class="sig-name descname">on_treeHabitaciones_cursor_changed</code><span class="sig-paren">(</span><em class="sig-param">widget</em><span class="sig-paren">)</span><a class="headerlink" href="#eventos.Eventos.on_treeHabitaciones_cursor_changed" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Gestiona el click en los registros del treeview de habitaciones.
+Recoge los datos del registro y los muestra en la aplicación.</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param widget</dt>
+<dd class="field-odd"><p>Contiene el treeview de habitaciones.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="eventos.Eventos.on_treeReservas_cursor_changed">
+<code class="sig-name descname">on_treeReservas_cursor_changed</code><span class="sig-paren">(</span><em class="sig-param">widget</em><span class="sig-paren">)</span><a class="headerlink" href="#eventos.Eventos.on_treeReservas_cursor_changed" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Gestiona el click en los registros del treeview de reservas.
+Recoge los datos del registro y los muestra en la aplicación.</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param widget</dt>
+<dd class="field-odd"><p>Contiene el widget del treeview de reservas.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="eventos.Eventos.on_treeServicios_cursor_changed">
+<code class="sig-name descname">on_treeServicios_cursor_changed</code><span class="sig-paren">(</span><em class="sig-param">widget</em><span class="sig-paren">)</span><a class="headerlink" href="#eventos.Eventos.on_treeServicios_cursor_changed" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Gestiona el click en el treeview de servicios.
+Guarda internamente el código del servicio seleccionado.</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param widget</dt>
+<dd class="field-odd"><p>Contiene el widget del treeview de servicios.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="eventos.Eventos.on_venFiledialog_selection_changed">
+<code class="sig-name descname">on_venFiledialog_selection_changed</code><span class="sig-paren">(</span><em class="sig-param">widget</em><span class="sig-paren">)</span><a class="headerlink" href="#eventos.Eventos.on_venFiledialog_selection_changed" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><dl class="simple">
+<dt>Controla la selección en la ventana de selección de fichero.</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param widget</dt>
+<dd class="field-odd"><p>Contiene el widget de la ventana.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="eventos.Eventos.on_venPrincipal_destroy">
+<code class="sig-name descname">on_venPrincipal_destroy</code><span class="sig-paren">(</span><em class="sig-param">widget</em><span class="sig-paren">)</span><a class="headerlink" href="#eventos.Eventos.on_venPrincipal_destroy" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><dl class="simple">
+<dt>Gestiona la «destrucción» de la ventana principal.</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param widget</dt>
+<dd class="field-odd"><p>Contiene el widget de la ventana.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="eventos.Eventos.on_venSalir_destroy">
+<code class="sig-name descname">on_venSalir_destroy</code><span class="sig-paren">(</span><em class="sig-param">widget</em><span class="sig-paren">)</span><a class="headerlink" href="#eventos.Eventos.on_venSalir_destroy" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><dl class="simple">
+<dt>Esconde la ventana de dialogo que permite salir de la aplicación.</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param widget</dt>
+<dd class="field-odd"><p>Contiene el widget de la ventana</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="eventos.Eventos.salir">
+<code class="sig-name descname">salir</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#eventos.Eventos.salir" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><dl class="simple">
+<dt>Cierra la conexión con la base de datos y la aplicación.</dt><dd><dl class="field-list simple">
+<dt class="field-odd">return</dt>
+<dd class="field-odd"><p>No retorna nada.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div><!-- /.toBeIndexed -->
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="facturacion.html" class="btn btn-neutral float-right" title="Accesskey Alt(+Shift)+n" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="conexion.html" class="btn btn-neutral" title="Accesskey Alt(+Shift)+p" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo" class="contentinfo">
+      <p class="show_source">
+        <a href="_sources/eventos.rst.txt" rel="nofollow">
+          <span class="fa fa-binoculars"></span>&#32;View page source
+        </a>
+      </p>
+      <p class="show_copyright">
+            &copy; Copyright 2020, Daniel Miro Rego
+      </p>
+      <p class="show_sphinx">
+        Built with <a href="http://sphinx-doc.org/" target="_blank">Sphinx</a> and
+        <a href="https://github.com/TYPO3-Documentation/t3SphinxThemeRtd" target="_blank">t3SphinxThemeRtd.</a>
+        Report theme issues <a href="https://github.com/TYPO3-Documentation/t3SphinxThemeRtd/issues" target="_blank">here.</a>
+      </p>
+      <p class="show_legalinfo">
+        <a href="https://typo3.org/legal-info/" rel="nofollow">
+          <span class="fa fa-legal"></span>&#32;Legal Info
+        </a>
+      </p>
+
+
+
+
+  </div>
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'2020',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/language_data.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+      <script type="text/javascript" src="_static/jquery-ui/jquery-ui.min.js"></script>
+      <script type="text/javascript" src="_static/js/theme.js"></script>
+      <script type="text/javascript" src="_static/js/t3autocomplete.js"></script>
+
+  
+
+  
+   
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   <script type="text/javascript" id="idPiwikScriptPlaceholder"></script></body>
+</html>

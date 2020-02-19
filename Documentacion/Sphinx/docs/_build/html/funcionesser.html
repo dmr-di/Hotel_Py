@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="book-name"    content="Hotel Lite"/>
+  <meta name="book-version" content=""/>
+  <meta name="book-release" content="2020"/>
+  <meta name="book-type"    content="Manual"/>
+
+  
+  <title>funcionesser module &mdash; documentación de Hotel Lite - 2020</title>
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/jquery-ui/jquery-ui.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="_static/css/t3more.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Índice"
+              href="genindex.html"/>
+        <link rel="search" title="Búsqueda" href="search.html"/>
+    <link rel="top" title="documentación de Hotel Lite - 2020" href="#"/>
+        <link rel="up" title="Empresa" href="modules.html"/>
+        <link rel="next" title="impresion module" href="impresion.html"/>
+        <link rel="prev" title="funcionesres module" href="funcionesres.html"/> 
+  <script src="_static/js/modernizr.min.js"></script>
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        <ul class="sidebartop">
+
+          <li class="docsite">
+            <a href="https://docs.typo3.org"><img src="_static/img/typo3-documentation.png" class="logo" /></a>
+          </li><li class="project">
+            <a href="index.html">
+              Hotel Lite<br>2020</a>
+          </li>
+          <li class="nolink search"><div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search this project" id="searchinput" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+</li></ul>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Empresa</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="conexion.html">conexion module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eventos.html">eventos module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="facturacion.html">facturacion module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="funcionescli.html">funcionescli module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="funcioneshab.html">funcioneshab module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="funcionesres.html">funcionesres module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">funcionesser module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="impresion.html">impresion module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="test_funcionescli.html">test_funcionescli module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variables.html">variables module</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Hotel Lite</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+          <li><a href="modules.html">Empresa</a> &raquo;</li>
+    <li>funcionesser module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/funcionesser.rst.txt" rel="nofollow">
+                <span class="fa fa-binoculars"></span>&#32;View page source
+            </a>
+      </li>
+  </ul>
+  
+    <hr class="before-stealth-btn clear-both" />
+    
+      <a href="impresion.html" class="stealth-btn float-right" title="Accesskey Alt(+Shift)+n">
+          <span class="stealth-btn-text">Next</span>
+          <span class="fa fa-arrow-circle-right"></span>
+      </a>
+    
+    
+      <a href="funcionesres.html" class="stealth-btn" title="Accesskey Alt(+Shift)+p">
+          <span class="fa fa-arrow-circle-left"></span>
+          <span class="stealth-btn-text">Previous</span>
+      </a>
+    
+
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody" class="toBeIndexed">
+            
+  <div class="section" id="module-funcionesser">
+<span id="funcionesser-module"></span><h1>funcionesser module<a class="headerlink" href="#module-funcionesser" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>Módulo que gestiona los servicios.</p>
+<p>Contiene las siguientes funciones:</p>
+<dl class="function">
+<dt id="funcionesser.bajaser">
+<code class="sig-prename descclassname">funcionesser.</code><code class="sig-name descname">bajaser</code><span class="sig-paren">(</span><em class="sig-param">fila</em><span class="sig-paren">)</span><a class="headerlink" href="#funcionesser.bajaser" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><dl class="simple">
+<dt>Realiza un borrado de un servicio en la base de datos.</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param fila</dt>
+<dd class="field-odd"><p>Lista que almacena el código del servicio y el de la reserva.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="funcionesser.cargar_factura">
+<code class="sig-prename descclassname">funcionesser.</code><code class="sig-name descname">cargar_factura</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#funcionesser.cargar_factura" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><dl class="simple">
+<dt>Carga la factura con los servicios extra.</dt><dd><dl class="field-list simple">
+<dt class="field-odd">return</dt>
+<dd class="field-odd"><p>No retorna nada.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="funcionesser.cargar_precios">
+<code class="sig-prename descclassname">funcionesser.</code><code class="sig-name descname">cargar_precios</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#funcionesser.cargar_precios" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><dl class="simple">
+<dt>Carga los precios de los servicios básicos.</dt><dd><dl class="field-list simple">
+<dt class="field-odd">return</dt>
+<dd class="field-odd"><p>Retorna una lista con todos los precios.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="funcionesser.guardar_precio">
+<code class="sig-prename descclassname">funcionesser.</code><code class="sig-name descname">guardar_precio</code><span class="sig-paren">(</span><em class="sig-param">precios</em><span class="sig-paren">)</span><a class="headerlink" href="#funcionesser.guardar_precio" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><dl class="simple">
+<dt>Registra los nuevos precios en la base de datos.</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param precios</dt>
+<dd class="field-odd"><p>Lista que contiene los precios modificados.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="funcionesser.insertarser">
+<code class="sig-prename descclassname">funcionesser.</code><code class="sig-name descname">insertarser</code><span class="sig-paren">(</span><em class="sig-param">fila</em><span class="sig-paren">)</span><a class="headerlink" href="#funcionesser.insertarser" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><dl class="simple">
+<dt>Realiza una inserción de un servicio en la base de datos.</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param fila</dt>
+<dd class="field-odd"><p>Lista que almacena los datos de un servicio.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="funcionesser.limpiar">
+<code class="sig-prename descclassname">funcionesser.</code><code class="sig-name descname">limpiar</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#funcionesser.limpiar" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><dl class="simple">
+<dt>Limpia los widgets de la pestaña de servicios.</dt><dd><dl class="field-list simple">
+<dt class="field-odd">return</dt>
+<dd class="field-odd"><p>No retorna nada.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="funcionesser.limpiar_codres">
+<code class="sig-prename descclassname">funcionesser.</code><code class="sig-name descname">limpiar_codres</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#funcionesser.limpiar_codres" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><dl class="simple">
+<dt>Limpia los widgets correspondientes al código de reserva y número de habitación.</dt><dd><dl class="field-list simple">
+<dt class="field-odd">return</dt>
+<dd class="field-odd"><p>No retorna nada.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="funcionesser.limpiar_factura">
+<code class="sig-prename descclassname">funcionesser.</code><code class="sig-name descname">limpiar_factura</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#funcionesser.limpiar_factura" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><dl class="simple">
+<dt>Limpia los labels correspondientes a los servicios extra.</dt><dd><dl class="field-list simple">
+<dt class="field-odd">return</dt>
+<dd class="field-odd"><p>No retorna nada.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="funcionesser.listadoser">
+<code class="sig-prename descclassname">funcionesser.</code><code class="sig-name descname">listadoser</code><span class="sig-paren">(</span><em class="sig-param">listservicios</em><span class="sig-paren">)</span><a class="headerlink" href="#funcionesser.listadoser" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><dl class="simple">
+<dt>Carga el treeview con todos los servicios registrados.</dt><dd><dl class="field-list simple">
+<dt class="field-odd">param listservicios</dt>
+<dd class="field-odd"><p>Almacena el treeview de servicios.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>No retorna nada.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="funcionesser.listar">
+<code class="sig-prename descclassname">funcionesser.</code><code class="sig-name descname">listar</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#funcionesser.listar" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><dl class="simple">
+<dt>Carga los datos de los servicios registradas en una lista.</dt><dd><dl class="field-list simple">
+<dt class="field-odd">return</dt>
+<dd class="field-odd"><p>Retorna la lista con todas los servicios.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="funcionesser.listar_precios">
+<code class="sig-prename descclassname">funcionesser.</code><code class="sig-name descname">listar_precios</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#funcionesser.listar_precios" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><dl class="simple">
+<dt>Muestra los precios en su widget correspondiente.</dt><dd><dl class="field-list simple">
+<dt class="field-odd">return</dt>
+<dd class="field-odd"><p>No retorna nada.</p>
+</dd>
+<dt class="field-even">except</dt>
+<dd class="field-even"><p>Si no hay precios registrados los inicia a 0 en la base de datos.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div><!-- /.toBeIndexed -->
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="impresion.html" class="btn btn-neutral float-right" title="Accesskey Alt(+Shift)+n" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="funcionesres.html" class="btn btn-neutral" title="Accesskey Alt(+Shift)+p" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo" class="contentinfo">
+      <p class="show_source">
+        <a href="_sources/funcionesser.rst.txt" rel="nofollow">
+          <span class="fa fa-binoculars"></span>&#32;View page source
+        </a>
+      </p>
+      <p class="show_copyright">
+            &copy; Copyright 2020, Daniel Miro Rego
+      </p>
+      <p class="show_sphinx">
+        Built with <a href="http://sphinx-doc.org/" target="_blank">Sphinx</a> and
+        <a href="https://github.com/TYPO3-Documentation/t3SphinxThemeRtd" target="_blank">t3SphinxThemeRtd.</a>
+        Report theme issues <a href="https://github.com/TYPO3-Documentation/t3SphinxThemeRtd/issues" target="_blank">here.</a>
+      </p>
+      <p class="show_legalinfo">
+        <a href="https://typo3.org/legal-info/" rel="nofollow">
+          <span class="fa fa-legal"></span>&#32;Legal Info
+        </a>
+      </p>
+
+
+
+
+  </div>
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'2020',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/language_data.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+      <script type="text/javascript" src="_static/jquery-ui/jquery-ui.min.js"></script>
+      <script type="text/javascript" src="_static/js/theme.js"></script>
+      <script type="text/javascript" src="_static/js/t3autocomplete.js"></script>
+
+  
+
+  
+   
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   <script type="text/javascript" id="idPiwikScriptPlaceholder"></script></body>
+</html>

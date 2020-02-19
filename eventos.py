@@ -7,7 +7,7 @@ from gi.repository import Gtk
 
 import conexion, variables, funcionescli, funcioneshab, funcionesres, funcionesser, facturacion, impresion
 import os, datetime, shutil
-#import xlrd, xlwt
+import xlrd, xlwt
 from xlwt import *
 from datetime import date
 
