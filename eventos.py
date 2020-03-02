@@ -82,7 +82,7 @@ class Eventos():
 
         """
         try:
-            ruta = "/home/a18danielmr/PycharmProjects/Empresa/" + self.nombre
+            ruta = "./" + self.nombre
             conexion.Conexion().cerrarbbdd()
             shutil.copy(self.fichero, ruta)
             os.remove("Empresa.sqlite")
