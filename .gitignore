@@ -4,3 +4,5 @@ nis.txt
 Backups/
 Facturas/*
 !Facturas/.gitkeep
+.idea
+__pycache__
