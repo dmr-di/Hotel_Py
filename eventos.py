@@ -981,3 +981,10 @@ class Eventos():
             impresion.factura(variables.datosfactura)
         except:
             print("Error en módulo impresión")
+
+    def on_pdfclientes_activate(self, widget):
+        try:
+            listadocli = funcionescli.listar()
+            impresion.listado_clientes(listadocli)
+        except:
+            print("Error en módulo imprimir listado clientes")

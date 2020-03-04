@@ -38,7 +38,33 @@ def basico():
 
         bill.line(50, 30, 540, 30)
         textpie = "Hotel Lite, CIF = 000000000A, Tlfn = 986000000, e-mail = info@hotellite.com"
-        bill.drawString(280, 20, textpie)
+        bill.drawString(160, 20, textpie)
+
+    except:
+        print("Error en básico")
+
+def basico_listado():
+    """
+    Crea la cabecera y el pie de la factura.
+        :return: No retorna nada.
+
+    """
+    try:
+
+        text1 = "Bienvenido a nuestro hotel"
+        bill.drawString(240, 780, "HOTEL LITE")
+        bill.drawImage("./img/hotel.png", 475, 740, width=64, height=64)
+        #bill.line(50, 670, 540, 670)
+
+        bill.setFont("Times-Italic", size=8)
+        bill.drawString(235, 765, text1)
+
+        text2 = "CIF = 000000000A"
+        bill.drawString(250, 755, text2)
+
+        bill.line(50, 30, 540, 30)
+        textpie = "Hotel Lite, CIF = 000000000A, Tlfn = 986000000, e-mail = info@hotellite.com"
+        bill.drawString(160, 20, textpie)
 
     except:
         print("Error en básico")
@@ -234,3 +260,112 @@ def total():
 
     except:
         print("Error cargando total")
+
+def listado_clientes(listadocli):
+    try:
+        global bill
+        bill = canvas.Canvas("Listados/prueba_clientes.pdf", pagesize=A4)
+
+        bill.setTitle("Listado clientes")
+
+        basico_listado()
+
+        # Rectangulo
+        bill.setFillColorRGB(1, 0.49, 0)
+        bill.setStrokeColorRGB(1, 0.49, 0)
+        bill.rect(40, 700, 500, 20, fill=True)
+        bill.setFillColorRGB(0, 0, 0)
+        bill.setStrokeColorRGB(0, 0, 0)
+
+        eje_y = 708
+
+        # DNI
+        bill.setFont('Helvetica-Bold', size=10)
+        dni = 'DNI'
+        x_conc = 50
+        bill.drawString(x_conc, eje_y, dni)
+
+        # Nombre
+        bill.setFont('Helvetica-Bold', size=10)
+        nombre = 'NOMBRE'
+        x_uni = 190
+        bill.drawCentredString(x_uni, eje_y, nombre)
+
+        # Apellidos
+        bill.setFont('Helvetica-Bold', size=10)
+        apellidos = 'APELLIDOS'
+        x_prec = 355
+        bill.drawCentredString(x_prec, eje_y, apellidos)
+
+        # Data alta
+        bill.setFont('Helvetica-Bold', size=10)
+        data_alta = 'DATA ALTA'
+        x_total = 530
+        bill.drawRightString(x_total, eje_y, data_alta)
+
+        # Datos
+        datos_cli(listadocli)
+
+        bill.showPage()
+        bill.save()
+        dir = os.getcwd()
+        os.system("/usr/bin/xdg-open " + dir + "/Listados/prueba_clientes.pdf")
+    except:
+        print("Error módulo listado de clientes")
+
+def datos_cli(listadocli):
+
+    eje_y = 688
+
+    page = 1
+
+    bill.setFont('Helvetica', size=10)
+    for i in range(len(listadocli)):
+        bill.drawString(50, eje_y, listadocli[i][0])
+        bill.drawCentredString(190, eje_y, listadocli[i][1])
+        bill.drawCentredString(355, eje_y, listadocli[i][2])
+        bill.drawRightString(530, eje_y, listadocli[i][3])
+        eje_y -= 15
+
+        if eje_y < 40:
+
+            bill.showPage()
+            page += 1
+            bill._pageNumber = page
+            basico_listado()
+
+            # Rectangulo
+            bill.setFillColorRGB(1, 0.49, 0)
+            bill.setStrokeColorRGB(1, 0.49, 0)
+            bill.rect(40, 700, 500, 20, fill=True)
+            bill.setFillColorRGB(0, 0, 0)
+            bill.setStrokeColorRGB(0, 0, 0)
+
+            eje_y = 708
+
+            # DNI
+            bill.setFont('Helvetica-Bold', size=10)
+            dni = 'DNI'
+            x_conc = 50
+            bill.drawString(x_conc, eje_y, dni)
+
+            # Nombre
+            bill.setFont('Helvetica-Bold', size=10)
+            nombre = 'NOMBRE'
+            x_uni = 190
+            bill.drawCentredString(x_uni, eje_y, nombre)
+
+            # Apellidos
+            bill.setFont('Helvetica-Bold', size=10)
+            apellidos = 'APELLIDOS'
+            x_prec = 355
+            bill.drawCentredString(x_prec, eje_y, apellidos)
+
+            # Data alta
+            bill.setFont('Helvetica-Bold', size=10)
+            data_alta = 'DATA ALTA'
+            x_total = 530
+            bill.drawRightString(x_total, eje_y, data_alta)
+            bill.setFont('Helvetica', size=10)
+
+            eje_y = 688
