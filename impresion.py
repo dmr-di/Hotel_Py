@@ -321,7 +321,7 @@ def datos_cli(listadocli):
 
     bill.setFont('Helvetica', size=10)
     for i in range(len(listadocli)):
-        bill.drawString(50, eje_y, listadocli[i][0])
+        bill.drawString(50, eje_y, listadocli[i][0][6:])
         bill.drawCentredString(190, eje_y, listadocli[i][1])
         bill.drawCentredString(355, eje_y, listadocli[i][2])
         bill.drawRightString(530, eje_y, listadocli[i][3])
