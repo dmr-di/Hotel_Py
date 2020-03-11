@@ -32,7 +32,6 @@ def limpiarEntry(fila):
         fila[i].set_text('')
     variables.cbreshab.set_active(-1)
 
-
 def listarreshab():
     """
     Carga los números de las habitaciones registradas.
@@ -166,3 +165,13 @@ def habocupada(nhab, libre):
         print(e)
         conexion.conex.rollback()
 
+def comprobardisponibilidad(nhab):
+    try:
+        conexion.cur.execute('SELECT libre FROM habitaciones WHERE numero = ?', (nhab,))
+        libre = conexion.cur.fetchone()
+        if libre[0] == 'Si':
+            return True
+        else:
+            return False
+    except:
+        print("Error comprobando disponibilidad")

@@ -299,10 +299,29 @@ class Eventos():
                 # Importante hay que llamar a datetime 2 veces
                 variables.dia_entrada = datetime.datetime.strptime(variables.filares[0].get_text(), formato_fecha)
                 variables.dia_salida = datetime.datetime.strptime(variables.filares[1].get_text(), formato_fecha)
-                variables.lblnoches.set_text(str((variables.dia_salida - variables.dia_entrada).days))
+                dif_dias = (variables.dia_salida - variables.dia_entrada).days
+                if (self.menorquehoy(variables.dia_entrada, variables.dia_salida)):
+                    variables.infores.set_text("")
+                    if dif_dias > 0:
+                        variables.lblnoches.set_text(str(dif_dias))
+                    else:
+                        variables.lblnoches.set_markup("<span foreground='red'>ERROR</span>")
+                        variables.infores.set_markup("<span foreground='red'>La fecha de salida no puede ser menor o igual que la de entrada</span>")
+                else:
+                    variables.infores.set_markup("<span foreground='red'>Las fechas no pueden ser inferiores al dia de hoy</span>")
             variables.vencalendar.hide()
         except:
             print('Error al coger la fecha')
+
+    def menorquehoy(self, diaentrada, diasalida):
+        try:
+            hoy = datetime.datetime.now().date()
+            if str(diaentrada) >= str(hoy) and str(diasalida) >= str(hoy):
+                return True
+            else:
+                return False
+        except:
+            print("Error comparando fechas")
 
     # Eventos Habitaciones
 
@@ -442,7 +461,7 @@ class Eventos():
 
     def on_btnAltares_clicked(self, widget):
         """
-        Gestiona el botón de "Alta" de la pestaña de reservas.
+        Gestiona el botón de "Check-In" de la pestaña de reservas.
         Recoge los datos de la reserva y realiza una inserción en la base de datos.
             :param widget: Contiene el widget del botón.
             :return: No retorna nada.
@@ -455,15 +474,19 @@ class Eventos():
             chkin = variables.filares[0].get_text()
             chkout = variables.filares[1].get_text()
             registro = (dni, apel, habitacion, chkin, chkout)
-            if dni != '' and apel != '' and habitacion != '' and chkin != '' and chkout != '':
-                funcionesres.insertarres(registro)
-                funcionesres.habocupada(habitacion, "No")
-                funcioneshab.listadohab(variables.listhabitaciones)
-                funcionesres.listadores(variables.listreservas)
-                funcionesres.limpiarEntry(variables.filares)
-                variables.infores.set_text("Alta realizada correctamente")
+            disponible = funcionesres.comprobardisponibilidad(habitacion)
+            if disponible:
+                if dni != '' and apel != '' and habitacion != '' and chkin != '' and chkout != '':
+                    funcionesres.insertarres(registro)
+                    funcionesres.habocupada(habitacion, "No")
+                    funcioneshab.listadohab(variables.listhabitaciones)
+                    funcionesres.listadores(variables.listreservas)
+                    funcionesres.limpiarEntry(variables.filares)
+                    variables.infores.set_text("Alta realizada correctamente")
+                else:
+                    variables.infores.set_markup("<span foreground='red'>Falta algún dato</span>")
             else:
-                variables.infores.set_text("Falta algún dato")
+                variables.infores.set_markup("<span foreground='red'>Habitación no disponible</span>")
         except:
             print("Error alta reservas")
 
